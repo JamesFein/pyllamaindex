@@ -1,0 +1,17 @@
+
+考虑优化索引机制
+def get_index(chat_request: Optional[ChatRequest] = None):
+    # check if storage already exists
+    if not os.path.exists(STORAGE_DIR):
+        return None
+    # load the existing index
+    logger.info(f"Loading index from {STORAGE_DIR}...")
+    storage_context = get_storage_context(STORAGE_DIR)
+    index = load_index_from_storage(storage_context)
+
+在.env中
+PYTHONUNBUFFERED=1  # 减少 Python 输出缓冲
+PYTHONOPTIMIZE=2    # 启用 Python 优化
+
+启动时候：
+uv run fastapi run --workers 4 --host 0.0.0.0 --port 8000

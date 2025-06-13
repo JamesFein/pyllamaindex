@@ -16,7 +16,7 @@ def create_app():
         workflow_factory=create_workflow,  # A factory function that creates a new workflow for each request
         ui_config=UIConfig(
             component_dir=COMPONENT_DIR,
-            dev_mode=True,  # Please disable this in production
+            dev_mode=True,  # Please disable this in production 重要
             layout_dir="layout",
         ),
         logger=logger,

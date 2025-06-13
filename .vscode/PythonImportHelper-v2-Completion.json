@@ -1,0 +1,420 @@
+[
+    {
+        "label": "runpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "runpy",
+        "description": "runpy",
+        "detail": "runpy",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "site",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "site",
+        "description": "site",
+        "detail": "site",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "load_index_from_storage",
+        "importPath": "llama_index.core.indices",
+        "description": "llama_index.core.indices",
+        "isExtraImport": true,
+        "detail": "llama_index.core.indices",
+        "documentation": {}
+    },
+    {
+        "label": "ChatRequest",
+        "importPath": "llama_index.server.api.models",
+        "description": "llama_index.server.api.models",
+        "isExtraImport": true,
+        "detail": "llama_index.server.api.models",
+        "documentation": {}
+    },
+    {
+        "label": "ChatRequest",
+        "importPath": "llama_index.server.api.models",
+        "description": "llama_index.server.api.models",
+        "isExtraImport": true,
+        "detail": "llama_index.server.api.models",
+        "documentation": {}
+    },
+    {
+        "label": "get_storage_context",
+        "importPath": "llama_index.server.tools.index.utils",
+        "description": "llama_index.server.tools.index.utils",
+        "isExtraImport": true,
+        "detail": "llama_index.server.tools.index.utils",
+        "documentation": {}
+    },
+    {
+        "label": "Settings",
+        "importPath": "llama_index.core",
+        "description": "llama_index.core",
+        "isExtraImport": true,
+        "detail": "llama_index.core",
+        "documentation": {}
+    },
+    {
+        "label": "OpenAIEmbedding",
+        "importPath": "llama_index.embeddings.openai",
+        "description": "llama_index.embeddings.openai",
+        "isExtraImport": true,
+        "detail": "llama_index.embeddings.openai",
+        "documentation": {}
+    },
+    {
+        "label": "OpenAI",
+        "importPath": "llama_index.llms.openai",
+        "description": "llama_index.llms.openai",
+        "isExtraImport": true,
+        "detail": "llama_index.llms.openai",
+        "documentation": {}
+    },
+    {
+        "label": "OpenAI",
+        "importPath": "llama_index.llms.openai",
+        "description": "llama_index.llms.openai",
+        "isExtraImport": true,
+        "detail": "llama_index.llms.openai",
+        "documentation": {}
+    },
+    {
+        "label": "get_index",
+        "importPath": "app.index",
+        "description": "app.index",
+        "isExtraImport": true,
+        "detail": "app.index",
+        "documentation": {}
+    },
+    {
+        "label": "AgentWorkflow",
+        "importPath": "llama_index.core.agent.workflow",
+        "description": "llama_index.core.agent.workflow",
+        "isExtraImport": true,
+        "detail": "llama_index.core.agent.workflow",
+        "documentation": {}
+    },
+    {
+        "label": "Settings",
+        "importPath": "llama_index.core.settings",
+        "description": "llama_index.core.settings",
+        "isExtraImport": true,
+        "detail": "llama_index.core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "get_query_engine_tool",
+        "importPath": "llama_index.server.tools.index",
+        "description": "llama_index.server.tools.index",
+        "isExtraImport": true,
+        "detail": "llama_index.server.tools.index",
+        "documentation": {}
+    },
+    {
+        "label": "CITATION_SYSTEM_PROMPT",
+        "importPath": "llama_index.server.tools.index.citation",
+        "description": "llama_index.server.tools.index.citation",
+        "isExtraImport": true,
+        "detail": "llama_index.server.tools.index.citation",
+        "documentation": {}
+    },
+    {
+        "label": "enable_citation",
+        "importPath": "llama_index.server.tools.index.citation",
+        "description": "llama_index.server.tools.index.citation",
+        "isExtraImport": true,
+        "detail": "llama_index.server.tools.index.citation",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "init_settings",
+        "importPath": "app.settings",
+        "description": "app.settings",
+        "isExtraImport": true,
+        "detail": "app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "create_workflow",
+        "importPath": "app.workflow",
+        "description": "app.workflow",
+        "isExtraImport": true,
+        "detail": "app.workflow",
+        "documentation": {}
+    },
+    {
+        "label": "LlamaIndexServer",
+        "importPath": "llama_index.server",
+        "description": "llama_index.server",
+        "isExtraImport": true,
+        "detail": "llama_index.server",
+        "documentation": {}
+    },
+    {
+        "label": "UIConfig",
+        "importPath": "llama_index.server",
+        "description": "llama_index.server",
+        "isExtraImport": true,
+        "detail": "llama_index.server",
+        "documentation": {}
+    },
+    {
+        "label": "bin_dir",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "bin_dir = os.path.dirname(abs_file)\nbase = bin_dir[: -len(\"Scripts\") - 1]  # strip away the bin part from the __file__, plus the path separator\n# prepend bin to PATH (this file is inside the bin directory)\nos.environ[\"PATH\"] = os.pathsep.join([bin_dir, *os.environ.get(\"PATH\", \"\").split(os.pathsep)])\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"app\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "base",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "base = bin_dir[: -len(\"Scripts\") - 1]  # strip away the bin part from the __file__, plus the path separator\n# prepend bin to PATH (this file is inside the bin directory)\nos.environ[\"PATH\"] = os.pathsep.join([bin_dir, *os.environ.get(\"PATH\", \"\").split(os.pathsep)])\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"app\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path)",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"PATH\"]",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "os.environ[\"PATH\"] = os.pathsep.join([bin_dir, *os.environ.get(\"PATH\", \"\").split(os.pathsep)])\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"app\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"VIRTUAL_ENV\"]",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "os.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"app\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"VIRTUAL_ENV_PROMPT\"]",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "os.environ[\"VIRTUAL_ENV_PROMPT\"] = \"app\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "prev_length",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "prev_length = len(sys.path)\nfor lib in \"..\\\\Lib\\\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.path[:]",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "sys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.real_prefix",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "sys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.prefix",
+        "kind": 5,
+        "importPath": ".venv.Scripts.activate_this",
+        "description": ".venv.Scripts.activate_this",
+        "peekOfCode": "sys.prefix = base",
+        "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "get_index",
+        "kind": 2,
+        "importPath": "app.index",
+        "description": "app.index",
+        "peekOfCode": "def get_index(chat_request: Optional[ChatRequest] = None):\n    # check if storage already exists\n    if not os.path.exists(STORAGE_DIR):\n        return None\n    # load the existing index\n    logger.info(f\"Loading index from {STORAGE_DIR}...\")\n    storage_context = get_storage_context(STORAGE_DIR)\n    index = load_index_from_storage(storage_context)\n    logger.info(f\"Finished loading index from {STORAGE_DIR}\")\n    return index",
+        "detail": "app.index",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "app.index",
+        "description": "app.index",
+        "peekOfCode": "logger = logging.getLogger(\"uvicorn\")\nSTORAGE_DIR = \"storage\"\ndef get_index(chat_request: Optional[ChatRequest] = None):\n    # check if storage already exists\n    if not os.path.exists(STORAGE_DIR):\n        return None\n    # load the existing index\n    logger.info(f\"Loading index from {STORAGE_DIR}...\")\n    storage_context = get_storage_context(STORAGE_DIR)\n    index = load_index_from_storage(storage_context)",
+        "detail": "app.index",
+        "documentation": {}
+    },
+    {
+        "label": "STORAGE_DIR",
+        "kind": 5,
+        "importPath": "app.index",
+        "description": "app.index",
+        "peekOfCode": "STORAGE_DIR = \"storage\"\ndef get_index(chat_request: Optional[ChatRequest] = None):\n    # check if storage already exists\n    if not os.path.exists(STORAGE_DIR):\n        return None\n    # load the existing index\n    logger.info(f\"Loading index from {STORAGE_DIR}...\")\n    storage_context = get_storage_context(STORAGE_DIR)\n    index = load_index_from_storage(storage_context)\n    logger.info(f\"Finished loading index from {STORAGE_DIR}\")",
+        "detail": "app.index",
+        "documentation": {}
+    },
+    {
+        "label": "init_settings",
+        "kind": 2,
+        "importPath": "app.settings",
+        "description": "app.settings",
+        "peekOfCode": "def init_settings():\n    if os.getenv(\"OPENAI_API_KEY\") is None:\n        raise RuntimeError(\"OPENAI_API_KEY is missing in environment variables\")\n    Settings.llm = OpenAI(model=\"gpt-4o-mini\")\n    Settings.embed_model = OpenAIEmbedding(model=\"text-embedding-3-large\")",
+        "detail": "app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "create_workflow",
+        "kind": 2,
+        "importPath": "app.workflow",
+        "description": "app.workflow",
+        "peekOfCode": "def create_workflow(chat_request: Optional[ChatRequest] = None) -> AgentWorkflow:\n    index = get_index(chat_request=chat_request)\n    if index is None:\n        raise RuntimeError(\n            \"Index not found! Please run `uv run generate` to index the data first.\"\n        )\n    # Create a query tool with citations enabled\n    query_tool = enable_citation(get_query_engine_tool(index=index))\n    # Define the system prompt for the agent\n    # Append the citation system prompt to the system prompt",
+        "detail": "app.workflow",
+        "documentation": {}
+    },
+    {
+        "label": "generate_index",
+        "kind": 2,
+        "importPath": "generate",
+        "description": "generate",
+        "peekOfCode": "def generate_index():\n    \"\"\"\n    Index the documents in the data directory.\n    \"\"\"\n    from app.index import STORAGE_DIR\n    from app.settings import init_settings\n    from llama_index.core.indices import (\n        VectorStoreIndex,\n    )\n    from llama_index.core.readers import SimpleDirectoryReader",
+        "detail": "generate",
+        "documentation": {}
+    },
+    {
+        "label": "generate_ui_for_workflow",
+        "kind": 2,
+        "importPath": "generate",
+        "description": "generate",
+        "peekOfCode": "def generate_ui_for_workflow():\n    \"\"\"\n    Generate UI for UIEventData event in app/workflow.py\n    \"\"\"\n    import asyncio\n    from main import COMPONENT_DIR\n    # To generate UI components for additional event types,\n    # import the corresponding data model (e.g., MyCustomEventData)\n    # and run the generate_ui_for_workflow function with the imported model.\n    # Make sure the output filename of the generated UI component matches the event type (here `ui_event`)",
+        "detail": "generate",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "generate",
+        "description": "generate",
+        "peekOfCode": "logger = logging.getLogger()\ndef generate_index():\n    \"\"\"\n    Index the documents in the data directory.\n    \"\"\"\n    from app.index import STORAGE_DIR\n    from app.settings import init_settings\n    from llama_index.core.indices import (\n        VectorStoreIndex,\n    )",
+        "detail": "generate",
+        "documentation": {}
+    },
+    {
+        "label": "create_app",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def create_app():\n    app = LlamaIndexServer(\n        workflow_factory=create_workflow,  # A factory function that creates a new workflow for each request\n        ui_config=UIConfig(\n            component_dir=COMPONENT_DIR,\n            dev_mode=True,  # Please disable this in production 重要\n            layout_dir=\"layout\",\n        ),\n        logger=logger,\n        env=\"dev\",",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "logger = logging.getLogger(\"uvicorn\")\n# A path to a directory where the customized UI code is stored\nCOMPONENT_DIR = \"components\"\ndef create_app():\n    app = LlamaIndexServer(\n        workflow_factory=create_workflow,  # A factory function that creates a new workflow for each request\n        ui_config=UIConfig(\n            component_dir=COMPONENT_DIR,\n            dev_mode=True,  # Please disable this in production 重要\n            layout_dir=\"layout\",",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "COMPONENT_DIR",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "COMPONENT_DIR = \"components\"\ndef create_app():\n    app = LlamaIndexServer(\n        workflow_factory=create_workflow,  # A factory function that creates a new workflow for each request\n        ui_config=UIConfig(\n            component_dir=COMPONENT_DIR,\n            dev_mode=True,  # Please disable this in production 重要\n            layout_dir=\"layout\",\n        ),\n        logger=logger,",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "app = create_app()",
+        "detail": "main",
+        "documentation": {}
+    }
+]
