@@ -10,10 +10,11 @@ logger = logging.getLogger()
 
 def generate_index():
     """
-    Index the documents in the data directory.
+    Index the documents in the data directory using SQLite and ChromaDB.
     """
     from app.index import STORAGE_DIR
     from app.settings import init_settings
+    from app.storage_config import get_storage_context
     from llama_index.core.indices import (
         VectorStoreIndex,
     )
@@ -22,20 +23,38 @@ def generate_index():
     load_dotenv()
     init_settings()
 
-    logger.info("Creating new index")
+    logger.info("Creating new index with SQLite and ChromaDB storage")
+
+    # Create storage context with SQLite and ChromaDB
+    storage_context = get_storage_context(STORAGE_DIR)
+
     # load the documents and create the index
     reader = SimpleDirectoryReader(
         os.environ.get("DATA_DIR", "data"),
         recursive=True,
     )
     documents = reader.load_data()
-    index = VectorStoreIndex.from_documents(
-        documents,
+
+    # Parse documents into nodes
+    from llama_index.core.node_parser import SentenceSplitter
+    parser = SentenceSplitter()
+    nodes = parser.get_nodes_from_documents(documents)
+
+    logger.info(f"Parsed {len(documents)} documents into {len(nodes)} nodes")
+
+    # Add nodes to docstore manually
+    storage_context.docstore.add_documents(nodes)
+
+    # Create index with custom storage context
+    index = VectorStoreIndex(
+        nodes,
+        storage_context=storage_context,
         show_progress=True,
     )
-    # store it for later
-    index.storage_context.persist(STORAGE_DIR)
-    logger.info(f"Finished creating new index. Stored in {STORAGE_DIR}")
+
+    # Persist the storage context (this will save to SQLite and ChromaDB)
+    storage_context.persist(STORAGE_DIR)
+    logger.info(f"Finished creating new index. Stored in {STORAGE_DIR} using SQLite and ChromaDB")
 
 
 def generate_ui_for_workflow():

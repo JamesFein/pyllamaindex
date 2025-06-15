@@ -61,6 +61,22 @@
         "documentation": {}
     },
     {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "Optional",
         "importPath": "typing",
         "description": "typing",
@@ -69,7 +85,31 @@
         "documentation": {}
     },
     {
-        "label": "load_index_from_storage",
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "VectorStoreIndex",
         "importPath": "llama_index.core.indices",
         "description": "llama_index.core.indices",
         "isExtraImport": true,
@@ -93,11 +133,11 @@
         "documentation": {}
     },
     {
-        "label": "get_storage_context",
-        "importPath": "llama_index.server.tools.index.utils",
-        "description": "llama_index.server.tools.index.utils",
+        "label": "load_storage_context",
+        "importPath": "app.storage_config",
+        "description": "app.storage_config",
         "isExtraImport": true,
-        "detail": "llama_index.server.tools.index.utils",
+        "detail": "app.storage_config",
         "documentation": {}
     },
     {
@@ -130,6 +170,121 @@
         "description": "llama_index.llms.openai",
         "isExtraImport": true,
         "detail": "llama_index.llms.openai",
+        "documentation": {}
+    },
+    {
+        "label": "sqlite3",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sqlite3",
+        "description": "sqlite3",
+        "detail": "sqlite3",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "BaseDocumentStore",
+        "importPath": "llama_index.core.storage.docstore.types",
+        "description": "llama_index.core.storage.docstore.types",
+        "isExtraImport": true,
+        "detail": "llama_index.core.storage.docstore.types",
+        "documentation": {}
+    },
+    {
+        "label": "BaseIndexStore",
+        "importPath": "llama_index.core.storage.index_store.types",
+        "description": "llama_index.core.storage.index_store.types",
+        "isExtraImport": true,
+        "detail": "llama_index.core.storage.index_store.types",
+        "documentation": {}
+    },
+    {
+        "label": "BaseNode",
+        "importPath": "llama_index.core.schema",
+        "description": "llama_index.core.schema",
+        "isExtraImport": true,
+        "detail": "llama_index.core.schema",
+        "documentation": {}
+    },
+    {
+        "label": "Document",
+        "importPath": "llama_index.core.schema",
+        "description": "llama_index.core.schema",
+        "isExtraImport": true,
+        "detail": "llama_index.core.schema",
+        "documentation": {}
+    },
+    {
+        "label": "TextNode",
+        "importPath": "llama_index.core.schema",
+        "description": "llama_index.core.schema",
+        "isExtraImport": true,
+        "detail": "llama_index.core.schema",
+        "documentation": {}
+    },
+    {
+        "label": "IndexStruct",
+        "importPath": "llama_index.core.data_structs.data_structs",
+        "description": "llama_index.core.data_structs.data_structs",
+        "isExtraImport": true,
+        "detail": "llama_index.core.data_structs.data_structs",
+        "documentation": {}
+    },
+    {
+        "label": "StorageContext",
+        "importPath": "llama_index.core.storage.storage_context",
+        "description": "llama_index.core.storage.storage_context",
+        "isExtraImport": true,
+        "detail": "llama_index.core.storage.storage_context",
+        "documentation": {}
+    },
+    {
+        "label": "ChromaVectorStore",
+        "importPath": "llama_index.vector_stores.chroma",
+        "description": "llama_index.vector_stores.chroma",
+        "isExtraImport": true,
+        "detail": "llama_index.vector_stores.chroma",
+        "documentation": {}
+    },
+    {
+        "label": "chromadb",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "chromadb",
+        "description": "chromadb",
+        "detail": "chromadb",
+        "documentation": {}
+    },
+    {
+        "label": "Settings",
+        "importPath": "chromadb.config",
+        "description": "chromadb.config",
+        "isExtraImport": true,
+        "detail": "chromadb.config",
+        "documentation": {}
+    },
+    {
+        "label": "SQLiteDocumentStore",
+        "importPath": "app.sqlite_stores",
+        "description": "app.sqlite_stores",
+        "isExtraImport": true,
+        "detail": "app.sqlite_stores",
+        "documentation": {}
+    },
+    {
+        "label": "SQLiteIndexStore",
+        "importPath": "app.sqlite_stores",
+        "description": "app.sqlite_stores",
+        "isExtraImport": true,
+        "detail": "app.sqlite_stores",
         "documentation": {}
     },
     {
@@ -197,6 +352,46 @@
         "documentation": {}
     },
     {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
         "label": "init_settings",
         "importPath": "app.settings",
         "description": "app.settings",
@@ -226,6 +421,15 @@
         "description": "llama_index.server",
         "isExtraImport": true,
         "detail": "llama_index.server",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
         "documentation": {}
     },
     {
@@ -314,7 +518,7 @@
         "kind": 2,
         "importPath": "app.index",
         "description": "app.index",
-        "peekOfCode": "def get_index(chat_request: Optional[ChatRequest] = None):\n    # check if storage already exists\n    if not os.path.exists(STORAGE_DIR):\n        return None\n    # load the existing index\n    logger.info(f\"Loading index from {STORAGE_DIR}...\")\n    storage_context = get_storage_context(STORAGE_DIR)\n    index = load_index_from_storage(storage_context)\n    logger.info(f\"Finished loading index from {STORAGE_DIR}\")\n    return index",
+        "peekOfCode": "def get_index(chat_request: Optional[ChatRequest] = None):\n    # check if storage already exists\n    if not os.path.exists(STORAGE_DIR):\n        return None\n    # load the existing storage context with SQLite and ChromaDB\n    logger.info(f\"Loading index from {STORAGE_DIR} using SQLite and ChromaDB...\")\n    storage_context = load_storage_context(STORAGE_DIR)\n    if storage_context is None:\n        logger.warning(f\"Could not load storage context from {STORAGE_DIR}\")\n        return None",
         "detail": "app.index",
         "documentation": {}
     },
@@ -323,7 +527,7 @@
         "kind": 5,
         "importPath": "app.index",
         "description": "app.index",
-        "peekOfCode": "logger = logging.getLogger(\"uvicorn\")\nSTORAGE_DIR = \"storage\"\ndef get_index(chat_request: Optional[ChatRequest] = None):\n    # check if storage already exists\n    if not os.path.exists(STORAGE_DIR):\n        return None\n    # load the existing index\n    logger.info(f\"Loading index from {STORAGE_DIR}...\")\n    storage_context = get_storage_context(STORAGE_DIR)\n    index = load_index_from_storage(storage_context)",
+        "peekOfCode": "logger = logging.getLogger(\"uvicorn\")\nSTORAGE_DIR = \"storage\"\ndef get_index(chat_request: Optional[ChatRequest] = None):\n    # check if storage already exists\n    if not os.path.exists(STORAGE_DIR):\n        return None\n    # load the existing storage context with SQLite and ChromaDB\n    logger.info(f\"Loading index from {STORAGE_DIR} using SQLite and ChromaDB...\")\n    storage_context = load_storage_context(STORAGE_DIR)\n    if storage_context is None:",
         "detail": "app.index",
         "documentation": {}
     },
@@ -332,7 +536,7 @@
         "kind": 5,
         "importPath": "app.index",
         "description": "app.index",
-        "peekOfCode": "STORAGE_DIR = \"storage\"\ndef get_index(chat_request: Optional[ChatRequest] = None):\n    # check if storage already exists\n    if not os.path.exists(STORAGE_DIR):\n        return None\n    # load the existing index\n    logger.info(f\"Loading index from {STORAGE_DIR}...\")\n    storage_context = get_storage_context(STORAGE_DIR)\n    index = load_index_from_storage(storage_context)\n    logger.info(f\"Finished loading index from {STORAGE_DIR}\")",
+        "peekOfCode": "STORAGE_DIR = \"storage\"\ndef get_index(chat_request: Optional[ChatRequest] = None):\n    # check if storage already exists\n    if not os.path.exists(STORAGE_DIR):\n        return None\n    # load the existing storage context with SQLite and ChromaDB\n    logger.info(f\"Loading index from {STORAGE_DIR} using SQLite and ChromaDB...\")\n    storage_context = load_storage_context(STORAGE_DIR)\n    if storage_context is None:\n        logger.warning(f\"Could not load storage context from {STORAGE_DIR}\")",
         "detail": "app.index",
         "documentation": {}
     },
@@ -346,6 +550,69 @@
         "documentation": {}
     },
     {
+        "label": "SQLiteDocumentStore",
+        "kind": 6,
+        "importPath": "app.sqlite_stores",
+        "description": "app.sqlite_stores",
+        "peekOfCode": "class SQLiteDocumentStore(BaseDocumentStore):\n    \"\"\"SQLite-based document store for better performance and concurrency.\"\"\"\n    def __init__(self, db_path: str):\n        \"\"\"Initialize SQLite document store.\n        Args:\n            db_path: Path to SQLite database file\n        \"\"\"\n        self.db_path = db_path\n        logger.info(f\"🔥 Initializing SQLiteDocumentStore at {db_path}\")\n        self._init_db()",
+        "detail": "app.sqlite_stores",
+        "documentation": {}
+    },
+    {
+        "label": "SQLiteIndexStore",
+        "kind": 6,
+        "importPath": "app.sqlite_stores",
+        "description": "app.sqlite_stores",
+        "peekOfCode": "class SQLiteIndexStore(BaseIndexStore):\n    \"\"\"SQLite-based index store for better performance and concurrency.\"\"\"\n    def __init__(self, db_path: str):\n        \"\"\"Initialize SQLite index store.\n        Args:\n            db_path: Path to SQLite database file\n        \"\"\"\n        self.db_path = db_path\n        self._init_db()\n    def _init_db(self):",
+        "detail": "app.sqlite_stores",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "app.sqlite_stores",
+        "description": "app.sqlite_stores",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass SQLiteDocumentStore(BaseDocumentStore):\n    \"\"\"SQLite-based document store for better performance and concurrency.\"\"\"\n    def __init__(self, db_path: str):\n        \"\"\"Initialize SQLite document store.\n        Args:\n            db_path: Path to SQLite database file\n        \"\"\"\n        self.db_path = db_path\n        logger.info(f\"🔥 Initializing SQLiteDocumentStore at {db_path}\")",
+        "detail": "app.sqlite_stores",
+        "documentation": {}
+    },
+    {
+        "label": "get_storage_context",
+        "kind": 2,
+        "importPath": "app.storage_config",
+        "description": "app.storage_config",
+        "peekOfCode": "def get_storage_context(storage_dir: str = \"storage\") -> StorageContext:\n    \"\"\"\n    Create a storage context using SQLite for docstore/index store and ChromaDB for vector store.\n    Args:\n        storage_dir: Directory to store the databases\n    Returns:\n        StorageContext configured with SQLite and ChromaDB backends\n    \"\"\"\n    # Ensure storage directory exists\n    os.makedirs(storage_dir, exist_ok=True)",
+        "detail": "app.storage_config",
+        "documentation": {}
+    },
+    {
+        "label": "load_storage_context",
+        "kind": 2,
+        "importPath": "app.storage_config",
+        "description": "app.storage_config",
+        "peekOfCode": "def load_storage_context(storage_dir: str = \"storage\") -> Optional[StorageContext]:\n    \"\"\"\n    Load existing storage context from ChromaDB and SQLite stores.\n    Args:\n        storage_dir: Directory containing the databases\n    Returns:\n        StorageContext if databases exist, None otherwise\n    \"\"\"\n    # Check if storage directory exists\n    if not os.path.exists(storage_dir):",
+        "detail": "app.storage_config",
+        "documentation": {}
+    },
+    {
+        "label": "migrate_json_to_sqlite",
+        "kind": 2,
+        "importPath": "app.storage_config",
+        "description": "app.storage_config",
+        "peekOfCode": "def migrate_json_to_sqlite(storage_dir: str = \"storage\") -> bool:\n    \"\"\"\n    Migrate existing JSON storage to SQLite.\n    Args:\n        storage_dir: Directory containing the storage files\n    Returns:\n        True if migration was successful, False otherwise\n    \"\"\"\n    import json\n    import sqlite3",
+        "detail": "app.storage_config",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "app.storage_config",
+        "description": "app.storage_config",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef get_storage_context(storage_dir: str = \"storage\") -> StorageContext:\n    \"\"\"\n    Create a storage context using SQLite for docstore/index store and ChromaDB for vector store.\n    Args:\n        storage_dir: Directory to store the databases\n    Returns:\n        StorageContext configured with SQLite and ChromaDB backends\n    \"\"\"\n    # Ensure storage directory exists",
+        "detail": "app.storage_config",
+        "documentation": {}
+    },
+    {
         "label": "create_workflow",
         "kind": 2,
         "importPath": "app.workflow",
@@ -355,11 +622,29 @@
         "documentation": {}
     },
     {
+        "label": "debug_index_store",
+        "kind": 2,
+        "importPath": "debug_index_store",
+        "description": "debug_index_store",
+        "peekOfCode": "def debug_index_store():\n    \"\"\"Debug the index store database.\"\"\"\n    db_path = \"storage/index_store.db\"\n    try:\n        with sqlite3.connect(db_path) as conn:\n            cursor = conn.execute(\"SELECT index_id, data FROM index_structs\")\n            for row in cursor.fetchall():\n                index_id, data_json = row\n                data = json.loads(data_json)\n                logger.info(f\"Index ID: {index_id}\")",
+        "detail": "debug_index_store",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "debug_index_store",
+        "description": "debug_index_store",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef debug_index_store():\n    \"\"\"Debug the index store database.\"\"\"\n    db_path = \"storage/index_store.db\"\n    try:\n        with sqlite3.connect(db_path) as conn:\n            cursor = conn.execute(\"SELECT index_id, data FROM index_structs\")\n            for row in cursor.fetchall():\n                index_id, data_json = row\n                data = json.loads(data_json)",
+        "detail": "debug_index_store",
+        "documentation": {}
+    },
+    {
         "label": "generate_index",
         "kind": 2,
         "importPath": "generate",
         "description": "generate",
-        "peekOfCode": "def generate_index():\n    \"\"\"\n    Index the documents in the data directory.\n    \"\"\"\n    from app.index import STORAGE_DIR\n    from app.settings import init_settings\n    from llama_index.core.indices import (\n        VectorStoreIndex,\n    )\n    from llama_index.core.readers import SimpleDirectoryReader",
+        "peekOfCode": "def generate_index():\n    \"\"\"\n    Index the documents in the data directory using SQLite and ChromaDB.\n    \"\"\"\n    from app.index import STORAGE_DIR\n    from app.settings import init_settings\n    from app.storage_config import get_storage_context\n    from llama_index.core.indices import (\n        VectorStoreIndex,\n    )",
         "detail": "generate",
         "documentation": {}
     },
@@ -377,7 +662,7 @@
         "kind": 5,
         "importPath": "generate",
         "description": "generate",
-        "peekOfCode": "logger = logging.getLogger()\ndef generate_index():\n    \"\"\"\n    Index the documents in the data directory.\n    \"\"\"\n    from app.index import STORAGE_DIR\n    from app.settings import init_settings\n    from llama_index.core.indices import (\n        VectorStoreIndex,\n    )",
+        "peekOfCode": "logger = logging.getLogger()\ndef generate_index():\n    \"\"\"\n    Index the documents in the data directory using SQLite and ChromaDB.\n    \"\"\"\n    from app.index import STORAGE_DIR\n    from app.settings import init_settings\n    from app.storage_config import get_storage_context\n    from llama_index.core.indices import (\n        VectorStoreIndex,",
         "detail": "generate",
         "documentation": {}
     },
@@ -415,6 +700,114 @@
         "description": "main",
         "peekOfCode": "app = create_app()",
         "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "migrate_to_sqlite",
+        "description": "migrate_to_sqlite",
+        "peekOfCode": "def main():\n    \"\"\"Main migration function.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    storage_dir = \"storage\"\n    logger.info(\"=== SQLite Migration Script ===\")\n    logger.info(f\"Storage directory: {storage_dir}\")",
+        "detail": "migrate_to_sqlite",
+        "documentation": {}
+    },
+    {
+        "label": "test_storage",
+        "kind": 2,
+        "importPath": "migrate_to_sqlite",
+        "description": "migrate_to_sqlite",
+        "peekOfCode": "def test_storage():\n    \"\"\"Test the new SQLite storage.\"\"\"\n    try:\n        from app.storage_config import load_storage_context\n        storage_context = load_storage_context(\"storage\")\n        if storage_context:\n            logger.info(\"✅ SQLite storage context loaded successfully\")\n            # Test document store\n            doc_count = len(storage_context.docstore.docs)\n            logger.info(f\"✅ Document store: {doc_count} documents\")",
+        "detail": "migrate_to_sqlite",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "migrate_to_sqlite",
+        "description": "migrate_to_sqlite",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef main():\n    \"\"\"Main migration function.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    storage_dir = \"storage\"\n    logger.info(\"=== SQLite Migration Script ===\")",
+        "detail": "migrate_to_sqlite",
+        "documentation": {}
+    },
+    {
+        "label": "test_index_loading",
+        "kind": 2,
+        "importPath": "test_index_loading",
+        "description": "test_index_loading",
+        "peekOfCode": "def test_index_loading():\n    \"\"\"Test loading the index from storage.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    logger.info(\"=== Testing Index Loading ===\")\n    # Test the get_index function\n    from app.index import get_index",
+        "detail": "test_index_loading",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "test_index_loading",
+        "description": "test_index_loading",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef test_index_loading():\n    \"\"\"Test loading the index from storage.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    logger.info(\"=== Testing Index Loading ===\")\n    # Test the get_index function",
+        "detail": "test_index_loading",
+        "documentation": {}
+    },
+    {
+        "label": "test_sqlite_docstore",
+        "kind": 2,
+        "importPath": "test_sqlite_store",
+        "description": "test_sqlite_store",
+        "peekOfCode": "def test_sqlite_docstore():\n    \"\"\"Test SQLite document store directly.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    from app.sqlite_stores import SQLiteDocumentStore\n    from llama_index.core.schema import TextNode\n    logger.info(\"=== Testing SQLite Document Store ===\")",
+        "detail": "test_sqlite_store",
+        "documentation": {}
+    },
+    {
+        "label": "test_index_creation_with_debug",
+        "kind": 2,
+        "importPath": "test_sqlite_store",
+        "description": "test_sqlite_store",
+        "peekOfCode": "def test_index_creation_with_debug():\n    \"\"\"Test index creation with debug logging to see what's happening.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    logger.info(\"=== Testing Index Creation with Debug ===\")\n    from llama_index.core.readers import SimpleDirectoryReader\n    from llama_index.core.indices import VectorStoreIndex",
+        "detail": "test_sqlite_store",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "test_sqlite_store",
+        "description": "test_sqlite_store",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef test_sqlite_docstore():\n    \"\"\"Test SQLite document store directly.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    from app.sqlite_stores import SQLiteDocumentStore\n    from llama_index.core.schema import TextNode",
+        "detail": "test_sqlite_store",
+        "documentation": {}
+    },
+    {
+        "label": "test_storage_systems",
+        "kind": 2,
+        "importPath": "test_storage",
+        "description": "test_storage",
+        "peekOfCode": "def test_storage_systems():\n    \"\"\"Test both ChromaDB and SQLite storage systems.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    logger.info(\"=== Testing Storage Systems ===\")\n    # Test 1: Check if ChromaDB is working\n    logger.info(\"1. Testing ChromaDB vector store...\")",
+        "detail": "test_storage",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "test_storage",
+        "description": "test_storage",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef test_storage_systems():\n    \"\"\"Test both ChromaDB and SQLite storage systems.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    logger.info(\"=== Testing Storage Systems ===\")\n    # Test 1: Check if ChromaDB is working",
+        "detail": "test_storage",
+        "documentation": {}
+    },
+    {
+        "label": "test_vector_store_loading",
+        "kind": 2,
+        "importPath": "test_vector_store_loading",
+        "description": "test_vector_store_loading",
+        "peekOfCode": "def test_vector_store_loading():\n    \"\"\"Test loading the index from vector store directly.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    logger.info(\"=== Testing Vector Store Index Loading ===\")\n    try:\n        from app.storage_config import load_storage_context",
+        "detail": "test_vector_store_loading",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "test_vector_store_loading",
+        "description": "test_vector_store_loading",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef test_vector_store_loading():\n    \"\"\"Test loading the index from vector store directly.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    logger.info(\"=== Testing Vector Store Index Loading ===\")\n    try:",
+        "detail": "test_vector_store_loading",
         "documentation": {}
     }
 ]
