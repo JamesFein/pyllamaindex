@@ -312,27 +312,19 @@
         "documentation": {}
     },
     {
-        "label": "get_query_engine_tool",
-        "importPath": "llama_index.server.tools.index",
-        "description": "llama_index.server.tools.index",
+        "label": "CitationQueryEngine",
+        "importPath": "llama_index.core.query_engine",
+        "description": "llama_index.core.query_engine",
         "isExtraImport": true,
-        "detail": "llama_index.server.tools.index",
+        "detail": "llama_index.core.query_engine",
         "documentation": {}
     },
     {
-        "label": "CITATION_SYSTEM_PROMPT",
-        "importPath": "llama_index.server.tools.index.citation",
-        "description": "llama_index.server.tools.index.citation",
+        "label": "FunctionTool",
+        "importPath": "llama_index.core.tools",
+        "description": "llama_index.core.tools",
         "isExtraImport": true,
-        "detail": "llama_index.server.tools.index.citation",
-        "documentation": {}
-    },
-    {
-        "label": "enable_citation",
-        "importPath": "llama_index.server.tools.index.citation",
-        "description": "llama_index.server.tools.index.citation",
-        "isExtraImport": true,
-        "detail": "llama_index.server.tools.index.citation",
+        "detail": "llama_index.core.tools",
         "documentation": {}
     },
     {
@@ -421,6 +413,22 @@
         "description": "llama_index.server",
         "isExtraImport": true,
         "detail": "llama_index.server",
+        "documentation": {}
+    },
+    {
+        "label": "StaticFiles",
+        "importPath": "fastapi.staticfiles",
+        "description": "fastapi.staticfiles",
+        "isExtraImport": true,
+        "detail": "fastapi.staticfiles",
+        "documentation": {}
+    },
+    {
+        "label": "FileResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
         "documentation": {}
     },
     {
@@ -617,7 +625,7 @@
         "kind": 2,
         "importPath": "app.workflow",
         "description": "app.workflow",
-        "peekOfCode": "def create_workflow(chat_request: Optional[ChatRequest] = None) -> AgentWorkflow:\n    index = get_index(chat_request=chat_request)\n    if index is None:\n        raise RuntimeError(\n            \"Index not found! Please run `uv run generate` to index the data first.\"\n        )\n    # Create a query tool with citations enabled\n    query_tool = enable_citation(get_query_engine_tool(index=index))\n    # Define the system prompt for the agent\n    # Append the citation system prompt to the system prompt",
+        "peekOfCode": "def create_workflow(chat_request: Optional[ChatRequest] = None) -> AgentWorkflow:\n    index = get_index(chat_request=chat_request)\n    if index is None:\n        raise RuntimeError(\n            \"Index not found! Please run `uv run generate` to index the data first.\"\n        )\n    # Create a CitationQueryEngine that generates single responses with citations\n    citation_query_engine = CitationQueryEngine.from_args(\n        index,\n        similarity_top_k=3,  # Retrieve top 3 relevant chunks",
         "detail": "app.workflow",
         "documentation": {}
     },

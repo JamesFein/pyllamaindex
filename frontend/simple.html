@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI聊天助手</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+      .chat-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      .chat-header {
+        background: #007bff;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+      .chat-messages {
+        height: 400px;
+        overflow-y: auto;
+        padding: 20px;
+      }
+      .message {
+        margin-bottom: 15px;
+      }
+      .user-message {
+        text-align: right;
+      }
+      .bot-message {
+        text-align: left;
+      }
+      .message-content {
+        display: inline-block;
+        max-width: 70%;
+        padding: 10px 15px;
+        border-radius: 15px;
+      }
+      .user-message .message-content {
+        background: #007bff;
+        color: white;
+      }
+      .bot-message .message-content {
+        background: #e9ecef;
+        color: #333;
+      }
+      .chat-input {
+        padding: 20px;
+        border-top: 1px solid #ddd;
+      }
+      .input-group {
+        display: flex;
+        gap: 10px;
+      }
+      #messageInput {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        resize: none;
+      }
+      #sendBtn {
+        padding: 10px 20px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #sendBtn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+      .file-section {
+        margin-bottom: 10px;
+      }
+      #uploadBtn {
+        padding: 5px 10px;
+        background: #28a745;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+      .uploaded-files {
+        display: inline-block;
+      }
+      .file-tag {
+        display: inline-block;
+        background: #17a2b8;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 10px;
+        margin-right: 5px;
+        font-size: 12px;
+      }
+      .remove-file {
+        cursor: pointer;
+        margin-left: 5px;
+        font-weight: bold;
+      }
+      .loading {
+        text-align: center;
+        color: #666;
+        font-style: italic;
+      }
+      .char-count {
+        font-size: 12px;
+        color: #666;
+        text-align: right;
+        margin-top: 5px;
+      }
+
+      /* 引用样式 */
+      .citation {
+        display: inline-block;
+        background: #e3f2fd;
+        color: #1976d2;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 11px;
+        margin: 0 2px;
+        cursor: pointer;
+        border: 1px solid #bbdefb;
+        position: relative;
+      }
+      .citation:hover {
+        background: #bbdefb;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      /* 引用悬浮提示 */
+      .citation-tooltip {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #333;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        white-space: nowrap;
+        max-width: 300px;
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        margin-bottom: 5px;
+      }
+      .citation-tooltip::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 5px solid transparent;
+        border-top-color: #333;
+      }
+      .citation:hover .citation-tooltip {
+        opacity: 1;
+      }
+
+      /* 引用内容悬浮框 */
+      .citation-content {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 12px;
+        font-size: 13px;
+        max-width: 400px;
+        max-height: 200px;
+        overflow-y: auto;
+        z-index: 1001;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        margin-bottom: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        white-space: normal;
+        line-height: 1.4;
+      }
+      .citation-content::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 8px solid transparent;
+        border-top-color: white;
+      }
+      .citation:hover .citation-content {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chat-container">
+      <div class="chat-header">
+        <h1>AI聊天助手</h1>
+      </div>
+
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot-message">
+          <div class="message-content">
+            你好！我是AI助手，有什么可以帮助你的吗？
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-input">
+        <div class="file-section">
+          <input
+            type="file"
+            id="fileInput"
+            accept=".pdf,.txt,.doc,.docx"
+            style="display: none"
+          />
+          <button id="uploadBtn">📎 上传文件</button>
+          <div id="uploadedFiles" class="uploaded-files"></div>
+        </div>
+
+        <div class="input-group">
+          <textarea
+            id="messageInput"
+            placeholder="输入你的消息..."
+            rows="2"
+            maxlength="2000"
+          ></textarea>
+          <button id="sendBtn">发送</button>
+        </div>
+
+        <div class="char-count">0/2000</div>
+      </div>
+    </div>
+
+    <script>
+      // 全局变量
+      let chatId =
+        "chat_" +
+        Date.now() +
+        "_" +
+        Math.random().toString(36).substring(2, 11);
+      let uploadedFiles = [];
+
+      // DOM元素
+      let chatMessages,
+        messageInput,
+        sendBtn,
+        fileInput,
+        uploadBtn,
+        uploadedFilesDiv,
+        charCount;
+
+      // 初始化
+      document.addEventListener("DOMContentLoaded", function () {
+        chatMessages = document.getElementById("chatMessages");
+        messageInput = document.getElementById("messageInput");
+        sendBtn = document.getElementById("sendBtn");
+        fileInput = document.getElementById("fileInput");
+        uploadBtn = document.getElementById("uploadBtn");
+        uploadedFilesDiv = document.getElementById("uploadedFiles");
+        charCount = document.querySelector(".char-count");
+
+        // 绑定事件
+        sendBtn.addEventListener("click", sendMessage);
+        messageInput.addEventListener("keypress", function (e) {
+          if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault();
+            sendMessage();
+          }
+        });
+        messageInput.addEventListener("input", updateCharCount);
+        uploadBtn.addEventListener("click", function () {
+          fileInput.click();
+        });
+        fileInput.addEventListener("change", handleFileUpload);
+
+        updateCharCount();
+      });
+
+      function updateCharCount() {
+        const count = messageInput.value.length;
+        charCount.textContent = count + "/2000";
+        charCount.style.color = count > 1800 ? "#ff4757" : "#666";
+      }
+
+      // 发送消息
+      async function sendMessage() {
+        const message = messageInput.value.trim();
+        if (!message) return;
+
+        // 显示用户消息
+        addMessage(message, "user");
+        messageInput.value = "";
+        updateCharCount();
+
+        try {
+          showLoading();
+          const response = await callChatAPI(message);
+          addMessage(response, "bot");
+        } catch (error) {
+          console.error("发送消息失败:", error);
+          addMessage(
+            "抱歉，发生了错误，请稍后重试。错误信息: " + error.message,
+            "bot"
+          );
+        } finally {
+          hideLoading();
+        }
+      }
+
+      async function callChatAPI(message) {
+        const annotations = [];
+        if (uploadedFiles.length > 0) {
+          annotations.push({
+            type: "document_file",
+            data: {
+              files: uploadedFiles,
+            },
+          });
+        }
+
+        const requestBody = {
+          id: chatId,
+          messages: [
+            {
+              role: "user",
+              content: message,
+              annotations: annotations,
+            },
+          ],
+          data: {},
+        };
+
+        console.log("发送请求:", JSON.stringify(requestBody, null, 2));
+
+        const response = await fetch("/api/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestBody),
+        });
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(
+            "API调用失败: " + response.status + " - " + errorText
+          );
+        }
+
+        // 处理流式响应
+        const responseText = await response.text();
+        console.log("原始响应:", responseText);
+
+        // 解析流式数据
+        return parseStreamResponse(responseText);
+      }
+
+      function parseStreamResponse(responseText) {
+        try {
+          console.log("原始响应:", responseText);
+
+          // 分割每一行数据
+          const lines = responseText.split("\n").filter((line) => line.trim());
+          let finalText = "";
+          let toolOutputs = [];
+          let citationData = {}; // 存储引用信息
+
+          for (const line of lines) {
+            // 移除行号前缀（如 "8:"）
+            const cleanLine = line.replace(/^\d+:/, "");
+
+            if (cleanLine.trim()) {
+              try {
+                const data = JSON.parse(cleanLine);
+                console.log("解析的数据:", data);
+
+                // 处理数组格式的数据
+                if (Array.isArray(data)) {
+                  for (const item of data) {
+                    // 提取工具输出 - 这是最重要的内容
+                    if (item.tool_output && item.tool_output.content) {
+                      toolOutputs.push(item.tool_output.content);
+                      console.log("找到工具输出:", item.tool_output.content);
+                    }
+
+                    // 提取响应文本块
+                    if (item.response && item.response.blocks) {
+                      for (const block of item.response.blocks) {
+                        if (block.block_type === "text" && block.text) {
+                          finalText += block.text;
+                        }
+                      }
+                    }
+
+                    // 提取引用信息 - 尝试多种可能的结构
+                    if (item.tool_output) {
+                      // 检查metadata中的引用
+                      if (
+                        item.tool_output.metadata &&
+                        item.tool_output.metadata.citations
+                      ) {
+                        const metadata = item.tool_output.metadata;
+                        for (const citation of metadata.citations) {
+                          citationData[citation.id] = {
+                            filename: citation.filename || citation.id,
+                            content:
+                              citation.content || citation.text || "无内容预览",
+                          };
+                        }
+                      }
+
+                      // 检查是否有sources信息
+                      if (item.tool_output.sources) {
+                        for (const source of item.tool_output.sources) {
+                          if (source.id) {
+                            citationData[source.id] = {
+                              filename:
+                                source.filename || source.name || source.id,
+                              content:
+                                source.content || source.text || "无内容预览",
+                            };
+                          }
+                        }
+                      }
+
+                      // 尝试从内容中提取引用信息和文档片段
+                      const content = item.tool_output.content;
+                      if (content) {
+                        // 查找可能的文档引用模式
+                        const docMatches = content.match(
+                          /(?:来源|引用|参考)[:：]\s*([^\n]+)/g
+                        );
+                        if (docMatches) {
+                          console.log("找到文档引用:", docMatches);
+                        }
+
+                        // 尝试提取引用ID对应的文档片段
+                        const citationMatches = content.match(
+                          /\[citation:([a-f0-9-]+)\]/gi
+                        );
+                        if (citationMatches) {
+                          for (const match of citationMatches) {
+                            const citationId = match.match(
+                              /\[citation:([a-f0-9-]+)\]/i
+                            )[1];
+
+                            // 尝试找到这个引用前后的文本作为内容预览
+                            const citationIndex = content.indexOf(match);
+                            if (citationIndex > -1) {
+                              const beforeText = content.substring(
+                                Math.max(0, citationIndex - 200),
+                                citationIndex
+                              );
+                              const afterText = content.substring(
+                                citationIndex + match.length,
+                                citationIndex + match.length + 200
+                              );
+                              const contextText = beforeText + afterText;
+
+                              if (!citationData[citationId]) {
+                                citationData[citationId] = {};
+                              }
+                              citationData[citationId].content =
+                                contextText.trim();
+                              console.log(
+                                "提取引用上下文:",
+                                citationId,
+                                contextText.substring(0, 100) + "..."
+                              );
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              } catch (e) {
+                console.log("JSON解析失败:", cleanLine);
+              }
+            }
+          }
+
+          // 直接使用工具输出，不进行复杂处理
+          if (toolOutputs.length > 0) {
+            // 只使用最后一个工具输出（最终结果），避免重复
+            finalText = toolOutputs[toolOutputs.length - 1].trim();
+          }
+
+          // 如果仍然没有文本，尝试解码Unicode
+          if (!finalText.trim()) {
+            // 解码Unicode字符
+            let decodedText = responseText.replace(
+              /\\u([\da-f]{4})/gi,
+              function (match, grp) {
+                return String.fromCharCode(parseInt(grp, 16));
+              }
+            );
+
+            console.log("解码后的文本:", decodedText);
+
+            // 尝试从解码后的文本中提取内容
+            const contentMatches = decodedText.match(/"content":\s*"([^"]+)"/g);
+            if (contentMatches) {
+              for (const match of contentMatches) {
+                const content = match.match(/"content":\s*"([^"]+)"/)[1];
+                if (
+                  content &&
+                  content.trim() &&
+                  !content.includes("Calling tool")
+                ) {
+                  finalText += content + "\n";
+                }
+              }
+            }
+          }
+
+          // 简单处理引用格式，不进行复杂清理
+          finalText = processSimpleCitations(finalText, citationData);
+
+          return finalText.trim() || "抱歉，AI没有返回有效的回复。";
+        } catch (error) {
+          console.error("解析响应失败:", error);
+          return "抱歉，解析AI回复时出现错误: " + error.message;
+        }
+      }
+
+      // 智能选择最佳响应
+      function selectBestResponse(toolOutputs) {
+        if (toolOutputs.length === 1) {
+          return cleanResponse(toolOutputs[0]);
+        }
+
+        // 如果有多个响应，选择最完整的一个
+        let bestResponse = "";
+        let maxLength = 0;
+
+        for (const output of toolOutputs) {
+          const cleaned = cleanResponse(output);
+
+          // 跳过明显的重复或片段
+          if (
+            cleaned.includes("Response 1:") ||
+            cleaned.includes("Response 2:")
+          ) {
+            continue;
+          }
+
+          // 选择最长且最完整的响应
+          if (cleaned.length > maxLength && !cleaned.includes("-----")) {
+            maxLength = cleaned.length;
+            bestResponse = cleaned;
+          }
+        }
+
+        // 如果没有找到好的响应，使用第一个并清理
+        if (!bestResponse) {
+          bestResponse = cleanResponse(toolOutputs[0]);
+        }
+
+        return bestResponse;
+      }
+
+      // 清理响应内容
+      function cleanResponse(text) {
+        if (!text) return "";
+
+        // 移除响应标记和分隔符
+        let cleaned = text
+          .replace(/Response \d+:\s*/g, "")
+          .replace(/-{10,}/g, "")
+          .replace(/^\s*[\r\n]+/gm, "")
+          .trim();
+
+        // 移除重复的段落
+        cleaned = removeDuplicateParagraphs(cleaned);
+
+        return cleaned.trim();
+      }
+
+      // 移除重复的段落
+      function removeDuplicateParagraphs(text) {
+        const paragraphs = text.split(/\n\s*\n/);
+        const uniqueParagraphs = [];
+        const seen = new Set();
+
+        for (const paragraph of paragraphs) {
+          const normalized = paragraph.replace(/\s+/g, " ").trim();
+
+          // 跳过太短的段落
+          if (normalized.length < 20) continue;
+
+          // 检查是否已经有相似的段落
+          let isDuplicate = false;
+          for (const seenParagraph of seen) {
+            if (calculateSimilarity(normalized, seenParagraph) > 0.8) {
+              isDuplicate = true;
+              break;
+            }
+          }
+
+          if (!isDuplicate) {
+            seen.add(normalized);
+            uniqueParagraphs.push(paragraph);
+          }
+        }
+
+        return uniqueParagraphs.join("\n\n");
+      }
+
+      // 计算两个字符串的相似度
+      function calculateSimilarity(str1, str2) {
+        const longer = str1.length > str2.length ? str1 : str2;
+        const shorter = str1.length > str2.length ? str2 : str1;
+
+        if (longer.length === 0) return 1.0;
+
+        const editDistance = levenshteinDistance(longer, shorter);
+        return (longer.length - editDistance) / longer.length;
+      }
+
+      // 计算编辑距离
+      function levenshteinDistance(str1, str2) {
+        const matrix = [];
+
+        for (let i = 0; i <= str2.length; i++) {
+          matrix[i] = [i];
+        }
+
+        for (let j = 0; j <= str1.length; j++) {
+          matrix[0][j] = j;
+        }
+
+        for (let i = 1; i <= str2.length; i++) {
+          for (let j = 1; j <= str1.length; j++) {
+            if (str2.charAt(i - 1) === str1.charAt(j - 1)) {
+              matrix[i][j] = matrix[i - 1][j - 1];
+            } else {
+              matrix[i][j] = Math.min(
+                matrix[i - 1][j - 1] + 1,
+                matrix[i][j - 1] + 1,
+                matrix[i - 1][j] + 1
+              );
+            }
+          }
+        }
+
+        return matrix[str2.length][str1.length];
+      }
+
+      // 清理引用格式
+      function cleanCitationFormats(text) {
+        // 移除错误的引用格式，如 "财务文档-866da74c.txt" 这样的文本
+        text = text.replace(/财务文档-[a-f0-9]{8}\.txt/g, "");
+
+        // 移除错误的引用块格式，如 "📄 财务文档-866da74c。"
+        text = text.replace(/📄\s*财务文档-[a-f0-9]{8}[。\.]/g, "");
+
+        // 清理重复的内容片段
+        text = text.replace(/(.{50,}?)\1+/g, "$1");
+
+        // 移除多余的空行
+        text = text.replace(/\n\s*\n\s*\n/g, "\n\n");
+
+        return text.trim();
+      }
+
+      // 文档名映射 - 根据引用ID映射到真实的txt文件名
+      function getDocumentName(citationId, citationData) {
+        // 如果有具体的引用数据，使用它
+        if (citationData[citationId] && citationData[citationId].filename) {
+          return citationData[citationId].filename;
+        }
+
+        // 根据引用ID的前几位映射到实际的txt文件
+        const shortId = citationId.substring(0, 8);
+
+        // 真实的txt文件名映射
+        const txtFileMap = {
+          fa70e709: "常见问题类-09_存货盘点差异处理方法.txt",
+          d30c0ba4: "常见问题类-09_存货盘点差异处理方法.txt",
+          "866da74c": "常见问题类-16_成本核算方法选择与应用.txt",
+          // 可以根据实际的引用ID添加更多映射
+          // 例如：
+          // 'abc12345': '常见问题类-01_发票丢失处理流程及补救措施.txt',
+          // 'def67890': '常见问题类-02_增值税专用发票认证逾期处理方法.txt',
+        };
+
+        return txtFileMap[shortId] || "财务文档-" + shortId + ".txt";
+      }
+
+      // 简化的引用处理函数
+      function processSimpleCitations(text, citationData) {
+        // 匹配引用格式 [citation:id]
+        const citationRegex = /\[\s*citation:\s*([a-f0-9-]+)\s*\]/gi;
+
+        return text.replace(citationRegex, function (match, citationId) {
+          // 获取文档名
+          const filename = getDocumentName(citationId, citationData);
+
+          // 简化的内容描述
+          const content = "📄 " + filename + "\n\n点击查看详细信息";
+
+          // 简化显示的文件名（去掉.txt后缀和编号前缀）
+          const displayName = filename
+            .replace(/^常见问题类-\d+_/, "")
+            .replace(/\.txt$/, "");
+
+          return (
+            '<span class="citation" data-citation-id="' +
+            citationId +
+            '" onclick="showCitationDetails(\'' +
+            citationId +
+            "', '" +
+            filename +
+            "')\">" +
+            '<span class="citation-tooltip">' +
+            filename +
+            "</span>" +
+            '<span class="citation-content">' +
+            escapeHtml(content) +
+            "</span>" +
+            "📄 " +
+            displayName +
+            "</span>"
+          );
+        });
+      }
+
+      // 显示引用详情（可选功能）
+      function showCitationDetails(citationId, filename) {
+        console.log("点击了引用:", citationId, filename);
+
+        // 显示txt文件的详细信息
+        const displayName = filename
+          .replace(/^常见问题类-\d+_/, "")
+          .replace(/\.txt$/, "");
+
+        const message =
+          "📄 TXT文档引用详情\n\n" +
+          "文档名称: " +
+          displayName +
+          "\n" +
+          "完整文件名: " +
+          filename +
+          "\n" +
+          "引用ID: " +
+          citationId +
+          "\n\n" +
+          "这是从财务知识库的txt文件中引用的相关内容。\n" +
+          "该文档包含了详细的操作流程和规范说明。\n\n" +
+          "💡 提示：鼠标悬浮在引用块上可以查看内容预览";
+
+        alert(message);
+
+        // 这里可以添加更多交互功能，比如：
+        // 1. 弹出模态窗口显示完整文档内容
+        // 2. 发送API请求获取txt文件的完整内容
+        // 3. 高亮显示引用的具体段落
+      }
+
+      // 文件上传处理
+      async function handleFileUpload(event) {
+        const files = Array.from(event.target.files);
+
+        for (const file of files) {
+          try {
+            showLoading("正在上传文件...");
+            const uploadedFile = await uploadFile(file);
+            uploadedFiles.push(uploadedFile);
+            displayUploadedFile(uploadedFile);
+            addMessage("文件上传成功: " + file.name, "bot");
+          } catch (error) {
+            console.error("文件上传失败:", error);
+            addMessage("文件上传失败: " + error.message, "bot");
+          } finally {
+            hideLoading();
+          }
+        }
+
+        fileInput.value = "";
+      }
+
+      async function uploadFile(file) {
+        const reader = new FileReader();
+
+        return new Promise((resolve, reject) => {
+          reader.onload = async function (e) {
+            try {
+              const base64 = e.target.result.split(",")[1];
+
+              const response = await fetch("/api/chat/file", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  name: file.name,
+                  base64: base64,
+                  params: JSON.stringify({
+                    size: file.size,
+                    type: file.type,
+                  }),
+                }),
+              });
+
+              if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(
+                  "上传失败: " + response.status + " - " + errorText
+                );
+              }
+
+              const result = await response.json();
+              resolve(result);
+            } catch (error) {
+              reject(error);
+            }
+          };
+
+          reader.onerror = function () {
+            reject(new Error("文件读取失败"));
+          };
+          reader.readAsDataURL(file);
+        });
+      }
+
+      function displayUploadedFile(file) {
+        const fileTag = document.createElement("div");
+        fileTag.className = "file-tag";
+        fileTag.innerHTML =
+          "📄 " +
+          file.id +
+          ' <span class="remove-file" onclick="removeFile(\'' +
+          file.id +
+          "')\">&times;</span>";
+        uploadedFilesDiv.appendChild(fileTag);
+      }
+
+      function removeFile(fileId) {
+        uploadedFiles = uploadedFiles.filter((f) => f.id !== fileId);
+        updateUploadedFilesDisplay();
+      }
+
+      function updateUploadedFilesDisplay() {
+        uploadedFilesDiv.innerHTML = "";
+        uploadedFiles.forEach((file) => displayUploadedFile(file));
+      }
+
+      // 添加消息到聊天界面
+      function addMessage(text, sender) {
+        const messageDiv = document.createElement("div");
+        messageDiv.className = "message " + sender + "-message";
+
+        // 如果是bot消息且包含引用，则允许HTML；否则转义HTML
+        let content;
+        if (sender === "bot" && text.includes('<span class="citation"')) {
+          content = text; // 允许引用HTML
+        } else {
+          content = escapeHtml(text); // 转义其他内容
+        }
+
+        messageDiv.innerHTML =
+          '<div class="message-content">' + content + "</div>";
+        chatMessages.appendChild(messageDiv);
+        scrollToBottom();
+      }
+
+      function escapeHtml(text) {
+        const div = document.createElement("div");
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
+      function scrollToBottom() {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      function showLoading(text) {
+        if (!text) text = "AI正在思考中...";
+        addMessage(text, "bot");
+        sendBtn.disabled = true;
+      }
+
+      function hideLoading() {
+        sendBtn.disabled = false;
+      }
+    </script>
+  </body>
+</html>

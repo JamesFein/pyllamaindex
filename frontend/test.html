@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API测试</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        button { padding: 10px; margin: 5px; }
+        textarea { width: 100%; height: 100px; }
+        .result { background: #f0f0f0; padding: 10px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>API测试页面</h1>
+    
+    <h2>测试聊天API</h2>
+    <textarea id="messageText" placeholder="输入消息">你好</textarea><br>
+    <button onclick="testChat()">发送聊天消息</button>
+    
+    <h2>测试文件上传</h2>
+    <input type="file" id="fileInput">
+    <button onclick="testFileUpload()">上传文件</button>
+    
+    <h2>测试其他API</h2>
+    <button onclick="testHealth()">健康检查</button>
+    <button onclick="testComponents()">获取组件</button>
+    <button onclick="testLayout()">获取布局</button>
+    
+    <div id="results"></div>
+
+    <script>
+        function addResult(title, data) {
+            const div = document.createElement('div');
+            div.className = 'result';
+            div.innerHTML = '<h3>' + title + '</h3><pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            document.getElementById('results').appendChild(div);
+        }
+
+        async function testChat() {
+            try {
+                const message = document.getElementById('messageText').value;
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        id: 'test_' + Date.now(),
+                        messages: [{
+                            role: 'user',
+                            content: message,
+                            annotations: []
+                        }],
+                        data: {}
+                    })
+                });
+                
+                if (response.ok) {
+                    const result = await response.text();
+                    addResult('聊天API响应', result);
+                } else {
+                    const error = await response.text();
+                    addResult('聊天API错误 (' + response.status + ')', error);
+                }
+            } catch (error) {
+                addResult('聊天API异常', error.message);
+            }
+        }
+
+        async function testFileUpload() {
+            const fileInput = document.getElementById('fileInput');
+            if (!fileInput.files[0]) {
+                alert('请选择文件');
+                return;
+            }
+
+            try {
+                const file = fileInput.files[0];
+                const reader = new FileReader();
+                
+                reader.onload = async function(e) {
+                    const base64 = e.target.result.split(',')[1];
+                    
+                    const response = await fetch('/api/chat/file', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            name: file.name,
+                            base64: base64,
+                            params: JSON.stringify({ size: file.size, type: file.type })
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        const result = await response.json();
+                        addResult('文件上传响应', result);
+                    } else {
+                        const error = await response.text();
+                        addResult('文件上传错误 (' + response.status + ')', error);
+                    }
+                };
+                
+                reader.readAsDataURL(file);
+            } catch (error) {
+                addResult('文件上传异常', error.message);
+            }
+        }
+
+        async function testHealth() {
+            try {
+                const response = await fetch('/api/health');
+                const result = await response.json();
+                addResult('健康检查', result);
+            } catch (error) {
+                addResult('健康检查异常', error.message);
+            }
+        }
+
+        async function testComponents() {
+            try {
+                const response = await fetch('/api/components');
+                const result = await response.json();
+                addResult('组件API', result);
+            } catch (error) {
+                addResult('组件API异常', error.message);
+            }
+        }
+
+        async function testLayout() {
+            try {
+                const response = await fetch('/api/layout');
+                const result = await response.json();
+                addResult('布局API', result);
+            } catch (error) {
+                addResult('布局API异常', error.message);
+            }
+        }
+    </script>
+</body>
+</html>

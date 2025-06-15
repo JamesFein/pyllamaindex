@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI聊天助手</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="chat-container">
+      <div class="chat-header">
+        <h1>AI聊天助手</h1>
+        <div class="file-upload-section">
+          <input
+            type="file"
+            id="fileInput"
+            accept=".pdf,.txt,.doc,.docx"
+            style="display: none"
+          />
+          <button id="uploadBtn" class="upload-btn">📎 上传文件</button>
+          <div id="uploadedFiles" class="uploaded-files"></div>
+        </div>
+      </div>
+
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot-message">
+          <div class="message-content">
+            <div class="message-text">
+              你好！我是AI助手，有什么可以帮助你的吗？
+            </div>
+            <div class="message-time"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-input-container">
+        <div class="input-wrapper">
+          <textarea
+            id="messageInput"
+            placeholder="输入你的消息..."
+            rows="1"
+            maxlength="2000"
+          ></textarea>
+          <button id="sendBtn" class="send-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M2 21L23 12L2 3V10L17 12L2 14V21Z" fill="currentColor" />
+            </svg>
+          </button>
+        </div>
+        <div class="input-footer">
+          <span class="char-count">0/2000</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="loadingOverlay" class="loading-overlay" style="display: none">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">AI正在思考中...</div>
+    </div>
+
+    <script src="/static/script.js"></script>
+  </body>
+</html>

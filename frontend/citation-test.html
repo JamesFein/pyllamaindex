@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>引用功能测试</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .test-section {
+        margin: 20px 0;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      .citation {
+        display: inline-block;
+        background: #e3f2fd;
+        color: #1976d2;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 11px;
+        margin: 0 2px;
+        cursor: pointer;
+        border: 1px solid #bbdefb;
+        position: relative;
+      }
+      .citation:hover {
+        background: #bbdefb;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .citation-tooltip {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #333;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        white-space: nowrap;
+        max-width: 300px;
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        margin-bottom: 5px;
+      }
+      .citation-tooltip::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 5px solid transparent;
+        border-top-color: #333;
+      }
+      .citation:hover .citation-tooltip {
+        opacity: 1;
+      }
+      .citation-content {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 12px;
+        font-size: 13px;
+        max-width: 400px;
+        max-height: 200px;
+        overflow-y: auto;
+        z-index: 1001;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        margin-bottom: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        white-space: normal;
+        line-height: 1.4;
+      }
+      .citation-content::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 8px solid transparent;
+        border-top-color: white;
+      }
+      .citation:hover .citation-content {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>引用功能测试</h1>
+
+    <div class="test-section">
+      <h3>原始文本（带引用）</h3>
+      <p id="originalText">
+        存货盘点差异的定义是实际盘点数量与账面记录数量之间的差额，具体包括盘盈（实际盘点数量大于账面记录数量）和盘亏（实际盘点数量小于账面记录数量）[citation:fa70e709-b393-4a66-90d3-a4f6a65784a8]。其目的在于识别和分析存货的差异，以便采取相应的处理措施，确保企业的财务数据准确，维护资产安全，并提高仓库管理的规范性[
+        citation:fa70e709-b393-4a66-90d3-a4f6a65784a8]。
+      </p>
+    </div>
+
+    <div class="test-section">
+      <h3>处理后的文本（带引用链接）</h3>
+      <div id="processedText"></div>
+    </div>
+
+    <button onclick="testCitationProcessing()">测试引用处理</button>
+
+    <script>
+      function escapeHtml(text) {
+        const div = document.createElement("div");
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
+      function getDocumentName(citationId, citationData) {
+        if (citationData[citationId] && citationData[citationId].filename) {
+          return citationData[citationId].filename;
+        }
+
+        const shortId = citationId.substring(0, 8);
+        const txtFileMap = {
+          fa70e709: "常见问题类-09_存货盘点差异处理方法.txt",
+          d30c0ba4: "常见问题类-09_存货盘点差异处理方法.txt",
+        };
+
+        return txtFileMap[shortId] || "财务文档-" + shortId + ".txt";
+      }
+
+      function processCitations(text, citationData) {
+        const citationRegex = /\[\s*citation:\s*([a-f0-9-]+)\s*\]/gi;
+
+        return text.replace(citationRegex, function (match, citationId) {
+          const filename = getDocumentName(citationId, citationData);
+          const citation = citationData[citationId];
+          let content = "这是从知识库中引用的相关文档内容";
+
+          if (citation && citation.content) {
+            content = citation.content.substring(0, 300) + "...";
+          } else {
+            if (filename.includes("存货盘点")) {
+              content =
+                "此引用来自《存货盘点差异处理方法》文档，包含了存货盘点的定义、处理流程和相关规定。";
+            } else {
+              content =
+                "引用来源：" + filename + "\n\n点击可查看更多详细信息。";
+            }
+          }
+
+          return (
+            '<span class="citation" data-citation-id="' +
+            citationId +
+            '" onclick="showCitationDetails(\'' +
+            citationId +
+            "', '" +
+            filename +
+            "')\">" +
+            '<span class="citation-tooltip">' +
+            filename +
+            "</span>" +
+            '<span class="citation-content">' +
+            escapeHtml(content) +
+            "</span>" +
+            "📄 " +
+            filename +
+            "</span>"
+          );
+        });
+      }
+
+      function showCitationDetails(citationId, filename) {
+        console.log("点击了引用:", citationId, filename);
+        const message =
+          "引用详情:\n\n" +
+          "文档: " +
+          filename +
+          "\n" +
+          "引用ID: " +
+          citationId +
+          "\n\n" +
+          "这是从知识库中引用的相关文档内容。";
+        alert(message);
+      }
+
+      function testCitationProcessing() {
+        const originalText =
+          document.getElementById("originalText").textContent;
+        const citationData = {}; // 空的引用数据，测试默认行为
+
+        const processedText = processCitations(originalText, citationData);
+        document.getElementById("processedText").innerHTML = processedText;
+      }
+
+      // 页面加载时自动测试
+      window.onload = function () {
+        testCitationProcessing();
+      };
+    </script>
+  </body>
+</html>

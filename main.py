@@ -4,6 +4,8 @@ from app.settings import init_settings
 from app.workflow import create_workflow
 from dotenv import load_dotenv
 from llama_index.server import LlamaIndexServer, UIConfig
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 
 logger = logging.getLogger("uvicorn")
 
@@ -22,8 +24,18 @@ def create_app():
         logger=logger,
         env="dev",
     )
-    # You can also add custom FastAPI routes to app
+
+    # 添加静态文件服务
+    app.mount("/static", StaticFiles(directory="frontend"), name="static")
+
+    # 添加根路径路由，返回清洁版前端页面
+    @app.get("/")
+    async def read_root():
+        return FileResponse("frontend/clean.html")
+
+    # 保留原有的健康检查路由
     app.add_api_route("/api/health", lambda: {"message": "OK"}, status_code=200)
+
     return app
 
 

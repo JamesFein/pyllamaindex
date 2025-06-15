@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>响应处理测试</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .original { background: #fff3cd; }
+        .processed { background: #d4edda; }
+        pre { white-space: pre-wrap; word-wrap: break-word; }
+        button { padding: 10px 20px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>响应处理测试</h1>
+    
+    <div class="test-section original">
+        <h3>原始响应（有问题的格式）</h3>
+        <pre id="originalResponse">Response 1: 成本核算的方法主要可以根据不同的分类标准进行划分： 1. **按成本计算期分类**： - **历史成本法**：以实际发生的成本为基础，数据真实可靠，适用于大多数企业。 - **标准成本法**：以预定的标准成本为基础，便于成本控制和分析，适用于标准化生产企业。 - **定额成本法**：以现行定额为基础，适用于定额管理较好的企业。 2. **按成本计算方法分类**： - **品种法**：以产品品种为核算对象，适用于大量大批单步骤生产，核算简单。 - **分批法**：以产品批别为核算对象，适用于单件小批生产，成本计算准确。 - **分步法**：以生产步骤为核算对象，适用于大量大批多步骤生产，能够提供各步骤成本信息。 这些方法的选择应根据企业的实际情况和管理需求来决定，以提高成本管理水平 财务文档-866da74c.txt管理较好的企业。 2. **按成本计算方法分类**： - **品种法**：以产品品种为核算对象，适用于大量大批单步骤生产，核算简单。 - **分批法**：以产品批别为核算对象，适用于单件小批生产，成本计算准确。 - **分步法**：以生产步骤为核算对象，适用于大量大批多步骤生产，能够提供各步骤成本信息。 这些方法的选择应根据企业的实际情况和管理需求来决定，以提高成本管理水平 。 --------------------- Response 2: 成本核算的方法主要可以根据不同的分类标准进行划分： 1. **按成本计算期分类**： - **历史成本法**：以实际发生的成本为基础，数据真实可靠，适用于大多数企业。 - **标准成本法**：以预定的标准成本为基础，便于成本控制和分析，适用于标准化生产企业。 - **定额成本法**：以现行定额为基础，反映定...📄 财务文档-866da74c。</pre>
+    </div>
+    
+    <div class="test-section processed">
+        <h3>处理后的响应（清理后）</h3>
+        <pre id="processedResponse"></pre>
+    </div>
+    
+    <button onclick="testResponseCleaning()">测试响应清理</button>
+    <button onclick="testMultipleResponses()">测试多响应选择</button>
+    
+    <script>
+        // 复制主页面的清理函数
+        function selectBestResponse(toolOutputs) {
+            if (toolOutputs.length === 1) {
+                return cleanResponse(toolOutputs[0]);
+            }
+
+            let bestResponse = "";
+            let maxLength = 0;
+
+            for (const output of toolOutputs) {
+                const cleaned = cleanResponse(output);
+                
+                if (cleaned.includes("Response 1:") || cleaned.includes("Response 2:")) {
+                    continue;
+                }
+                
+                if (cleaned.length > maxLength && !cleaned.includes("-----")) {
+                    maxLength = cleaned.length;
+                    bestResponse = cleaned;
+                }
+            }
+
+            if (!bestResponse) {
+                bestResponse = cleanResponse(toolOutputs[0]);
+            }
+
+            return bestResponse;
+        }
+
+        function cleanResponse(text) {
+            if (!text) return "";
+
+            let cleaned = text
+                .replace(/Response \d+:\s*/g, "")
+                .replace(/-{10,}/g, "")
+                .replace(/^\s*[\r\n]+/gm, "")
+                .trim();
+
+            cleaned = removeDuplicateParagraphs(cleaned);
+            return cleaned.trim();
+        }
+
+        function removeDuplicateParagraphs(text) {
+            const paragraphs = text.split(/\n\s*\n/);
+            const uniqueParagraphs = [];
+            const seen = new Set();
+
+            for (const paragraph of paragraphs) {
+                const normalized = paragraph.replace(/\s+/g, " ").trim();
+                
+                if (normalized.length < 20) continue;
+                
+                let isDuplicate = false;
+                for (const seenParagraph of seen) {
+                    if (calculateSimilarity(normalized, seenParagraph) > 0.8) {
+                        isDuplicate = true;
+                        break;
+                    }
+                }
+                
+                if (!isDuplicate) {
+                    seen.add(normalized);
+                    uniqueParagraphs.push(paragraph);
+                }
+            }
+
+            return uniqueParagraphs.join("\n\n");
+        }
+
+        function calculateSimilarity(str1, str2) {
+            const longer = str1.length > str2.length ? str1 : str2;
+            const shorter = str1.length > str2.length ? str2 : str1;
+            
+            if (longer.length === 0) return 1.0;
+            
+            const editDistance = levenshteinDistance(longer, shorter);
+            return (longer.length - editDistance) / longer.length;
+        }
+
+        function levenshteinDistance(str1, str2) {
+            const matrix = [];
+            
+            for (let i = 0; i <= str2.length; i++) {
+                matrix[i] = [i];
+            }
+            
+            for (let j = 0; j <= str1.length; j++) {
+                matrix[0][j] = j;
+            }
+            
+            for (let i = 1; i <= str2.length; i++) {
+                for (let j = 1; j <= str1.length; j++) {
+                    if (str2.charAt(i - 1) === str1.charAt(j - 1)) {
+                        matrix[i][j] = matrix[i - 1][j - 1];
+                    } else {
+                        matrix[i][j] = Math.min(
+                            matrix[i - 1][j - 1] + 1,
+                            matrix[i][j - 1] + 1,
+                            matrix[i - 1][j] + 1
+                        );
+                    }
+                }
+            }
+            
+            return matrix[str2.length][str1.length];
+        }
+
+        function cleanCitationFormats(text) {
+            text = text.replace(/财务文档-[a-f0-9]{8}\.txt/g, "");
+            text = text.replace(/📄\s*财务文档-[a-f0-9]{8}[。\.]/g, "");
+            text = text.replace(/(.{50,}?)\1+/g, "$1");
+            text = text.replace(/\n\s*\n\s*\n/g, "\n\n");
+            return text.trim();
+        }
+
+        function testResponseCleaning() {
+            const originalText = document.getElementById('originalResponse').textContent;
+            const cleaned = cleanResponse(originalText);
+            const finalCleaned = cleanCitationFormats(cleaned);
+            
+            document.getElementById('processedResponse').textContent = finalCleaned;
+        }
+
+        function testMultipleResponses() {
+            const response1 = "Response 1: 这是第一个响应，内容比较短。";
+            const response2 = "Response 2: 这是第二个响应，内容更加详细和完整，包含了更多的信息和解释，应该被选为最佳答案。";
+            const response3 = "Response 3: 这是第三个响应。";
+            
+            const toolOutputs = [response1, response2, response3];
+            const bestResponse = selectBestResponse(toolOutputs);
+            
+            document.getElementById('processedResponse').textContent = 
+                "多响应测试结果:\n\n" + bestResponse;
+        }
+
+        // 页面加载时自动测试
+        window.onload = function() {
+            testResponseCleaning();
+        };
+    </script>
+</body>
+</html>
