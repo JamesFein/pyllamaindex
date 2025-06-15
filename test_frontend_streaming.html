@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>测试流式API</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .container {
+        border: 1px solid #ccc;
+        padding: 20px;
+        margin: 10px 0;
+      }
+      .response {
+        background: #f5f5f5;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 5px;
+        white-space: pre-wrap;
+      }
+      .citation-number {
+        display: inline-block;
+        background: #3b82f6;
+        color: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+        font-weight: bold;
+        margin: 0 2px;
+        cursor: pointer;
+      }
+      .citation-tooltip {
+        position: absolute;
+        z-index: 1000;
+        max-width: 400px;
+        max-height: 300px;
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        padding: 12px;
+        font-size: 14px;
+        line-height: 1.5;
+        overflow-y: auto;
+        pointer-events: none;
+        display: none;
+      }
+      button {
+        background: #3b82f6;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+      }
+      button:hover {
+        background: #2563eb;
+      }
+      .status {
+        color: #666;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>流式API测试</h1>
+
+    <div class="container">
+      <h3>测试问题</h3>
+      <button onclick="testStreamingAPI()">
+        测试：电子发票重复报销如何防范？
+      </button>
+      <button onclick="clearResponse()">清空响应</button>
+    </div>
+
+    <div class="container">
+      <h3>响应状态</h3>
+      <div id="status" class="status">等待测试...</div>
+    </div>
+
+    <div class="container">
+      <h3>流式响应</h3>
+      <div id="response" class="response"></div>
+    </div>
+
+    <div class="container">
+      <h3>引用数据</h3>
+      <div id="citations"></div>
+    </div>
+
+    <!-- 引用悬浮框 -->
+    <div id="citation-tooltip" class="citation-tooltip"></div>
+
+    <script>
+      let currentResponse = "";
+      let citations = {};
+
+      function updateStatus(message) {
+        document.getElementById("status").textContent = message;
+      }
+
+      function clearResponse() {
+        currentResponse = "";
+        citations = {};
+        document.getElementById("response").innerHTML = "";
+        document.getElementById("citations").innerHTML = "";
+        updateStatus("已清空响应");
+      }
+
+      function testStreamingAPI() {
+        clearResponse();
+        updateStatus("连接流式API...");
+
+        const requestData = {
+          id: `test_${Date.now()}`,
+          messages: [
+            {
+              role: "user",
+              content: "电子发票重复报销如何防范？",
+            },
+          ],
+          data: {},
+        };
+
+        const url = `/api/chat/stream?data=${encodeURIComponent(
+          JSON.stringify(requestData)
+        )}`;
+        const eventSource = new EventSource(url);
+
+        eventSource.onopen = () => {
+          updateStatus("已连接，等待响应...");
+        };
+
+        eventSource.addEventListener("citation_data", (event) => {
+          try {
+            const data = JSON.parse(event.data);
+            citations = data.citations;
+            console.log("收到引用数据:", citations);
+            displayCitations();
+          } catch (e) {
+            console.error("解析引用数据失败:", e);
+          }
+        });
+
+        eventSource.addEventListener("text_chunk", (event) => {
+          try {
+            const data = JSON.parse(event.data);
+            currentResponse += data.chunk;
+
+            // 实时更新显示
+            updateResponseDisplay();
+            updateStatus(`接收中... (块 ${data.chunk_index + 1})`);
+          } catch (e) {
+            console.error("解析文本块失败:", e);
+          }
+        });
+
+        eventSource.addEventListener("complete", (event) => {
+          updateStatus("响应完成");
+          eventSource.close();
+
+          // 最终处理引用
+          processResponseWithCitations();
+        });
+
+        eventSource.addEventListener("error", (event) => {
+          console.error("流式响应错误:", event);
+          updateStatus("响应错误");
+          eventSource.close();
+        });
+
+        eventSource.onerror = (error) => {
+          console.error("EventSource错误:", error);
+          updateStatus("连接错误");
+          eventSource.close();
+        };
+      }
+
+      function updateResponseDisplay() {
+        document.getElementById("response").textContent = currentResponse;
+      }
+
+      function processResponseWithCitations() {
+        // 处理引用标记
+        let processedText = currentResponse;
+
+        // 查找所有的 [数字] 模式并替换为引用数字
+        processedText = processedText.replace(/\[(\d+)\]/g, (match, num) => {
+          const rank = parseInt(num);
+          if (
+            citations &&
+            Object.values(citations).some((c) => c.rank === rank)
+          ) {
+            return `<span class="citation-number" data-rank="${rank}" onmouseenter="showCitationTooltip(event, ${rank})" onmouseleave="hideCitationTooltip()">${rank}</span>`;
+          }
+          return match;
+        });
+
+        document.getElementById("response").innerHTML = processedText;
+      }
+
+      function displayCitations() {
+        const citationsDiv = document.getElementById("citations");
+        if (!citations || Object.keys(citations).length === 0) {
+          citationsDiv.innerHTML = "<p>暂无引用数据</p>";
+          return;
+        }
+
+        let html = "<h4>引用列表：</h4>";
+        Object.values(citations)
+          .sort((a, b) => a.rank - b.rank)
+          .forEach((citation) => {
+            html += `
+                    <div style="margin: 10px 0; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                        <strong>引用 #${citation.rank}</strong><br>
+                        <strong>文档:</strong> ${citation.filename}<br>
+                        <strong>相似度:</strong> ${Math.round(
+                          citation.similarity_score * 100
+                        )}%<br>
+                        <strong>内容:</strong> ${citation.content.substring(
+                          0,
+                          200
+                        )}...
+                    </div>
+                `;
+          });
+        citationsDiv.innerHTML = html;
+      }
+
+      function showCitationTooltip(event, rank) {
+        const citation = Object.values(citations).find((c) => c.rank === rank);
+        if (!citation) return;
+
+        const tooltip = document.getElementById("citation-tooltip");
+        tooltip.innerHTML = `
+                <div><strong>引用 #${rank}</strong></div>
+                <div><strong>文档:</strong> ${citation.filename}</div>
+                <div><strong>相似度:</strong> ${Math.round(
+                  citation.similarity_score * 100
+                )}%</div>
+                <div><strong>内容:</strong> ${citation.content}</div>
+            `;
+
+        const rect = event.target.getBoundingClientRect();
+        tooltip.style.left = rect.left + window.scrollX + "px";
+        tooltip.style.top = rect.bottom + window.scrollY + 5 + "px";
+        tooltip.style.display = "block";
+      }
+
+      function hideCitationTooltip() {
+        document.getElementById("citation-tooltip").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

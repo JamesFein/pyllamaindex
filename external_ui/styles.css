@@ -1,0 +1,133 @@
+/* 自定义滚动条样式 */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* 引用悬浮框样式 */
+.citation-tooltip {
+  position: absolute;
+  z-index: 1000;
+  max-width: 400px;
+  max-height: 300px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-y: auto;
+  pointer-events: none;
+}
+
+/* 引用数字样式 */
+.citation-number {
+  display: inline-block;
+  background: #3b82f6;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0 2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.citation-number:hover {
+  background: #2563eb;
+  transform: scale(1.1);
+}
+
+/* 加载动画 */
+.loading-spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 消息动画 */
+.message-enter-active {
+  transition: all 0.3s ease;
+}
+.message-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* 流式文本动画 */
+.streaming-text {
+  animation: typing 0.1s ease-in-out;
+}
+
+@keyframes typing {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 引用提示框内容样式 */
+.citation-tooltip .citation-header {
+  font-weight: bold;
+  color: #374151;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 4px;
+}
+
+.citation-tooltip .citation-filename {
+  color: #6b7280;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.citation-tooltip .citation-similarity {
+  color: #059669;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.citation-tooltip .citation-content {
+  color: #374151;
+  line-height: 1.4;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* 文本截断样式 */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

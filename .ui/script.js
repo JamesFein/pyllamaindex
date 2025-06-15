@@ -208,8 +208,18 @@ async function callChatAPI(message) {
     throw new Error("API调用失败: " + response.status + " - " + errorText);
   }
 
-  return await response.text();
+  const responseText = await response.text();
+  console.log("原始响应:", responseText);
+
+  return processResponse(responseText);
 }
+
+// 处理响应，使用独立的引用处理器
+function processResponse(responseText) {
+  return window.citationProcessor.processResponse(responseText);
+}
+
+// 引用处理函数已移至 citation.js 模块
 
 // 添加消息到聊天界面
 function addMessage(text, sender) {
@@ -222,9 +232,13 @@ function addMessage(text, sender) {
     minute: "2-digit",
   });
 
+  // 对于机器人消息，直接使用HTML（因为已经处理过引用）
+  // 对于用户消息，转义HTML
+  const messageContent = sender === "bot" ? text : escapeHtml(text);
+
   messageDiv.innerHTML =
     '<div class="message-content"><div class="message-text">' +
-    escapeHtml(text) +
+    messageContent +
     '</div><div class="message-time">' +
     timeString +
     "</div></div>";
@@ -253,4 +267,46 @@ function showLoading(text) {
 function hideLoading() {
   loadingOverlay.style.display = "none";
   sendBtn.disabled = false;
+}
+
+// 显示引用详情
+function showCitationDetails(citationId, citationStr) {
+  console.log("显示引用详情:", citationId, citationStr);
+  let citation = null;
+
+  if (citationStr && typeof citationStr === "string") {
+    try {
+      citation = JSON.parse(citationStr);
+    } catch (e) {
+      console.error("解析引用数据失败:", e);
+    }
+  } else if (citationStr && typeof citationStr === "object") {
+    citation = citationStr;
+  }
+
+  if (!citation) {
+    alert(`引用ID: ${citationId}\n\n这是从知识库中引用的文档内容。`);
+    return;
+  }
+
+  const similarityPercent = Math.round(citation.similarity_score * 100);
+  const displayName = citation.filename
+    .replace(/^常见问题类-\d+_/, "")
+    .replace(/\.txt$/, "");
+
+  const message =
+    `📄 文档引用详情\n\n` +
+    `排名序号: #${citation.rank}\n` +
+    `文档名称: ${displayName}\n` +
+    `完整文件名: ${citation.filename}\n` +
+    `相似度分数: ${similarityPercent}%\n` +
+    `引用ID: ${citationId}\n\n` +
+    `文档内容预览:\n${citation.content}\n\n` +
+    `💡 提示：鼠标悬浮在引用块上可以查看内容预览`;
+
+  alert(message);
+}
+
+function showCitation(citationId, citation) {
+  showCitationDetails(citationId, citation);
 }

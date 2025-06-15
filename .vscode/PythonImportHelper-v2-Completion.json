@@ -101,6 +101,38 @@
         "documentation": {}
     },
     {
+        "label": "AsyncGenerator",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "Optional",
         "importPath": "typing",
         "description": "typing",
@@ -114,6 +146,14 @@
         "description": "llama_index.core.indices",
         "isExtraImport": true,
         "detail": "llama_index.core.indices",
+        "documentation": {}
+    },
+    {
+        "label": "ChatRequest",
+        "importPath": "llama_index.server.api.models",
+        "description": "llama_index.server.api.models",
+        "isExtraImport": true,
+        "detail": "llama_index.server.api.models",
         "documentation": {}
     },
     {
@@ -288,6 +328,31 @@
         "documentation": {}
     },
     {
+        "label": "asyncio",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "asyncio",
+        "description": "asyncio",
+        "detail": "asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "EventSourceResponse",
+        "importPath": "sse_starlette",
+        "description": "sse_starlette",
+        "isExtraImport": true,
+        "detail": "sse_starlette",
+        "documentation": {}
+    },
+    {
+        "label": "ServerSentEvent",
+        "importPath": "sse_starlette",
+        "description": "sse_starlette",
+        "isExtraImport": true,
+        "detail": "sse_starlette",
+        "documentation": {}
+    },
+    {
         "label": "get_index",
         "importPath": "app.index",
         "description": "app.index",
@@ -344,46 +409,6 @@
         "documentation": {}
     },
     {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
-        "isExtraImport": true,
-        "detail": "dotenv",
-        "documentation": {}
-    },
-    {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
-        "isExtraImport": true,
-        "detail": "dotenv",
-        "documentation": {}
-    },
-    {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
-        "isExtraImport": true,
-        "detail": "dotenv",
-        "documentation": {}
-    },
-    {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
-        "isExtraImport": true,
-        "detail": "dotenv",
-        "documentation": {}
-    },
-    {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
-        "isExtraImport": true,
-        "detail": "dotenv",
-        "documentation": {}
-    },
-    {
         "label": "init_settings",
         "importPath": "app.settings",
         "description": "app.settings",
@@ -397,6 +422,14 @@
         "description": "app.workflow",
         "isExtraImport": true,
         "detail": "app.workflow",
+        "documentation": {}
+    },
+    {
+        "label": "create_streaming_response",
+        "importPath": "app.streaming",
+        "description": "app.streaming",
+        "isExtraImport": true,
+        "detail": "app.streaming",
         "documentation": {}
     },
     {
@@ -432,12 +465,37 @@
         "documentation": {}
     },
     {
-        "label": "shutil",
+        "label": "Request",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "shutil",
-        "description": "shutil",
-        "detail": "shutil",
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "urlencode",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
         "documentation": {}
     },
     {
@@ -621,30 +679,39 @@
         "documentation": {}
     },
     {
+        "label": "StreamingResponseProcessor",
+        "kind": 6,
+        "importPath": "app.streaming",
+        "description": "app.streaming",
+        "peekOfCode": "class StreamingResponseProcessor:\n    \"\"\"流式响应处理器\"\"\"\n    def __init__(self):\n        self.citation_data = {}\n    async def process_streaming_response(\n        self, \n        response_text: str, \n        request=None\n    ) -> AsyncGenerator[Dict[str, Any], None]:\n        \"\"\"",
+        "detail": "app.streaming",
+        "documentation": {}
+    },
+    {
+        "label": "process_citation_text",
+        "kind": 2,
+        "importPath": "app.streaming",
+        "description": "app.streaming",
+        "peekOfCode": "def process_citation_text(text: str, citations: Dict[str, Any]) -> str:\n    \"\"\"\n    处理文本中的引用标记，替换为带有排名的引用数字\n    Args:\n        text: 原始文本\n        citations: 引用数据字典\n    Returns:\n        处理后的HTML文本\n    \"\"\"\n    import re",
+        "detail": "app.streaming",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "app.streaming",
+        "description": "app.streaming",
+        "peekOfCode": "logger = logging.getLogger(\"uvicorn\")\nclass StreamingResponseProcessor:\n    \"\"\"流式响应处理器\"\"\"\n    def __init__(self):\n        self.citation_data = {}\n    async def process_streaming_response(\n        self, \n        response_text: str, \n        request=None\n    ) -> AsyncGenerator[Dict[str, Any], None]:",
+        "detail": "app.streaming",
+        "documentation": {}
+    },
+    {
         "label": "create_workflow",
         "kind": 2,
         "importPath": "app.workflow",
         "description": "app.workflow",
         "peekOfCode": "def create_workflow(chat_request: Optional[ChatRequest] = None) -> AgentWorkflow:\n    index = get_index(chat_request=chat_request)\n    if index is None:\n        raise RuntimeError(\n            \"Index not found! Please run `uv run generate` to index the data first.\"\n        )\n    # Create a CitationQueryEngine that generates single responses with citations\n    citation_query_engine = CitationQueryEngine.from_args(\n        index,\n        similarity_top_k=3,  # Retrieve top 3 relevant chunks",
         "detail": "app.workflow",
-        "documentation": {}
-    },
-    {
-        "label": "debug_index_store",
-        "kind": 2,
-        "importPath": "debug_index_store",
-        "description": "debug_index_store",
-        "peekOfCode": "def debug_index_store():\n    \"\"\"Debug the index store database.\"\"\"\n    db_path = \"storage/index_store.db\"\n    try:\n        with sqlite3.connect(db_path) as conn:\n            cursor = conn.execute(\"SELECT index_id, data FROM index_structs\")\n            for row in cursor.fetchall():\n                index_id, data_json = row\n                data = json.loads(data_json)\n                logger.info(f\"Index ID: {index_id}\")",
-        "detail": "debug_index_store",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "kind": 5,
-        "importPath": "debug_index_store",
-        "description": "debug_index_store",
-        "peekOfCode": "logger = logging.getLogger(__name__)\ndef debug_index_store():\n    \"\"\"Debug the index store database.\"\"\"\n    db_path = \"storage/index_store.db\"\n    try:\n        with sqlite3.connect(db_path) as conn:\n            cursor = conn.execute(\"SELECT index_id, data FROM index_structs\")\n            for row in cursor.fetchall():\n                index_id, data_json = row\n                data = json.loads(data_json)",
-        "detail": "debug_index_store",
         "documentation": {}
     },
     {
@@ -679,7 +746,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def create_app():\n    app = LlamaIndexServer(\n        workflow_factory=create_workflow,  # A factory function that creates a new workflow for each request\n        ui_config=UIConfig(\n            component_dir=COMPONENT_DIR,\n            dev_mode=True,  # Please disable this in production 重要\n            layout_dir=\"layout\",\n        ),\n        logger=logger,\n        env=\"dev\",",
+        "peekOfCode": "def create_app():\n    app = LlamaIndexServer(\n        workflow_factory=create_workflow,\n        ui_config=UIConfig(\n            component_dir=COMPONENT_DIR,\n            dev_mode=True,\n            layout_dir=\"layout\",\n        ),\n        logger=logger,\n        env=\"dev\",",
         "detail": "main",
         "documentation": {}
     },
@@ -688,7 +755,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "logger = logging.getLogger(\"uvicorn\")\n# A path to a directory where the customized UI code is stored\nCOMPONENT_DIR = \"components\"\ndef create_app():\n    app = LlamaIndexServer(\n        workflow_factory=create_workflow,  # A factory function that creates a new workflow for each request\n        ui_config=UIConfig(\n            component_dir=COMPONENT_DIR,\n            dev_mode=True,  # Please disable this in production 重要\n            layout_dir=\"layout\",",
+        "peekOfCode": "logger = logging.getLogger(\"uvicorn\")\n# A path to a directory where the customized UI code is stored\nCOMPONENT_DIR = \"components\"\ndef create_app():\n    app = LlamaIndexServer(\n        workflow_factory=create_workflow,\n        ui_config=UIConfig(\n            component_dir=COMPONENT_DIR,\n            dev_mode=True,\n            layout_dir=\"layout\",",
         "detail": "main",
         "documentation": {}
     },
@@ -697,7 +764,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "COMPONENT_DIR = \"components\"\ndef create_app():\n    app = LlamaIndexServer(\n        workflow_factory=create_workflow,  # A factory function that creates a new workflow for each request\n        ui_config=UIConfig(\n            component_dir=COMPONENT_DIR,\n            dev_mode=True,  # Please disable this in production 重要\n            layout_dir=\"layout\",\n        ),\n        logger=logger,",
+        "peekOfCode": "COMPONENT_DIR = \"components\"\ndef create_app():\n    app = LlamaIndexServer(\n        workflow_factory=create_workflow,\n        ui_config=UIConfig(\n            component_dir=COMPONENT_DIR,\n            dev_mode=True,\n            layout_dir=\"layout\",\n        ),\n        logger=logger,",
         "detail": "main",
         "documentation": {}
     },
@@ -711,111 +778,30 @@
         "documentation": {}
     },
     {
-        "label": "main",
+        "label": "test_regular_api",
         "kind": 2,
-        "importPath": "migrate_to_sqlite",
-        "description": "migrate_to_sqlite",
-        "peekOfCode": "def main():\n    \"\"\"Main migration function.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    storage_dir = \"storage\"\n    logger.info(\"=== SQLite Migration Script ===\")\n    logger.info(f\"Storage directory: {storage_dir}\")",
-        "detail": "migrate_to_sqlite",
+        "importPath": "test_regular_api",
+        "description": "test_regular_api",
+        "peekOfCode": "def test_regular_api():\n    \"\"\"测试普通聊天API\"\"\"\n    url = \"http://localhost:8000/api/chat\"\n    payload = {\n        \"id\": f\"test_regular_{int(time.time())}\",\n        \"messages\": [\n            {\n                \"role\": \"user\",\n                \"content\": \"电子发票重复报销如何防范？\"\n            }",
+        "detail": "test_regular_api",
         "documentation": {}
     },
     {
-        "label": "test_storage",
+        "label": "test_streaming_api",
         "kind": 2,
-        "importPath": "migrate_to_sqlite",
-        "description": "migrate_to_sqlite",
-        "peekOfCode": "def test_storage():\n    \"\"\"Test the new SQLite storage.\"\"\"\n    try:\n        from app.storage_config import load_storage_context\n        storage_context = load_storage_context(\"storage\")\n        if storage_context:\n            logger.info(\"✅ SQLite storage context loaded successfully\")\n            # Test document store\n            doc_count = len(storage_context.docstore.docs)\n            logger.info(f\"✅ Document store: {doc_count} documents\")",
-        "detail": "migrate_to_sqlite",
+        "importPath": "test_streaming",
+        "description": "test_streaming",
+        "peekOfCode": "def test_streaming_api():\n    \"\"\"测试流式聊天API\"\"\"\n    base_url = \"http://localhost:8000\"\n    # 准备请求数据\n    chat_data = {\n        \"id\": f\"test_stream_{int(time.time())}\",\n        \"messages\": [\n            {\n                \"role\": \"user\",\n                \"content\": \"电子发票重复报销如何防范？\"",
+        "detail": "test_streaming",
         "documentation": {}
     },
     {
-        "label": "logger",
-        "kind": 5,
-        "importPath": "migrate_to_sqlite",
-        "description": "migrate_to_sqlite",
-        "peekOfCode": "logger = logging.getLogger(__name__)\ndef main():\n    \"\"\"Main migration function.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    storage_dir = \"storage\"\n    logger.info(\"=== SQLite Migration Script ===\")",
-        "detail": "migrate_to_sqlite",
-        "documentation": {}
-    },
-    {
-        "label": "test_index_loading",
+        "label": "test_regular_api",
         "kind": 2,
-        "importPath": "test_index_loading",
-        "description": "test_index_loading",
-        "peekOfCode": "def test_index_loading():\n    \"\"\"Test loading the index from storage.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    logger.info(\"=== Testing Index Loading ===\")\n    # Test the get_index function\n    from app.index import get_index",
-        "detail": "test_index_loading",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "kind": 5,
-        "importPath": "test_index_loading",
-        "description": "test_index_loading",
-        "peekOfCode": "logger = logging.getLogger(__name__)\ndef test_index_loading():\n    \"\"\"Test loading the index from storage.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    logger.info(\"=== Testing Index Loading ===\")\n    # Test the get_index function",
-        "detail": "test_index_loading",
-        "documentation": {}
-    },
-    {
-        "label": "test_sqlite_docstore",
-        "kind": 2,
-        "importPath": "test_sqlite_store",
-        "description": "test_sqlite_store",
-        "peekOfCode": "def test_sqlite_docstore():\n    \"\"\"Test SQLite document store directly.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    from app.sqlite_stores import SQLiteDocumentStore\n    from llama_index.core.schema import TextNode\n    logger.info(\"=== Testing SQLite Document Store ===\")",
-        "detail": "test_sqlite_store",
-        "documentation": {}
-    },
-    {
-        "label": "test_index_creation_with_debug",
-        "kind": 2,
-        "importPath": "test_sqlite_store",
-        "description": "test_sqlite_store",
-        "peekOfCode": "def test_index_creation_with_debug():\n    \"\"\"Test index creation with debug logging to see what's happening.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    logger.info(\"=== Testing Index Creation with Debug ===\")\n    from llama_index.core.readers import SimpleDirectoryReader\n    from llama_index.core.indices import VectorStoreIndex",
-        "detail": "test_sqlite_store",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "kind": 5,
-        "importPath": "test_sqlite_store",
-        "description": "test_sqlite_store",
-        "peekOfCode": "logger = logging.getLogger(__name__)\ndef test_sqlite_docstore():\n    \"\"\"Test SQLite document store directly.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    from app.sqlite_stores import SQLiteDocumentStore\n    from llama_index.core.schema import TextNode",
-        "detail": "test_sqlite_store",
-        "documentation": {}
-    },
-    {
-        "label": "test_storage_systems",
-        "kind": 2,
-        "importPath": "test_storage",
-        "description": "test_storage",
-        "peekOfCode": "def test_storage_systems():\n    \"\"\"Test both ChromaDB and SQLite storage systems.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    logger.info(\"=== Testing Storage Systems ===\")\n    # Test 1: Check if ChromaDB is working\n    logger.info(\"1. Testing ChromaDB vector store...\")",
-        "detail": "test_storage",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "kind": 5,
-        "importPath": "test_storage",
-        "description": "test_storage",
-        "peekOfCode": "logger = logging.getLogger(__name__)\ndef test_storage_systems():\n    \"\"\"Test both ChromaDB and SQLite storage systems.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    logger.info(\"=== Testing Storage Systems ===\")\n    # Test 1: Check if ChromaDB is working",
-        "detail": "test_storage",
-        "documentation": {}
-    },
-    {
-        "label": "test_vector_store_loading",
-        "kind": 2,
-        "importPath": "test_vector_store_loading",
-        "description": "test_vector_store_loading",
-        "peekOfCode": "def test_vector_store_loading():\n    \"\"\"Test loading the index from vector store directly.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    logger.info(\"=== Testing Vector Store Index Loading ===\")\n    try:\n        from app.storage_config import load_storage_context",
-        "detail": "test_vector_store_loading",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "kind": 5,
-        "importPath": "test_vector_store_loading",
-        "description": "test_vector_store_loading",
-        "peekOfCode": "logger = logging.getLogger(__name__)\ndef test_vector_store_loading():\n    \"\"\"Test loading the index from vector store directly.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    logger.info(\"=== Testing Vector Store Index Loading ===\")\n    try:",
-        "detail": "test_vector_store_loading",
+        "importPath": "test_streaming",
+        "description": "test_streaming",
+        "peekOfCode": "def test_regular_api():\n    \"\"\"测试普通聊天API作为对比\"\"\"\n    url = \"http://localhost:8000/api/chat\"\n    payload = {\n        \"id\": f\"test_regular_{int(time.time())}\",\n        \"messages\": [\n            {\n                \"role\": \"user\",\n                \"content\": \"电子发票重复报销如何防范？\"\n            }",
+        "detail": "test_streaming",
         "documentation": {}
     }
 ]
