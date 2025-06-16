@@ -12,16 +12,17 @@ logger = logging.getLogger(__name__)
 def get_storage_context(storage_dir: str = "storage") -> StorageContext:
     """
     Create a storage context using SQLite for docstore/index store and ChromaDB for vector store.
-    
+    Optimized for text-only processing - no graph store or image vector store.
+
     Args:
         storage_dir: Directory to store the databases
-        
+
     Returns:
         StorageContext configured with SQLite and ChromaDB backends
     """
     # Ensure storage directory exists
     os.makedirs(storage_dir, exist_ok=True)
-    
+
     # Configure ChromaDB client
     chroma_db_path = os.path.join(storage_dir, "chroma_db")
     chroma_client = chromadb.PersistentClient(
@@ -52,7 +53,7 @@ def get_storage_context(storage_dir: str = "storage") -> StorageContext:
     index_store_path = os.path.join(storage_dir, "index_store.db")
     index_store = SQLiteIndexStore(index_store_path)
     
-    # Create storage context
+    # Create storage context with optimized components
     storage_context = StorageContext.from_defaults(
         vector_store=vector_store,
         docstore=docstore,

@@ -37,17 +37,67 @@ def generate_index():
 
     # Parse documents into nodes
     from llama_index.core.node_parser import SentenceSplitter
+    import hashlib
+
     parser = SentenceSplitter()
     nodes = parser.get_nodes_from_documents(documents)
 
     logger.info(f"Parsed {len(documents)} documents into {len(nodes)} nodes")
 
+    # Process each document and its nodes to add file metadata
+    processed_nodes = []
+    for document in documents:
+        # Extract file information from document metadata
+        file_path = document.metadata.get('file_path', '')
+        file_name = document.metadata.get('file_name', os.path.basename(file_path))
+
+        # Generate file_id based on file_name (consistent with upload logic)
+        file_id = f"file_{hashlib.md5(file_name.encode()).hexdigest()[:8]}"
+
+        # Get file stats
+        try:
+            file_stats = os.stat(file_path) if file_path and os.path.exists(file_path) else None
+            file_size = file_stats.st_size if file_stats else 0
+        except:
+            file_size = 0
+
+        file_type = "text/plain"  # Default for txt files
+
+        # Add file record to the files table
+        storage_context.docstore.add_file_record(
+            file_id=file_id,
+            file_name=file_name,
+            file_path=file_path,
+            file_size=file_size,
+            file_type=file_type,
+            file_hash=""
+        )
+
+        # Find nodes that belong to this document
+        doc_nodes = [node for node in nodes if node.ref_doc_id == document.doc_id]
+
+        # Add file metadata to each node
+        for i, node in enumerate(doc_nodes):
+            if not hasattr(node, 'metadata'):
+                node.metadata = {}
+
+            node.metadata.update({
+                'file_id': file_id,
+                'file_name': file_name,
+                'file_size': file_size,
+                'file_type': file_type,
+                'chunk_index': i
+            })
+            processed_nodes.append(node)
+
+    logger.info(f"Processed {len(processed_nodes)} nodes with file metadata")
+
     # Add nodes to docstore manually
-    storage_context.docstore.add_documents(nodes)
+    storage_context.docstore.add_documents(processed_nodes)
 
     # Create index with custom storage context
     index = VectorStoreIndex(
-        nodes,
+        processed_nodes,
         storage_context=storage_context,
         show_progress=True,
     )

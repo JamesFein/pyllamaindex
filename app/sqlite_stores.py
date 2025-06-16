@@ -82,6 +82,35 @@ class SQLiteDocumentStore(BaseDocumentStore):
                 conn.execute("ALTER TABLE documents ADD COLUMN upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
                 logger.info("Added upload_date column to documents table")
 
+            if 'file_id' not in columns:
+                conn.execute("ALTER TABLE documents ADD COLUMN file_id TEXT")
+                logger.info("Added file_id column to documents table")
+
+            if 'chunk_index' not in columns:
+                conn.execute("ALTER TABLE documents ADD COLUMN chunk_index INTEGER")
+                logger.info("Added chunk_index column to documents table")
+
+            # Create files table if it doesn't exist
+            conn.execute("""
+                CREATE TABLE IF NOT EXISTS files (
+                    file_id TEXT PRIMARY KEY,
+                    file_name TEXT NOT NULL,
+                    file_path TEXT NOT NULL,
+                    file_size INTEGER NOT NULL,
+                    file_type TEXT NOT NULL,
+                    file_hash TEXT,
+                    upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )
+            """)
+
+            # Create indexes for better performance
+            conn.execute("CREATE INDEX IF NOT EXISTS idx_files_upload_date ON files(upload_date DESC)")
+            conn.execute("CREATE INDEX IF NOT EXISTS idx_files_name ON files(file_name)")
+            conn.execute("CREATE INDEX IF NOT EXISTS idx_documents_file_id ON documents(file_id)")
+            conn.execute("CREATE INDEX IF NOT EXISTS idx_documents_chunk_index ON documents(file_id, chunk_index)")
+
         except Exception as e:
             logger.warning(f"Schema migration warning: {e}")
 
