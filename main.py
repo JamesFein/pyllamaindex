@@ -140,12 +140,34 @@ def create_app():
 
             for file in files:
                 try:
-                    # 生成文件ID和安全文件名
-                    file_id = f"file_{hashlib.md5(file.filename.encode()).hexdigest()[:8]}"
-                    safe_filename = f"{file_id}_{file.filename}"
-                    file_path = os.path.join(data_dir, safe_filename)
+                    # 直接使用原始文件名，同名文件视为同一份文件
+                    file_path = os.path.join(data_dir, file.filename)
 
-                    # 保存文件
+                    # 使用文件名的哈希作为文件ID，确保同名文件有相同的ID
+                    file_id = f"file_{hashlib.md5(file.filename.encode()).hexdigest()[:8]}"
+
+                    # 获取存储上下文
+                    storage_context = get_storage_context(STORAGE_DIR)
+
+                    # 检查是否存在同名文件，如果存在则完全删除旧文件
+                    existing_file_info = storage_context.docstore.get_file_info(file_id)
+                    if existing_file_info:
+                        logger.info(f"Found existing file with same name: {file.filename}, deleting old version...")
+
+                        # 1. 删除文件系统中的旧文件
+                        old_file_path = existing_file_info['path']
+                        if os.path.exists(old_file_path):
+                            os.remove(old_file_path)
+                            logger.info(f"Deleted old file: {old_file_path}")
+
+                        # 2. 删除数据库中的文件记录和所有相关文档块
+                        storage_context.docstore.delete_file_and_chunks(file_id)
+                        logger.info(f"Deleted old file record and chunks for: {file.filename}")
+
+                        # 3. 重新持久化存储上下文以清理向量索引
+                        storage_context.persist(STORAGE_DIR)
+
+                    # 保存新文件
                     with open(file_path, "wb") as buffer:
                         shutil.copyfileobj(file.file, buffer)
 
@@ -159,9 +181,6 @@ def create_app():
                         for chunk in iter(lambda: f.read(4096), b""):
                             file_hash.update(chunk)
                     file_hash_str = file_hash.hexdigest()
-
-                    # 获取存储上下文
-                    storage_context = get_storage_context(STORAGE_DIR)
 
                     # 1. 先添加文件记录到files表
                     success = storage_context.docstore.add_file_record(

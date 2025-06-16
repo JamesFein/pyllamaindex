@@ -409,18 +409,22 @@ class SQLiteDocumentStore(BaseDocumentStore):
 
     def add_file_record(self, file_id: str, file_name: str, file_path: str, file_size: int,
                        file_type: str, file_hash: str = "") -> bool:
-        """Add a file record to the files table."""
+        """Add or update a file record in the files table. Same filename = same file."""
         try:
             with sqlite3.connect(self.db_path) as conn:
+                # 使用 INSERT OR REPLACE 来支持同名文件更新
                 conn.execute("""
-                    INSERT INTO files
+                    INSERT OR REPLACE INTO files
                     (file_id, file_name, file_path, file_size, file_type, file_hash, upload_date, created_at, updated_at)
-                    VALUES (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
-                """, (file_id, file_name, file_path, file_size, file_type, file_hash))
+                    VALUES (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP,
+                            COALESCE((SELECT created_at FROM files WHERE file_id = ?), CURRENT_TIMESTAMP),
+                            CURRENT_TIMESTAMP)
+                """, (file_id, file_name, file_path, file_size, file_type, file_hash, file_id))
                 conn.commit()
+                logger.info(f"Added/updated file record for {file_name} (ID: {file_id})")
                 return True
         except Exception as e:
-            logger.error(f"Failed to add file record: {e}")
+            logger.error(f"Failed to add/update file record: {e}")
             return False
 
     def delete_file_and_chunks(self, file_id: str) -> bool:
