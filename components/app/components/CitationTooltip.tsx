@@ -94,7 +94,7 @@ export function CitationTooltip({
       tooltip.style.left = `${adjustedX}px`;
       tooltip.style.top = `${adjustedY}px`;
     }
-  }, [isVisible, position, citationData]);
+  }, [isVisible, position.x, position.y, citationData]);
 
   return (
     <>

@@ -3,6 +3,7 @@
 import { ChatMessage } from "@llamaindex/chat-ui";
 import { CitationTooltip } from "./CitationTooltip";
 import { Message } from "ai";
+import { useMemo } from "react";
 
 interface CustomChatMessageProps {
   message: Message;
@@ -13,61 +14,65 @@ export function CustomChatMessage({
   message,
   isLoading,
 }: CustomChatMessageProps) {
-  // 处理引用标记的函数
-  const processContent = (content: string) => {
-    // 查找所有引用标记
-    const citationRegex = /\[citation:(.*?)\]/g;
-    const citations: string[] = [];
-    let match;
+  // 使用 useMemo 优化处理引用标记的函数，避免每次渲染都重新计算
+  const processContent = useMemo(() => {
+    return (content: string) => {
+      // 查找所有引用标记
+      const citationRegex = /\[citation:(.*?)\]/g;
+      const citations: string[] = [];
+      let match;
 
-    while ((match = citationRegex.exec(content)) !== null) {
-      citations.push(match[1]);
-    }
-
-    // 替换引用标记为带tooltip的序号
-    let processedContent = content;
-    citations.forEach((citationId, index) => {
-      const citationNumber = index + 1;
-      const citationPattern = new RegExp(
-        `\\[citation:${citationId.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\]`,
-        "g"
-      );
-
-      processedContent = processedContent.replace(
-        citationPattern,
-        `<citation-placeholder data-citation-id="${citationId}" data-citation-number="${citationNumber}"></citation-placeholder>`
-      );
-    });
-
-    return processedContent;
-  };
-
-  // 渲染处理后的内容
-  const renderContent = (content: string) => {
-    const processedContent = processContent(content);
-
-    // 分割内容并处理引用占位符
-    const parts = processedContent.split(
-      /(<citation-placeholder[^>]*><\/citation-placeholder>)/g
-    );
-
-    return parts.map((part, index) => {
-      const citationMatch = part.match(
-        /<citation-placeholder data-citation-id="([^"]*)" data-citation-number="([^"]*)"><\/citation-placeholder>/
-      );
-
-      if (citationMatch) {
-        const [, citationId, citationNumber] = citationMatch;
-        return (
-          <CitationTooltip key={`citation-${index}`} citationId={citationId}>
-            [{citationNumber}]
-          </CitationTooltip>
-        );
+      while ((match = citationRegex.exec(content)) !== null) {
+        citations.push(match[1]);
       }
 
-      return part;
-    });
-  };
+      // 替换引用标记为带tooltip的序号
+      let processedContent = content;
+      citations.forEach((citationId, index) => {
+        const citationNumber = index + 1;
+        const citationPattern = new RegExp(
+          `\\[citation:${citationId.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\]`,
+          "g"
+        );
+
+        processedContent = processedContent.replace(
+          citationPattern,
+          `<citation-placeholder data-citation-id="${citationId}" data-citation-number="${citationNumber}"></citation-placeholder>`
+        );
+      });
+
+      return processedContent;
+    };
+  }, []);
+
+  // 使用 useMemo 优化渲染处理后的内容
+  const renderContent = useMemo(() => {
+    return (content: string) => {
+      const processedContent = processContent(content);
+
+      // 分割内容并处理引用占位符
+      const parts = processedContent.split(
+        /(<citation-placeholder[^>]*><\/citation-placeholder>)/g
+      );
+
+      return parts.map((part, index) => {
+        const citationMatch = part.match(
+          /<citation-placeholder data-citation-id="([^"]*)" data-citation-number="([^"]*)"><\/citation-placeholder>/
+        );
+
+        if (citationMatch) {
+          const [, citationId, citationNumber] = citationMatch;
+          return (
+            <CitationTooltip key={`citation-${index}`} citationId={citationId}>
+              [{citationNumber}]
+            </CitationTooltip>
+          );
+        }
+
+        return part;
+      });
+    };
+  }, [processContent]);
 
   // 如果是助手消息且包含引用，使用自定义渲染
   if (message.role === "assistant" && message.content.includes("[citation:")) {

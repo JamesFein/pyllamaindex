@@ -2,11 +2,12 @@
 
 import { ChatSection, ChatMessages, ChatInput } from "@llamaindex/chat-ui";
 import { useChat } from "ai/react";
-import { ErrorBoundary } from "./components/ErrorBoundary";
-import { useCallback, useRef } from "react";
+import { CustomChatMessage } from "./CustomChatMessage";
+import { ErrorBoundary } from "./ErrorBoundary";
+import { useMemo, useCallback, useRef } from "react";
 
-export default function ChatPage() {
-  // 使用 useRef 来存储稳定的配置，避免每次渲染重新创建
+export default function StableChatPage() {
+  // 使用 useRef 来存储稳定的配置
   const chatConfigRef = useRef({
     api: "/api/chat",
     body: { id: `chat-${Date.now()}` },
@@ -24,6 +25,11 @@ export default function ChatPage() {
   const handleError = useCallback((error: Error) => {
     console.error("Chat error:", error);
   }, []);
+
+  // 稳定的消息渲染函数
+  const messageRenderer = useCallback((message: any, isLoading: any) => (
+    <CustomChatMessage message={message} isLoading={isLoading} />
+  ), []);
 
   const handler = useChat({
     ...chatConfigRef.current,
