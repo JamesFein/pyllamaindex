@@ -352,46 +352,6 @@
         "documentation": {}
     },
     {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
-        "isExtraImport": true,
-        "detail": "dotenv",
-        "documentation": {}
-    },
-    {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
-        "isExtraImport": true,
-        "detail": "dotenv",
-        "documentation": {}
-    },
-    {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
-        "isExtraImport": true,
-        "detail": "dotenv",
-        "documentation": {}
-    },
-    {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
-        "isExtraImport": true,
-        "detail": "dotenv",
-        "documentation": {}
-    },
-    {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
-        "isExtraImport": true,
-        "detail": "dotenv",
-        "documentation": {}
-    },
-    {
         "label": "init_settings",
         "importPath": "app.settings",
         "description": "app.settings",
@@ -421,15 +381,6 @@
         "description": "llama_index.server",
         "isExtraImport": true,
         "detail": "llama_index.server",
-        "documentation": {}
-    },
-    {
-        "label": "shutil",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "shutil",
-        "description": "shutil",
-        "detail": "shutil",
         "documentation": {}
     },
     {
@@ -622,24 +573,6 @@
         "documentation": {}
     },
     {
-        "label": "debug_index_store",
-        "kind": 2,
-        "importPath": "debug_index_store",
-        "description": "debug_index_store",
-        "peekOfCode": "def debug_index_store():\n    \"\"\"Debug the index store database.\"\"\"\n    db_path = \"storage/index_store.db\"\n    try:\n        with sqlite3.connect(db_path) as conn:\n            cursor = conn.execute(\"SELECT index_id, data FROM index_structs\")\n            for row in cursor.fetchall():\n                index_id, data_json = row\n                data = json.loads(data_json)\n                logger.info(f\"Index ID: {index_id}\")",
-        "detail": "debug_index_store",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "kind": 5,
-        "importPath": "debug_index_store",
-        "description": "debug_index_store",
-        "peekOfCode": "logger = logging.getLogger(__name__)\ndef debug_index_store():\n    \"\"\"Debug the index store database.\"\"\"\n    db_path = \"storage/index_store.db\"\n    try:\n        with sqlite3.connect(db_path) as conn:\n            cursor = conn.execute(\"SELECT index_id, data FROM index_structs\")\n            for row in cursor.fetchall():\n                index_id, data_json = row\n                data = json.loads(data_json)",
-        "detail": "debug_index_store",
-        "documentation": {}
-    },
-    {
         "label": "generate_index",
         "kind": 2,
         "importPath": "generate",
@@ -700,114 +633,6 @@
         "description": "main",
         "peekOfCode": "app = create_app()",
         "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "main",
-        "kind": 2,
-        "importPath": "migrate_to_sqlite",
-        "description": "migrate_to_sqlite",
-        "peekOfCode": "def main():\n    \"\"\"Main migration function.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    storage_dir = \"storage\"\n    logger.info(\"=== SQLite Migration Script ===\")\n    logger.info(f\"Storage directory: {storage_dir}\")",
-        "detail": "migrate_to_sqlite",
-        "documentation": {}
-    },
-    {
-        "label": "test_storage",
-        "kind": 2,
-        "importPath": "migrate_to_sqlite",
-        "description": "migrate_to_sqlite",
-        "peekOfCode": "def test_storage():\n    \"\"\"Test the new SQLite storage.\"\"\"\n    try:\n        from app.storage_config import load_storage_context\n        storage_context = load_storage_context(\"storage\")\n        if storage_context:\n            logger.info(\"✅ SQLite storage context loaded successfully\")\n            # Test document store\n            doc_count = len(storage_context.docstore.docs)\n            logger.info(f\"✅ Document store: {doc_count} documents\")",
-        "detail": "migrate_to_sqlite",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "kind": 5,
-        "importPath": "migrate_to_sqlite",
-        "description": "migrate_to_sqlite",
-        "peekOfCode": "logger = logging.getLogger(__name__)\ndef main():\n    \"\"\"Main migration function.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    storage_dir = \"storage\"\n    logger.info(\"=== SQLite Migration Script ===\")",
-        "detail": "migrate_to_sqlite",
-        "documentation": {}
-    },
-    {
-        "label": "test_index_loading",
-        "kind": 2,
-        "importPath": "test_index_loading",
-        "description": "test_index_loading",
-        "peekOfCode": "def test_index_loading():\n    \"\"\"Test loading the index from storage.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    logger.info(\"=== Testing Index Loading ===\")\n    # Test the get_index function\n    from app.index import get_index",
-        "detail": "test_index_loading",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "kind": 5,
-        "importPath": "test_index_loading",
-        "description": "test_index_loading",
-        "peekOfCode": "logger = logging.getLogger(__name__)\ndef test_index_loading():\n    \"\"\"Test loading the index from storage.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    logger.info(\"=== Testing Index Loading ===\")\n    # Test the get_index function",
-        "detail": "test_index_loading",
-        "documentation": {}
-    },
-    {
-        "label": "test_sqlite_docstore",
-        "kind": 2,
-        "importPath": "test_sqlite_store",
-        "description": "test_sqlite_store",
-        "peekOfCode": "def test_sqlite_docstore():\n    \"\"\"Test SQLite document store directly.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    from app.sqlite_stores import SQLiteDocumentStore\n    from llama_index.core.schema import TextNode\n    logger.info(\"=== Testing SQLite Document Store ===\")",
-        "detail": "test_sqlite_store",
-        "documentation": {}
-    },
-    {
-        "label": "test_index_creation_with_debug",
-        "kind": 2,
-        "importPath": "test_sqlite_store",
-        "description": "test_sqlite_store",
-        "peekOfCode": "def test_index_creation_with_debug():\n    \"\"\"Test index creation with debug logging to see what's happening.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    logger.info(\"=== Testing Index Creation with Debug ===\")\n    from llama_index.core.readers import SimpleDirectoryReader\n    from llama_index.core.indices import VectorStoreIndex",
-        "detail": "test_sqlite_store",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "kind": 5,
-        "importPath": "test_sqlite_store",
-        "description": "test_sqlite_store",
-        "peekOfCode": "logger = logging.getLogger(__name__)\ndef test_sqlite_docstore():\n    \"\"\"Test SQLite document store directly.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    from app.sqlite_stores import SQLiteDocumentStore\n    from llama_index.core.schema import TextNode",
-        "detail": "test_sqlite_store",
-        "documentation": {}
-    },
-    {
-        "label": "test_storage_systems",
-        "kind": 2,
-        "importPath": "test_storage",
-        "description": "test_storage",
-        "peekOfCode": "def test_storage_systems():\n    \"\"\"Test both ChromaDB and SQLite storage systems.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    logger.info(\"=== Testing Storage Systems ===\")\n    # Test 1: Check if ChromaDB is working\n    logger.info(\"1. Testing ChromaDB vector store...\")",
-        "detail": "test_storage",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "kind": 5,
-        "importPath": "test_storage",
-        "description": "test_storage",
-        "peekOfCode": "logger = logging.getLogger(__name__)\ndef test_storage_systems():\n    \"\"\"Test both ChromaDB and SQLite storage systems.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    logger.info(\"=== Testing Storage Systems ===\")\n    # Test 1: Check if ChromaDB is working",
-        "detail": "test_storage",
-        "documentation": {}
-    },
-    {
-        "label": "test_vector_store_loading",
-        "kind": 2,
-        "importPath": "test_vector_store_loading",
-        "description": "test_vector_store_loading",
-        "peekOfCode": "def test_vector_store_loading():\n    \"\"\"Test loading the index from vector store directly.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    logger.info(\"=== Testing Vector Store Index Loading ===\")\n    try:\n        from app.storage_config import load_storage_context",
-        "detail": "test_vector_store_loading",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "kind": 5,
-        "importPath": "test_vector_store_loading",
-        "description": "test_vector_store_loading",
-        "peekOfCode": "logger = logging.getLogger(__name__)\ndef test_vector_store_loading():\n    \"\"\"Test loading the index from vector store directly.\"\"\"\n    # Load environment variables\n    load_dotenv()\n    # Initialize settings\n    from app.settings import init_settings\n    init_settings()\n    logger.info(\"=== Testing Vector Store Index Loading ===\")\n    try:",
-        "detail": "test_vector_store_loading",
         "documentation": {}
     }
 ]
