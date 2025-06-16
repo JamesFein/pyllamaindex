@@ -28,6 +28,8 @@ out/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+# 忽略 VSCode Python 导入助手生成的文件
+.vscode/PythonImportHelper-v2-Completion.json
 
 # IDE 配置
 .idea/
