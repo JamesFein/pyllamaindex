@@ -31,10 +31,79 @@ def create_app():
         env="dev",
     )
 
+    # 添加自定义中间件来处理sources注解
+    from fastapi import Request, Response
+    from starlette.middleware.base import BaseHTTPMiddleware
+    import re
+    import json
+
+    class SourcesAnnotationMiddleware(BaseHTTPMiddleware):
+        async def dispatch(self, request: Request, call_next):
+            response = await call_next(request)
+
+            # 只处理chat API的响应
+            if request.url.path == "/api/chat" and request.method == "POST":
+                # 如果是流式响应，我们需要修改响应内容
+                if response.headers.get("content-type", "").startswith("text/plain"):
+                    # 读取原始响应内容
+                    body = b""
+                    async for chunk in response.body_iterator:
+                        body += chunk
+
+                    # 解码响应内容
+                    content = body.decode('utf-8')
+
+                    # 检查是否包含引用
+                    citation_pattern = r'\[citation:([^\]]+)\]'
+                    citation_ids = re.findall(citation_pattern, content)
+
+                    if citation_ids:
+                        # 获取索引以获取源节点
+                        try:
+                            from app.index import get_index
+                            index = get_index()
+                            if index:
+                                nodes = []
+                                for citation_id in citation_ids:
+                                    try:
+                                        node = index.docstore.get_node(citation_id)
+                                        nodes.append({
+                                            "id": node.node_id,
+                                            "text": node.text,
+                                            "metadata": node.metadata,
+                                            "score": getattr(node, 'score', None)
+                                        })
+                                    except:
+                                        continue
+
+                                if nodes:
+                                    # 添加sources注解到响应中
+                                    sources_annotation = {
+                                        "type": "sources",
+                                        "data": {"nodes": nodes}
+                                    }
+
+                                    # 修改响应内容，添加sources注解
+                                    content += f'\n8:[{json.dumps(sources_annotation)}]\n'
+                        except Exception as e:
+                            logger.error(f"Error adding sources annotation: {e}")
+
+                    # 创建新的响应
+                    return Response(
+                        content=content,
+                        status_code=response.status_code,
+                        headers=dict(response.headers),
+                        media_type=response.media_type
+                    )
+
+            return response
+
+    app.add_middleware(SourcesAnnotationMiddleware)
+
     # 添加CORS中间件
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],  # Next.js开发服务器
+        allow_origins=["http://localhost:3000", "http://127.0.0.1:3000", "http://localhost:3001", "http://127.0.0.1:3001"],  # Next.js开发服务器
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],

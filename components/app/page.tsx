@@ -3,37 +3,25 @@
 import { ChatSection, ChatMessages, ChatInput } from "@llamaindex/chat-ui";
 import { useChat } from "ai/react";
 import { ErrorBoundary } from "./components/ErrorBoundary";
-import { useCallback, useRef } from "react";
 
 export default function ChatPage() {
-  // 使用 useRef 来存储稳定的配置，避免每次渲染重新创建
-  const chatConfigRef = useRef({
-    api: "/api/chat",
+  const handler = useChat({
+    api: "http://localhost:8000/api/chat",
     body: { id: `chat-${Date.now()}` },
     initialMessages: [
       {
-        id: "1",
-        role: "assistant" as const,
+        id: "welcome-message",
+        role: "assistant",
         content:
           "您好！我是您的AI助手，可以帮您查询和分析文档内容。请问有什么可以帮助您的吗？",
       },
     ],
   });
 
-  // 稳定的错误处理函数
-  const handleError = useCallback((error: Error) => {
-    console.error("Chat error:", error);
-  }, []);
-
-  const handler = useChat({
-    ...chatConfigRef.current,
-    onError: handleError,
-  });
-
   return (
     <ErrorBoundary>
-      <div className="h-full flex flex-col">
-        <ChatSection handler={handler} className="flex-1 flex flex-col">
+      <div className="h-full flex flex-col bg-background">
+        <ChatSection handler={handler as any} className="flex-1 flex flex-col">
           <ChatMessages />
           <ChatInput />
         </ChatSection>

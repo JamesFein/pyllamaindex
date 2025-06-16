@@ -672,6 +672,15 @@
         "documentation": {}
     },
     {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
         "label": "tempfile",
         "kind": 6,
         "isExtraImport": true,
@@ -694,15 +703,6 @@
         "description": "llama_index.core.readers",
         "isExtraImport": true,
         "detail": "llama_index.core.readers",
-        "documentation": {}
-    },
-    {
-        "label": "requests",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "requests",
-        "description": "requests",
-        "detail": "requests",
         "documentation": {}
     },
     {
@@ -1340,7 +1340,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def create_app():\n    app = LlamaIndexServer(\n        workflow_factory=create_workflow,  # A factory function that creates a new workflow for each request\n        ui_config=UIConfig(\n            enabled=False,  # 禁用默认UI\n        ),\n        logger=logger,\n        env=\"dev\",\n    )\n    # 添加CORS中间件",
+        "peekOfCode": "def create_app():\n    app = LlamaIndexServer(\n        workflow_factory=create_workflow,  # A factory function that creates a new workflow for each request\n        ui_config=UIConfig(\n            enabled=False,  # 禁用默认UI\n        ),\n        logger=logger,\n        env=\"dev\",\n    )\n    # 添加自定义中间件来处理sources注解",
         "detail": "main",
         "documentation": {}
     },
@@ -1468,6 +1468,24 @@
         "description": "reset_database",
         "peekOfCode": "logger = logging.getLogger(__name__)\ndef backup_storage(storage_dir=\"storage\"):\n    \"\"\"备份当前存储目录\"\"\"\n    if not os.path.exists(storage_dir):\n        logger.info(f\"存储目录 {storage_dir} 不存在，无需备份\")\n        return None\n    timestamp = datetime.now().strftime(\"%Y%m%d_%H%M%S\")\n    backup_dir = f\"{storage_dir}_backup_{timestamp}\"\n    try:\n        shutil.copytree(storage_dir, backup_dir)",
         "detail": "reset_database",
+        "documentation": {}
+    },
+    {
+        "label": "test_chat_api",
+        "kind": 2,
+        "importPath": "test_api",
+        "description": "test_api",
+        "peekOfCode": "def test_chat_api():\n    \"\"\"测试chat API并检查响应格式\"\"\"\n    url = \"http://localhost:8000/api/chat\"\n    payload = {\n        \"id\": \"test-123\",\n        \"messages\": [\n            {\n                \"role\": \"user\",\n                \"content\": \"发票丢失了怎么办？\"\n            }",
+        "detail": "test_api",
+        "documentation": {}
+    },
+    {
+        "label": "test_health_api",
+        "kind": 2,
+        "importPath": "test_api",
+        "description": "test_api",
+        "peekOfCode": "def test_health_api():\n    \"\"\"测试健康检查API\"\"\"\n    url = \"http://localhost:8000/api/health\"\n    try:\n        response = requests.get(url, timeout=10)\n        print(f\"健康检查状态码: {response.status_code}\")\n        print(f\"健康检查响应: {response.json()}\")\n        return response.status_code == 200\n    except Exception as e:\n        print(f\"健康检查失败: {e}\")",
+        "detail": "test_api",
         "documentation": {}
     },
     {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { LoadingSpinner } from "./LoadingSpinner";
 
 interface CitationData {
@@ -29,7 +29,8 @@ export function CitationTooltip({
   const tooltipRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLSpanElement>(null);
 
-  const loadCitationData = async () => {
+  // 使用 useCallback 创建稳定的加载函数
+  const loadCitationData = useCallback(async () => {
     if (citationData || isLoading) return;
 
     setIsLoading(true);
@@ -56,23 +57,26 @@ export function CitationTooltip({
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [citationId, citationData, isLoading]);
 
-  const handleMouseEnter = (e: React.MouseEvent) => {
-    const rect = triggerRef.current?.getBoundingClientRect();
-    if (rect) {
-      setPosition({
-        x: rect.left + rect.width / 2,
-        y: rect.top - 10,
-      });
-    }
-    setIsVisible(true);
-    loadCitationData();
-  };
+  const handleMouseEnter = useCallback(
+    (e: React.MouseEvent) => {
+      const rect = triggerRef.current?.getBoundingClientRect();
+      if (rect) {
+        setPosition({
+          x: rect.left + rect.width / 2,
+          y: rect.top - 10,
+        });
+      }
+      setIsVisible(true);
+      loadCitationData();
+    },
+    [loadCitationData]
+  );
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
     setIsVisible(false);
-  };
+  }, []); // 无依赖项，函数稳定
 
   useEffect(() => {
     if (isVisible && tooltipRef.current) {
@@ -94,7 +98,7 @@ export function CitationTooltip({
       tooltip.style.left = `${adjustedX}px`;
       tooltip.style.top = `${adjustedY}px`;
     }
-  }, [isVisible, position.x, position.y, citationData]);
+  }, [isVisible, position.x, position.y]); // 移除 citationData 依赖，避免无限循环
 
   return (
     <>

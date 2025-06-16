@@ -1,9 +1,13 @@
 "use client";
 
-import { ChatMessage } from "@llamaindex/chat-ui";
 import { CitationTooltip } from "./CitationTooltip";
-import { Message } from "ai";
 import { useMemo } from "react";
+
+interface Message {
+  id: string;
+  role: "user" | "assistant";
+  content: string;
+}
 
 interface CustomChatMessageProps {
   message: Message;
@@ -14,7 +18,7 @@ export function CustomChatMessage({
   message,
   isLoading,
 }: CustomChatMessageProps) {
-  // 使用 useMemo 优化处理引用标记的函数，避免每次渲染都重新计算
+  // 使用 useMemo 优化处理引用标记的函数，基于消息内容进行缓存
   const processContent = useMemo(() => {
     return (content: string) => {
       // 查找所有引用标记
@@ -43,7 +47,7 @@ export function CustomChatMessage({
 
       return processedContent;
     };
-  }, []);
+  }, [message.content]); // 依赖消息内容，只有内容变化时才重新计算
 
   // 使用 useMemo 优化渲染处理后的内容
   const renderContent = useMemo(() => {
@@ -63,7 +67,10 @@ export function CustomChatMessage({
         if (citationMatch) {
           const [, citationId, citationNumber] = citationMatch;
           return (
-            <CitationTooltip key={`citation-${index}`} citationId={citationId}>
+            <CitationTooltip
+              key={`citation-${citationId}-${index}`}
+              citationId={citationId}
+            >
               [{citationNumber}]
             </CitationTooltip>
           );
@@ -72,7 +79,7 @@ export function CustomChatMessage({
         return part;
       });
     };
-  }, [processContent]);
+  }, [processContent, message.content]); // 依赖 processContent 和消息内容
 
   // 如果是助手消息且包含引用，使用自定义渲染
   if (message.role === "assistant" && message.content.includes("[citation:")) {
@@ -103,6 +110,30 @@ export function CustomChatMessage({
     );
   }
 
-  // 对于其他消息，使用默认的ChatMessage组件
-  return <ChatMessage message={message} isLoading={isLoading} />;
+  // 对于其他消息，使用简单的消息显示
+  return (
+    <div
+      className={`flex ${
+        message.role === "user" ? "justify-end" : "justify-start"
+      } mb-4 chat-message`}
+    >
+      <div
+        className={`max-w-[80%] rounded-lg px-4 py-3 ${
+          message.role === "user"
+            ? "bg-primary text-primary-foreground"
+            : "bg-muted text-muted-foreground border border-border"
+        } shadow-sm`}
+      >
+        <div className="prose prose-sm max-w-none dark:prose-invert">
+          {message.content}
+        </div>
+        {isLoading && (
+          <div className="flex items-center mt-3 space-x-2 text-muted-foreground">
+            <div className="w-3 h-3 border-2 border-current border-t-transparent rounded-full animate-spin"></div>
+            <span className="text-xs">正在思考...</span>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }
