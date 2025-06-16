@@ -32,7 +32,11 @@ class SQLiteDocumentStore(BaseDocumentStore):
                     doc_hash TEXT,
                     data TEXT NOT NULL,
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    file_name TEXT,
+                    file_size INTEGER,
+                    file_type TEXT,
+                    upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 )
             """)
 
@@ -49,7 +53,37 @@ class SQLiteDocumentStore(BaseDocumentStore):
             # Create indexes for better performance
             conn.execute("CREATE INDEX IF NOT EXISTS idx_doc_hash ON documents(doc_hash)")
             conn.execute("CREATE INDEX IF NOT EXISTS idx_updated_at ON documents(updated_at)")
+            conn.execute("CREATE INDEX IF NOT EXISTS idx_upload_date ON documents(upload_date DESC)")
+
+            # Add new columns to existing tables if they don't exist
+            self._migrate_schema(conn)
             conn.commit()
+
+    def _migrate_schema(self, conn):
+        """Migrate existing schema to add new columns."""
+        try:
+            # Check if new columns exist, if not add them
+            cursor = conn.execute("PRAGMA table_info(documents)")
+            columns = [row[1] for row in cursor.fetchall()]
+
+            if 'file_name' not in columns:
+                conn.execute("ALTER TABLE documents ADD COLUMN file_name TEXT")
+                logger.info("Added file_name column to documents table")
+
+            if 'file_size' not in columns:
+                conn.execute("ALTER TABLE documents ADD COLUMN file_size INTEGER")
+                logger.info("Added file_size column to documents table")
+
+            if 'file_type' not in columns:
+                conn.execute("ALTER TABLE documents ADD COLUMN file_type TEXT")
+                logger.info("Added file_type column to documents table")
+
+            if 'upload_date' not in columns:
+                conn.execute("ALTER TABLE documents ADD COLUMN upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+                logger.info("Added upload_date column to documents table")
+
+        except Exception as e:
+            logger.warning(f"Schema migration warning: {e}")
 
     def _deserialize_node(self, node_data: dict) -> BaseNode:
         """Deserialize node data back to the correct node type."""
@@ -76,8 +110,8 @@ class SQLiteDocumentStore(BaseDocumentStore):
             # Fallback to TextNode if deserialization fails
             return TextNode.from_dict(node_data)
     
-    def add_documents(self, nodes: List[BaseNode], allow_update: bool = True) -> None:
-        """Add documents to the store."""
+    def add_documents(self, nodes: List[BaseNode], allow_update: bool = True, file_metadata: Optional[Dict[str, Any]] = None) -> None:
+        """Add documents to the store with optional file metadata."""
         logger.info(f"🔥 SQLiteDocumentStore.add_documents called with {len(nodes)} nodes")
         with sqlite3.connect(self.db_path) as conn:
             for node in nodes:
@@ -87,16 +121,29 @@ class SQLiteDocumentStore(BaseDocumentStore):
 
                 logger.debug(f"Adding node {node.node_id} with hash {doc_hash}")
 
+                # Extract file metadata from node or use provided metadata
+                metadata = file_metadata or {}
+                if hasattr(node, 'metadata') and node.metadata:
+                    metadata.update(node.metadata)
+
+                file_name = metadata.get('file_name')
+                file_size = metadata.get('file_size')
+                file_type = metadata.get('file_type')
+                file_id = metadata.get('file_id')  # 新增：文件ID
+                chunk_index = metadata.get('chunk_index')  # 新增：文本块索引
+
                 if allow_update:
                     conn.execute("""
-                        INSERT OR REPLACE INTO documents (doc_id, doc_hash, data, updated_at)
-                        VALUES (?, ?, ?, CURRENT_TIMESTAMP)
-                    """, (node.node_id, doc_hash, doc_json))
+                        INSERT OR REPLACE INTO documents
+                        (doc_id, doc_hash, data, updated_at, file_name, file_size, file_type, file_id, chunk_index, upload_date)
+                        VALUES (?, ?, ?, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+                    """, (node.node_id, doc_hash, doc_json, file_name, file_size, file_type, file_id, chunk_index))
                 else:
                     conn.execute("""
-                        INSERT OR IGNORE INTO documents (doc_id, doc_hash, data)
-                        VALUES (?, ?, ?)
-                    """, (node.node_id, doc_hash, doc_json))
+                        INSERT OR IGNORE INTO documents
+                        (doc_id, doc_hash, data, file_name, file_size, file_type, file_id, chunk_index, upload_date)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+                    """, (node.node_id, doc_hash, doc_json, file_name, file_size, file_type, file_id, chunk_index))
             conn.commit()
         logger.info(f"✅ Successfully added {len(nodes)} documents to SQLite store")
     
@@ -233,6 +280,210 @@ class SQLiteDocumentStore(BaseDocumentStore):
         """Persist the store (no-op for SQLite as it's already persistent)."""
         logger.info(f"SQLite document store is already persistent at {self.db_path}")
     
+    def get_documents_with_metadata(self, limit: Optional[int] = None, offset: int = 0) -> List[Dict[str, Any]]:
+        """Get documents with file metadata, ordered by upload date descending."""
+        with sqlite3.connect(self.db_path) as conn:
+            query = """
+                SELECT doc_id, file_name, file_size, file_type, upload_date, created_at, updated_at
+                FROM documents
+                WHERE file_name IS NOT NULL
+                ORDER BY upload_date DESC
+            """
+            params = []
+
+            if limit:
+                query += " LIMIT ? OFFSET ?"
+                params.extend([limit, offset])
+
+            cursor = conn.execute(query, params)
+            documents = []
+            for row in cursor.fetchall():
+                doc_id, file_name, file_size, file_type, upload_date, created_at, updated_at = row
+                documents.append({
+                    'id': doc_id,
+                    'name': file_name,
+                    'size': file_size,
+                    'type': file_type,
+                    'upload_date': upload_date,
+                    'created_at': created_at,
+                    'updated_at': updated_at
+                })
+            return documents
+
+    def delete_document_by_id(self, doc_id: str) -> bool:
+        """Delete a document by its ID."""
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.execute("DELETE FROM documents WHERE doc_id = ?", (doc_id,))
+            conn.commit()
+            return cursor.rowcount > 0
+
+    def get_document_metadata(self, doc_id: str) -> Optional[Dict[str, Any]]:
+        """Get document metadata by ID."""
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.execute("""
+                SELECT file_name, file_size, file_type, upload_date, created_at, updated_at
+                FROM documents WHERE doc_id = ?
+            """, (doc_id,))
+            row = cursor.fetchone()
+            if row:
+                file_name, file_size, file_type, upload_date, created_at, updated_at = row
+                return {
+                    'file_name': file_name,
+                    'file_size': file_size,
+                    'file_type': file_type,
+                    'upload_date': upload_date,
+                    'created_at': created_at,
+                    'updated_at': updated_at
+                }
+            return None
+
+    def get_documents_with_metadata(self, limit: Optional[int] = None, offset: int = 0) -> List[Dict[str, Any]]:
+        """Get documents with file metadata, ordered by upload date descending."""
+        with sqlite3.connect(self.db_path) as conn:
+            query = """
+                SELECT doc_id, file_name, file_size, file_type, upload_date, created_at, updated_at
+                FROM documents
+                WHERE file_name IS NOT NULL
+                ORDER BY upload_date DESC
+            """
+            params = []
+
+            if limit:
+                query += " LIMIT ? OFFSET ?"
+                params.extend([limit, offset])
+
+            cursor = conn.execute(query, params)
+            documents = []
+            for row in cursor.fetchall():
+                doc_id, file_name, file_size, file_type, upload_date, created_at, updated_at = row
+                documents.append({
+                    'id': doc_id,
+                    'name': file_name,
+                    'size': file_size,
+                    'type': file_type,
+                    'upload_date': upload_date,
+                    'created_at': created_at,
+                    'updated_at': updated_at
+                })
+            return documents
+
+    def delete_document_by_id(self, doc_id: str) -> bool:
+        """Delete a document by its ID."""
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.execute("DELETE FROM documents WHERE doc_id = ?", (doc_id,))
+            conn.commit()
+            return cursor.rowcount > 0
+
+    # ===== 新增文件管理方法 =====
+
+    def get_files_with_metadata(self, limit: Optional[int] = None, offset: int = 0) -> List[Dict[str, Any]]:
+        """Get all files with metadata, ordered by upload date descending."""
+        with sqlite3.connect(self.db_path) as conn:
+            query = """
+                SELECT file_id, file_name, file_size, file_type, file_path, file_hash, upload_date, created_at, updated_at
+                FROM files
+                ORDER BY upload_date DESC
+            """
+            params = []
+
+            if limit:
+                query += " LIMIT ? OFFSET ?"
+                params.extend([limit, offset])
+
+            cursor = conn.execute(query, params)
+            files = []
+            for row in cursor.fetchall():
+                file_id, file_name, file_size, file_type, file_path, file_hash, upload_date, created_at, updated_at = row
+                files.append({
+                    'id': file_id,
+                    'name': file_name,
+                    'size': file_size,
+                    'type': file_type,
+                    'path': file_path,
+                    'hash': file_hash,
+                    'upload_date': upload_date,
+                    'created_at': created_at,
+                    'updated_at': updated_at
+                })
+            return files
+
+    def add_file_record(self, file_id: str, file_name: str, file_path: str, file_size: int,
+                       file_type: str, file_hash: str = "") -> bool:
+        """Add a file record to the files table."""
+        try:
+            with sqlite3.connect(self.db_path) as conn:
+                conn.execute("""
+                    INSERT INTO files
+                    (file_id, file_name, file_path, file_size, file_type, file_hash, upload_date, created_at, updated_at)
+                    VALUES (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+                """, (file_id, file_name, file_path, file_size, file_type, file_hash))
+                conn.commit()
+                return True
+        except Exception as e:
+            logger.error(f"Failed to add file record: {e}")
+            return False
+
+    def delete_file_and_chunks(self, file_id: str) -> bool:
+        """Delete a file and all its associated document chunks."""
+        try:
+            with sqlite3.connect(self.db_path) as conn:
+                # 删除所有相关的文档块
+                cursor = conn.execute("DELETE FROM documents WHERE file_id = ?", (file_id,))
+                chunks_deleted = cursor.rowcount
+
+                # 删除文件记录
+                cursor = conn.execute("DELETE FROM files WHERE file_id = ?", (file_id,))
+                file_deleted = cursor.rowcount
+
+                conn.commit()
+                logger.info(f"Deleted file {file_id}: {file_deleted} file record, {chunks_deleted} chunks")
+                return file_deleted > 0
+        except Exception as e:
+            logger.error(f"Failed to delete file {file_id}: {e}")
+            return False
+
+    def get_file_info(self, file_id: str) -> Optional[Dict[str, Any]]:
+        """Get file information by file_id."""
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.execute("""
+                SELECT file_id, file_name, file_path, file_size, file_type, file_hash, upload_date, created_at, updated_at
+                FROM files WHERE file_id = ?
+            """, (file_id,))
+            row = cursor.fetchone()
+            if row:
+                file_id, file_name, file_path, file_size, file_type, file_hash, upload_date, created_at, updated_at = row
+                return {
+                    'id': file_id,
+                    'name': file_name,
+                    'path': file_path,
+                    'size': file_size,
+                    'type': file_type,
+                    'hash': file_hash,
+                    'upload_date': upload_date,
+                    'created_at': created_at,
+                    'updated_at': updated_at
+                }
+            return None
+
+    def get_file_chunks(self, file_id: str) -> List[Dict[str, Any]]:
+        """Get all document chunks for a specific file."""
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.execute("""
+                SELECT doc_id, chunk_index, created_at
+                FROM documents
+                WHERE file_id = ?
+                ORDER BY chunk_index
+            """, (file_id,))
+            chunks = []
+            for row in cursor.fetchall():
+                doc_id, chunk_index, created_at = row
+                chunks.append({
+                    'doc_id': doc_id,
+                    'chunk_index': chunk_index,
+                    'created_at': created_at
+                })
+            return chunks
+
     @classmethod
     def from_persist_dir(cls, persist_dir: str) -> "SQLiteDocumentStore":
         """Load from persist directory."""

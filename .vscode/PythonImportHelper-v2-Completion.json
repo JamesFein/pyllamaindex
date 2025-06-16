@@ -109,6 +109,38 @@
         "documentation": {}
     },
     {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "VectorStoreIndex",
         "importPath": "llama_index.core.indices",
         "description": "llama_index.core.indices",
@@ -472,6 +504,82 @@
         "description": "fastapi.middleware.cors",
         "isExtraImport": true,
         "detail": "fastapi.middleware.cors",
+        "documentation": {}
+    },
+    {
+        "label": "UploadFile",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "File",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "asyncio",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "asyncio",
+        "description": "asyncio",
+        "detail": "asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "hashlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "hashlib",
+        "description": "hashlib",
+        "detail": "hashlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
         "documentation": {}
     },
     {
@@ -1030,6 +1138,69 @@
         "description": "main",
         "peekOfCode": "app = create_app()",
         "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "migrate_database",
+        "kind": 2,
+        "importPath": "migrate_db",
+        "description": "migrate_db",
+        "peekOfCode": "def migrate_database():\n    \"\"\"Migrate the database to add new columns.\"\"\"\n    db_path = \"storage/docstore.db\"\n    if not os.path.exists(db_path):\n        logger.error(f\"Database file not found: {db_path}\")\n        return False\n    try:\n        with sqlite3.connect(db_path) as conn:\n            # Check current schema\n            cursor = conn.execute(\"PRAGMA table_info(documents)\")",
+        "detail": "migrate_db",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "migrate_db",
+        "description": "migrate_db",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef migrate_database():\n    \"\"\"Migrate the database to add new columns.\"\"\"\n    db_path = \"storage/docstore.db\"\n    if not os.path.exists(db_path):\n        logger.error(f\"Database file not found: {db_path}\")\n        return False\n    try:\n        with sqlite3.connect(db_path) as conn:\n            # Check current schema",
+        "detail": "migrate_db",
+        "documentation": {}
+    },
+    {
+        "label": "calculate_file_hash",
+        "kind": 2,
+        "importPath": "migrate_to_file_management",
+        "description": "migrate_to_file_management",
+        "peekOfCode": "def calculate_file_hash(file_path: str) -> str:\n    \"\"\"计算文件的MD5哈希值\"\"\"\n    hash_md5 = hashlib.md5()\n    try:\n        with open(file_path, \"rb\") as f:\n            for chunk in iter(lambda: f.read(4096), b\"\"):\n                hash_md5.update(chunk)\n        return hash_md5.hexdigest()\n    except Exception as e:\n        logger.warning(f\"Failed to calculate hash for {file_path}: {e}\")",
+        "detail": "migrate_to_file_management",
+        "documentation": {}
+    },
+    {
+        "label": "migrate_database",
+        "kind": 2,
+        "importPath": "migrate_to_file_management",
+        "description": "migrate_to_file_management",
+        "peekOfCode": "def migrate_database():\n    \"\"\"执行数据库迁移\"\"\"\n    db_path = \"storage/docstore.db\"\n    data_dir = \"data\"\n    if not os.path.exists(db_path):\n        logger.error(f\"Database file not found: {db_path}\")\n        return False\n    if not os.path.exists(data_dir):\n        logger.error(f\"Data directory not found: {data_dir}\")\n        return False",
+        "detail": "migrate_to_file_management",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "migrate_to_file_management",
+        "description": "migrate_to_file_management",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef calculate_file_hash(file_path: str) -> str:\n    \"\"\"计算文件的MD5哈希值\"\"\"\n    hash_md5 = hashlib.md5()\n    try:\n        with open(file_path, \"rb\") as f:\n            for chunk in iter(lambda: f.read(4096), b\"\"):\n                hash_md5.update(chunk)\n        return hash_md5.hexdigest()\n    except Exception as e:",
+        "detail": "migrate_to_file_management",
+        "documentation": {}
+    },
+    {
+        "label": "update_file_metadata",
+        "kind": 2,
+        "importPath": "update_file_metadata",
+        "description": "update_file_metadata",
+        "peekOfCode": "def update_file_metadata():\n    \"\"\"Update existing documents with file metadata.\"\"\"\n    db_path = \"storage/docstore.db\"\n    data_dir = \"data\"\n    if not os.path.exists(db_path):\n        logger.error(f\"Database file not found: {db_path}\")\n        return False\n    if not os.path.exists(data_dir):\n        logger.error(f\"Data directory not found: {data_dir}\")\n        return False",
+        "detail": "update_file_metadata",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "update_file_metadata",
+        "description": "update_file_metadata",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef update_file_metadata():\n    \"\"\"Update existing documents with file metadata.\"\"\"\n    db_path = \"storage/docstore.db\"\n    data_dir = \"data\"\n    if not os.path.exists(db_path):\n        logger.error(f\"Database file not found: {db_path}\")\n        return False\n    if not os.path.exists(data_dir):\n        logger.error(f\"Data directory not found: {data_dir}\")",
+        "detail": "update_file_metadata",
         "documentation": {}
     }
 ]
