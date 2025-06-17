@@ -24,7 +24,7 @@ def get_storage_context(storage_dir: str = "storage") -> StorageContext:
     os.makedirs(storage_dir, exist_ok=True)
 
     # Configure ChromaDB client
-    chroma_db_path = os.path.join(storage_dir, "chroma_db")
+    chroma_db_path = os.path.join(storage_dir, "chroma_db_new")
     chroma_client = chromadb.PersistentClient(
         path=chroma_db_path,
         settings=ChromaSettings(
@@ -84,7 +84,7 @@ def load_storage_context(storage_dir: str = "storage") -> Optional[StorageContex
         return None
 
     # Check if ChromaDB directory exists
-    chroma_db_path = os.path.join(storage_dir, "chroma_db")
+    chroma_db_path = os.path.join(storage_dir, "chroma_db_new")
     if not os.path.exists(chroma_db_path):
         logger.info(f"ChromaDB directory {chroma_db_path} does not exist")
         return None

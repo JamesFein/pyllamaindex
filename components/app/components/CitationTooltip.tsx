@@ -29,9 +29,13 @@ export function CitationTooltip({
   const tooltipRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLSpanElement>(null);
 
-  // 使用 useCallback 创建稳定的加载函数
-  const loadCitationData = useCallback(async () => {
-    if (citationData || isLoading) return;
+  // 使用 useRef 避免依赖问题，防止无限循环
+  const stateRef = useRef({ citationData: null, isLoading: false });
+  stateRef.current = { citationData, isLoading };
+
+  const loadCitationDataRef = useRef<() => Promise<void>>();
+  loadCitationDataRef.current = async () => {
+    if (stateRef.current.citationData || stateRef.current.isLoading) return;
 
     setIsLoading(true);
     try {
@@ -57,22 +61,19 @@ export function CitationTooltip({
     } finally {
       setIsLoading(false);
     }
-  }, [citationId, citationData, isLoading]);
+  };
 
-  const handleMouseEnter = useCallback(
-    (e: React.MouseEvent) => {
-      const rect = triggerRef.current?.getBoundingClientRect();
-      if (rect) {
-        setPosition({
-          x: rect.left + rect.width / 2,
-          y: rect.top - 10,
-        });
-      }
-      setIsVisible(true);
-      loadCitationData();
-    },
-    [loadCitationData]
-  );
+  const handleMouseEnter = useCallback((e: React.MouseEvent) => {
+    const rect = triggerRef.current?.getBoundingClientRect();
+    if (rect) {
+      setPosition({
+        x: rect.left + rect.width / 2,
+        y: rect.top - 10,
+      });
+    }
+    setIsVisible(true);
+    loadCitationDataRef.current?.(); // 使用 ref 调用，避免依赖
+  }, []); // 无依赖项，完全稳定
 
   const handleMouseLeave = useCallback(() => {
     setIsVisible(false);

@@ -230,10 +230,21 @@ def create_app():
                             logger.info(f"Deleted old file: {old_file_path}")
 
                         # 2. 删除数据库中的文件记录和所有相关文档块
-                        storage_context.docstore.delete_file_and_chunks(file_id)
+                        success, doc_ids_to_delete = storage_context.docstore.delete_file_and_chunks(file_id)
                         logger.info(f"Deleted old file record and chunks for: {file.filename}")
 
-                        # 3. 重新持久化存储上下文以清理向量索引
+                        # 3. 🔧 修复：删除 ChromaDB 中的向量数据
+                        if doc_ids_to_delete:
+                            try:
+                                # 获取 ChromaDB 集合
+                                chroma_collection = storage_context.vector_store._collection
+                                # 删除对应的向量
+                                chroma_collection.delete(ids=doc_ids_to_delete)
+                                logger.info(f"Deleted {len(doc_ids_to_delete)} vectors from ChromaDB")
+                            except Exception as e:
+                                logger.warning(f"Failed to delete vectors from ChromaDB: {e}")
+
+                        # 4. 重新持久化存储上下文以清理向量索引
                         storage_context.persist(STORAGE_DIR)
 
                     # 保存新文件
@@ -300,7 +311,7 @@ def create_app():
                                 'file_size': file_size,
                                 'file_type': file_type,
                                 'file_path': file_path,
-                                'chunk_index': chunk_index + 1
+                                'chunk_index': chunk_index  # 🔧 修复：对每个文件从 0 开始
                             })
                         else:
                             node.metadata = {
@@ -309,16 +320,12 @@ def create_app():
                                 'file_size': file_size,
                                 'file_type': file_type,
                                 'file_path': file_path,
-                                'chunk_index': chunk_index + 1
+                                'chunk_index': chunk_index  # 🔧 修复：对每个文件从 0 开始
                             }
 
                     # 5. 添加到文档存储（这会更新documents表）
-                    storage_context.docstore.add_documents(nodes, file_metadata={
-                        'file_id': file_id,
-                        'file_name': file.filename,
-                        'file_size': file_size,
-                        'file_type': file_type
-                    })
+                    # 🔧 修复：不传递 file_metadata，避免覆盖 node 的 metadata 中的 chunk_index
+                    storage_context.docstore.add_documents(nodes)
 
                     # 6. 更新向量索引
                     VectorStoreIndex(nodes, storage_context=storage_context)
@@ -385,7 +392,16 @@ def create_app():
                 logger.info(f"Deleted file: {file_path}")
 
             # 从数据库删除文件记录和所有相关的文档块
-            success = storage_context.docstore.delete_file_and_chunks(file_id)
+            success, doc_ids_to_delete = storage_context.docstore.delete_file_and_chunks(file_id)
+
+            # 🔧 修复：删除 ChromaDB 中的向量数据
+            if doc_ids_to_delete:
+                try:
+                    chroma_collection = storage_context.vector_store._collection
+                    chroma_collection.delete(ids=doc_ids_to_delete)
+                    logger.info(f"Deleted {len(doc_ids_to_delete)} vectors from ChromaDB")
+                except Exception as e:
+                    logger.warning(f"Failed to delete vectors from ChromaDB: {e}")
 
             if success:
                 # 重新持久化存储上下文

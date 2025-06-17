@@ -125,6 +125,30 @@
         "documentation": {}
     },
     {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "List",
         "importPath": "typing",
         "description": "typing",
@@ -166,6 +190,22 @@
     },
     {
         "label": "load_storage_context",
+        "importPath": "app.storage_config",
+        "description": "app.storage_config",
+        "isExtraImport": true,
+        "detail": "app.storage_config",
+        "documentation": {}
+    },
+    {
+        "label": "get_storage_context",
+        "importPath": "app.storage_config",
+        "description": "app.storage_config",
+        "isExtraImport": true,
+        "detail": "app.storage_config",
+        "documentation": {}
+    },
+    {
+        "label": "get_storage_context",
         "importPath": "app.storage_config",
         "description": "app.storage_config",
         "isExtraImport": true,
@@ -336,6 +376,38 @@
         "documentation": {}
     },
     {
+        "label": "Settings",
+        "importPath": "chromadb.config",
+        "description": "chromadb.config",
+        "isExtraImport": true,
+        "detail": "chromadb.config",
+        "documentation": {}
+    },
+    {
+        "label": "Settings",
+        "importPath": "chromadb.config",
+        "description": "chromadb.config",
+        "isExtraImport": true,
+        "detail": "chromadb.config",
+        "documentation": {}
+    },
+    {
+        "label": "Settings",
+        "importPath": "chromadb.config",
+        "description": "chromadb.config",
+        "isExtraImport": true,
+        "detail": "chromadb.config",
+        "documentation": {}
+    },
+    {
+        "label": "Settings",
+        "importPath": "chromadb.config",
+        "description": "chromadb.config",
+        "isExtraImport": true,
+        "detail": "chromadb.config",
+        "documentation": {}
+    },
+    {
         "label": "SQLiteDocumentStore",
         "importPath": "app.sqlite_stores",
         "description": "app.sqlite_stores",
@@ -360,7 +432,23 @@
         "documentation": {}
     },
     {
+        "label": "STORAGE_DIR",
+        "importPath": "app.index",
+        "description": "app.index",
+        "isExtraImport": true,
+        "detail": "app.index",
+        "documentation": {}
+    },
+    {
         "label": "get_index",
+        "importPath": "app.index",
+        "description": "app.index",
+        "isExtraImport": true,
+        "detail": "app.index",
+        "documentation": {}
+    },
+    {
+        "label": "STORAGE_DIR",
         "importPath": "app.index",
         "description": "app.index",
         "isExtraImport": true,
@@ -475,6 +563,102 @@
         "documentation": {}
     },
     {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
         "label": "Path",
         "importPath": "pathlib",
         "description": "pathlib",
@@ -524,6 +708,94 @@
         "documentation": {}
     },
     {
+        "label": "SimpleDirectoryReader",
+        "importPath": "llama_index.core.readers",
+        "description": "llama_index.core.readers",
+        "isExtraImport": true,
+        "detail": "llama_index.core.readers",
+        "documentation": {}
+    },
+    {
+        "label": "SimpleDirectoryReader",
+        "importPath": "llama_index.core.readers",
+        "description": "llama_index.core.readers",
+        "isExtraImport": true,
+        "detail": "llama_index.core.readers",
+        "documentation": {}
+    },
+    {
+        "label": "SimpleDirectoryReader",
+        "importPath": "llama_index.core.readers",
+        "description": "llama_index.core.readers",
+        "isExtraImport": true,
+        "detail": "llama_index.core.readers",
+        "documentation": {}
+    },
+    {
+        "label": "SentenceSplitter",
+        "importPath": "llama_index.core.node_parser",
+        "description": "llama_index.core.node_parser",
+        "isExtraImport": true,
+        "detail": "llama_index.core.node_parser",
+        "documentation": {}
+    },
+    {
+        "label": "SentenceSplitter",
+        "importPath": "llama_index.core.node_parser",
+        "description": "llama_index.core.node_parser",
+        "isExtraImport": true,
+        "detail": "llama_index.core.node_parser",
+        "documentation": {}
+    },
+    {
+        "label": "SentenceSplitter",
+        "importPath": "llama_index.core.node_parser",
+        "description": "llama_index.core.node_parser",
+        "isExtraImport": true,
+        "detail": "llama_index.core.node_parser",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
         "label": "time",
         "kind": 6,
         "isExtraImport": true,
@@ -533,35 +805,12 @@
         "documentation": {}
     },
     {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
+        "label": "hashlib",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
-        "isExtraImport": true,
-        "detail": "dotenv",
-        "documentation": {}
-    },
-    {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
-        "isExtraImport": true,
-        "detail": "dotenv",
+        "importPath": "hashlib",
+        "description": "hashlib",
+        "detail": "hashlib",
         "documentation": {}
     },
     {
@@ -663,15 +912,6 @@
         "documentation": {}
     },
     {
-        "label": "hashlib",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "hashlib",
-        "description": "hashlib",
-        "detail": "hashlib",
-        "documentation": {}
-    },
-    {
         "label": "requests",
         "kind": 6,
         "isExtraImport": true,
@@ -690,19 +930,12 @@
         "documentation": {}
     },
     {
-        "label": "SentenceSplitter",
-        "importPath": "llama_index.core.node_parser",
-        "description": "llama_index.core.node_parser",
+        "label": "traceback",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "llama_index.core.node_parser",
-        "documentation": {}
-    },
-    {
-        "label": "SimpleDirectoryReader",
-        "importPath": "llama_index.core.readers",
-        "description": "llama_index.core.readers",
-        "isExtraImport": true,
-        "detail": "llama_index.core.readers",
+        "importPath": "traceback",
+        "description": "traceback",
+        "detail": "traceback",
         "documentation": {}
     },
     {
@@ -791,7 +1024,7 @@
         "kind": 2,
         "importPath": "app.index",
         "description": "app.index",
-        "peekOfCode": "def get_index(chat_request: Optional[ChatRequest] = None):\n    # check if storage already exists\n    if not os.path.exists(STORAGE_DIR):\n        return None\n    # load the existing storage context with SQLite and ChromaDB\n    logger.info(f\"Loading index from {STORAGE_DIR} using SQLite and ChromaDB...\")\n    storage_context = load_storage_context(STORAGE_DIR)\n    if storage_context is None:\n        logger.warning(f\"Could not load storage context from {STORAGE_DIR}\")\n        return None",
+        "peekOfCode": "def get_index(chat_request: Optional[ChatRequest] = None):\n    # 🔧 添加详细调试信息\n    current_dir = os.getcwd()\n    logger.info(f\"🔍 get_index called from directory: {current_dir}\")\n    logger.info(f\"🔍 STORAGE_DIR: {STORAGE_DIR}\")\n    logger.info(f\"🔍 Full storage path: {os.path.abspath(STORAGE_DIR)}\")\n    # check if storage already exists\n    if not os.path.exists(STORAGE_DIR):\n        logger.error(f\"❌ Storage directory does not exist: {os.path.abspath(STORAGE_DIR)}\")\n        return None",
         "detail": "app.index",
         "documentation": {}
     },
@@ -800,7 +1033,7 @@
         "kind": 5,
         "importPath": "app.index",
         "description": "app.index",
-        "peekOfCode": "logger = logging.getLogger(\"uvicorn\")\nSTORAGE_DIR = \"storage\"\ndef get_index(chat_request: Optional[ChatRequest] = None):\n    # check if storage already exists\n    if not os.path.exists(STORAGE_DIR):\n        return None\n    # load the existing storage context with SQLite and ChromaDB\n    logger.info(f\"Loading index from {STORAGE_DIR} using SQLite and ChromaDB...\")\n    storage_context = load_storage_context(STORAGE_DIR)\n    if storage_context is None:",
+        "peekOfCode": "logger = logging.getLogger(\"uvicorn\")\nSTORAGE_DIR = \"storage\"\ndef get_index(chat_request: Optional[ChatRequest] = None):\n    # 🔧 添加详细调试信息\n    current_dir = os.getcwd()\n    logger.info(f\"🔍 get_index called from directory: {current_dir}\")\n    logger.info(f\"🔍 STORAGE_DIR: {STORAGE_DIR}\")\n    logger.info(f\"🔍 Full storage path: {os.path.abspath(STORAGE_DIR)}\")\n    # check if storage already exists\n    if not os.path.exists(STORAGE_DIR):",
         "detail": "app.index",
         "documentation": {}
     },
@@ -809,7 +1042,7 @@
         "kind": 5,
         "importPath": "app.index",
         "description": "app.index",
-        "peekOfCode": "STORAGE_DIR = \"storage\"\ndef get_index(chat_request: Optional[ChatRequest] = None):\n    # check if storage already exists\n    if not os.path.exists(STORAGE_DIR):\n        return None\n    # load the existing storage context with SQLite and ChromaDB\n    logger.info(f\"Loading index from {STORAGE_DIR} using SQLite and ChromaDB...\")\n    storage_context = load_storage_context(STORAGE_DIR)\n    if storage_context is None:\n        logger.warning(f\"Could not load storage context from {STORAGE_DIR}\")",
+        "peekOfCode": "STORAGE_DIR = \"storage\"\ndef get_index(chat_request: Optional[ChatRequest] = None):\n    # 🔧 添加详细调试信息\n    current_dir = os.getcwd()\n    logger.info(f\"🔍 get_index called from directory: {current_dir}\")\n    logger.info(f\"🔍 STORAGE_DIR: {STORAGE_DIR}\")\n    logger.info(f\"🔍 Full storage path: {os.path.abspath(STORAGE_DIR)}\")\n    # check if storage already exists\n    if not os.path.exists(STORAGE_DIR):\n        logger.error(f\"❌ Storage directory does not exist: {os.path.abspath(STORAGE_DIR)}\")",
         "detail": "app.index",
         "documentation": {}
     },
@@ -1201,6 +1434,105 @@
         "documentation": {}
     },
     {
+        "label": "analyze_chroma_database",
+        "kind": 2,
+        "importPath": "analyze_chroma_database",
+        "description": "analyze_chroma_database",
+        "peekOfCode": "def analyze_chroma_database():\n    \"\"\"分析 ChromaDB SQLite 数据库结构\"\"\"\n    print(\"🔍 分析 ChromaDB 数据库结构\")\n    print(\"=\" * 80)\n    chroma_db_path = \"storage/chroma_db_new/chroma.sqlite3\"\n    if not os.path.exists(chroma_db_path):\n        print(f\"❌ 数据库文件不存在: {chroma_db_path}\")\n        return None\n    # 连接数据库\n    conn = sqlite3.connect(chroma_db_path)",
+        "detail": "analyze_chroma_database",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_table",
+        "kind": 2,
+        "importPath": "analyze_chroma_database",
+        "description": "analyze_chroma_database",
+        "peekOfCode": "def analyze_table(cursor, table_name):\n    \"\"\"分析单个表的结构和数据\"\"\"\n    table_info = {\n        'columns': [],\n        'indexes': [],\n        'row_count': 0,\n        'sample_data': []\n    }\n    try:\n        # 获取表结构",
+        "detail": "analyze_chroma_database",
+        "documentation": {}
+    },
+    {
+        "label": "generate_markdown_report",
+        "kind": 2,
+        "importPath": "analyze_chroma_database",
+        "description": "analyze_chroma_database",
+        "peekOfCode": "def generate_markdown_report(database_info):\n    \"\"\"生成 Markdown 格式的分析报告\"\"\"\n    md_content = f\"\"\"# ChromaDB 数据库结构分析报告\n## 📊 基本信息\n- **数据库文件**: `{database_info['file_path']}`\n- **分析时间**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n- **总表数**: {database_info['total_tables']}\n## 📋 表结构详细说明\n\"\"\"\n    for table_name, table_info in database_info['tables'].items():",
+        "detail": "analyze_chroma_database",
+        "documentation": {}
+    },
+    {
+        "label": "guess_table_purpose",
+        "kind": 2,
+        "importPath": "analyze_chroma_database",
+        "description": "analyze_chroma_database",
+        "peekOfCode": "def guess_table_purpose(table_name, table_info):\n    \"\"\"根据表名和结构推测表的用途\"\"\"\n    purposes = {\n        'collections': \"\"\"\n**集合管理表** - 存储 ChromaDB 中的向量集合信息\n- 管理不同的文档集合\n- 每个集合可以有独立的配置和元数据\n- 支持多租户和数据隔离\n        \"\"\",\n        'embeddings': \"\"\"",
+        "detail": "analyze_chroma_database",
+        "documentation": {}
+    },
+    {
+        "label": "guess_column_purpose",
+        "kind": 2,
+        "importPath": "analyze_chroma_database",
+        "description": "analyze_chroma_database",
+        "peekOfCode": "def guess_column_purpose(table_name, col_name, col_type):\n    \"\"\"根据字段名和类型推测字段用途\"\"\"\n    # 通用字段用途\n    common_purposes = {\n        'id': '唯一标识符',\n        'uuid': '全局唯一标识符',\n        'name': '名称',\n        'metadata': '元数据信息',\n        'created_at': '创建时间',\n        'updated_at': '更新时间',",
+        "detail": "analyze_chroma_database",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_data_field",
+        "kind": 2,
+        "importPath": "analyze_data_field",
+        "description": "analyze_data_field",
+        "peekOfCode": "def analyze_data_field():\n    \"\"\"分析 data 字段的内容和结构\"\"\"\n    print(\"🔍 分析 Documents 表的 data 字段\")\n    print(\"=\" * 60)\n    if not os.path.exists('storage/docstore.db'):\n        print(\"❌ docstore.db 不存在\")\n        return\n    conn = sqlite3.connect('storage/docstore.db')\n    cursor = conn.execute('SELECT doc_id, data FROM documents LIMIT 1')\n    row = cursor.fetchone()",
+        "detail": "analyze_data_field",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_unicode_issue",
+        "kind": 2,
+        "importPath": "analyze_data_field",
+        "description": "analyze_data_field",
+        "peekOfCode": "def analyze_unicode_issue():\n    \"\"\"专门分析 Unicode 编码问题\"\"\"\n    print(\"\\n🔤 Unicode 编码问题分析\")\n    print(\"=\" * 60)\n    conn = sqlite3.connect('storage/docstore.db')\n    cursor = conn.execute('SELECT doc_id, data FROM documents LIMIT 3')\n    rows = cursor.fetchall()\n    for i, (doc_id, data_json) in enumerate(rows, 1):\n        try:\n            data = json.loads(data_json)",
+        "detail": "analyze_data_field",
+        "documentation": {}
+    },
+    {
+        "label": "suggest_solutions",
+        "kind": 2,
+        "importPath": "analyze_data_field",
+        "description": "analyze_data_field",
+        "peekOfCode": "def suggest_solutions():\n    \"\"\"提出解决方案建议\"\"\"\n    print(\"\\n💡 解决方案建议\")\n    print(\"=\" * 60)\n    print(\"🎯 data 字段优化方案:\")\n    print(\"1. 保持 LlamaIndex 标准格式，确保兼容性\")\n    print(\"2. 在后端 API 中解析 data 字段，提取需要的信息\")\n    print(\"3. 前端只接收处理后的简化数据，避免复杂的 Unicode 处理\")\n    print(\"\\n🔧 Unicode 处理方案:\")\n    print(\"1. 后端负责 Unicode 解码，确保文本正确显示\")",
+        "detail": "analyze_data_field",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "analyze_data_field",
+        "description": "analyze_data_field",
+        "peekOfCode": "def main():\n    \"\"\"主函数\"\"\"\n    analyze_data_field()\n    analyze_unicode_issue()\n    suggest_solutions()\nif __name__ == \"__main__\":\n    main()",
+        "detail": "analyze_data_field",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_id_relationship",
+        "kind": 2,
+        "importPath": "analyze_id_relationship",
+        "description": "analyze_id_relationship",
+        "peekOfCode": "def analyze_id_relationship():\n    \"\"\"分析ID关系\"\"\"\n    print(\"🔍 分析 LlamaIndex ID 关系\")\n    print(\"=\" * 60)\n    # 1. 检查 docstore.db 中的数据\n    docstore_path = 'storage/docstore.db'\n    if os.path.exists(docstore_path):\n        print(\"\\n=== DocStore 数据分析 ===\")\n        conn = sqlite3.connect(docstore_path)\n        # 查看 documents 表",
+        "detail": "analyze_id_relationship",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_relationships",
+        "kind": 2,
+        "importPath": "analyze_relationships",
+        "description": "analyze_relationships",
+        "peekOfCode": "def analyze_relationships():\n    \"\"\"分析节点关系\"\"\"\n    target_id = \"10316370-d5dc-4a54-ac60-7e853b805328\"\n    print(f\"🔍 分析节点关系，追踪ID来源\")\n    print(\"=\" * 60)\n    # 1. 从 DocStore 获取完整的节点数据\n    print(\"\\n=== 1. DocStore 中的节点关系 ===\")\n    docstore_path = 'storage/docstore.db'\n    if os.path.exists(docstore_path):\n        conn = sqlite3.connect(docstore_path)",
+        "detail": "analyze_relationships",
+        "documentation": {}
+    },
+    {
         "label": "analyze_storage_directory",
         "kind": 2,
         "importPath": "analyze_storage_files",
@@ -1237,6 +1569,87 @@
         "documentation": {}
     },
     {
+        "label": "analyze_docstore",
+        "kind": 2,
+        "importPath": "analyze_storage_issues",
+        "description": "analyze_storage_issues",
+        "peekOfCode": "def analyze_docstore():\n    \"\"\"分析 docstore.db 的问题\"\"\"\n    print(\"🔍 分析 DOCSTORE.DB\")\n    print(\"=\" * 60)\n    if not os.path.exists('storage/docstore.db'):\n        print(\"❌ docstore.db 不存在\")\n        return\n    conn = sqlite3.connect('storage/docstore.db')\n    # 1. 检查 documents 表结构\n    print(\"📋 Documents 表结构:\")",
+        "detail": "analyze_storage_issues",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_chroma",
+        "kind": 2,
+        "importPath": "analyze_storage_issues",
+        "description": "analyze_storage_issues",
+        "peekOfCode": "def analyze_chroma():\n    \"\"\"分析 ChromaDB 的问题\"\"\"\n    print(\"\\n🧠 分析 CHROMADB\")\n    print(\"=\" * 60)\n    chroma_path = 'storage/chroma_db_new'\n    if not os.path.exists(chroma_path):\n        print(\"❌ ChromaDB 不存在\")\n        return\n    try:\n        client = chromadb.PersistentClient(",
+        "detail": "analyze_storage_issues",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_id_consistency",
+        "kind": 2,
+        "importPath": "analyze_storage_issues",
+        "description": "analyze_storage_issues",
+        "peekOfCode": "def analyze_id_consistency():\n    \"\"\"分析 docstore 和 chroma 之间的 ID 一致性\"\"\"\n    print(\"\\n🔗 分析 ID 一致性\")\n    print(\"=\" * 60)\n    # 获取 docstore 中的所有 doc_id\n    docstore_ids = set()\n    if os.path.exists('storage/docstore.db'):\n        conn = sqlite3.connect('storage/docstore.db')\n        cursor = conn.execute(\"SELECT doc_id FROM documents\")\n        docstore_ids = {row[0] for row in cursor.fetchall()}",
+        "detail": "analyze_storage_issues",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "analyze_storage_issues",
+        "description": "analyze_storage_issues",
+        "peekOfCode": "def main():\n    \"\"\"主函数\"\"\"\n    print(\"🔍 存储逻辑问题分析\")\n    print(\"=\" * 80)\n    analyze_docstore()\n    analyze_chroma()\n    analyze_id_consistency()\n    print(\"\\n💡 问题总结:\")\n    print(\"1. 检查 documents 表是否真的用于存储文本块信息\")\n    print(\"2. 检查 chunk_index 是否正确设置\")",
+        "detail": "analyze_storage_issues",
+        "documentation": {}
+    },
+    {
+        "label": "check_chunk_index_issue",
+        "kind": 2,
+        "importPath": "check_chunk_index",
+        "description": "check_chunk_index",
+        "peekOfCode": "def check_chunk_index_issue():\n    \"\"\"检查 chunk_index 的分布和问题\"\"\"\n    print(\"🔍 检查 Documents 表中的 chunk_index 问题\")\n    print(\"=\" * 60)\n    with sqlite3.connect('storage/docstore.db') as conn:\n        # 1. 检查 chunk_index 分布\n        cursor = conn.execute('''\n            SELECT file_name, chunk_index, COUNT(*) as count\n            FROM documents \n            GROUP BY file_name, chunk_index ",
+        "detail": "check_chunk_index",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_chunking_logic",
+        "kind": 2,
+        "importPath": "check_chunk_index",
+        "description": "check_chunk_index",
+        "peekOfCode": "def analyze_chunking_logic():\n    \"\"\"分析分块逻辑的问题\"\"\"\n    print(f\"\\n🔍 分析分块逻辑问题\")\n    print(\"=\" * 60)\n    print(\"📋 可能的原因:\")\n    print(\"1. generate.py 中的 chunk_index 计算逻辑有误\")\n    print(\"2. 每次运行 generate 都重新生成 node_id，导致重复\")\n    print(\"3. 文档分块器可能没有正确分块\")\n    print(\"4. chunk_index 赋值逻辑错误\")\n    print(f\"\\n🎯 正确的 chunk_index 应该是:\")",
+        "detail": "check_chunk_index",
+        "documentation": {}
+    },
+    {
+        "label": "check_generate_logic",
+        "kind": 2,
+        "importPath": "check_chunk_index",
+        "description": "check_chunk_index",
+        "peekOfCode": "def check_generate_logic():\n    \"\"\"检查 generate.py 中的逻辑\"\"\"\n    print(f\"\\n🔍 检查 generate.py 中的分块逻辑\")\n    print(\"=\" * 60)\n    try:\n        with open('generate.py', 'r', encoding='utf-8') as f:\n            content = f.read()\n        # 查找 chunk_index 相关的代码\n        lines = content.split('\\n')\n        chunk_index_lines = []",
+        "detail": "check_chunk_index",
+        "documentation": {}
+    },
+    {
+        "label": "suggest_fixes",
+        "kind": 2,
+        "importPath": "check_chunk_index",
+        "description": "check_chunk_index",
+        "peekOfCode": "def suggest_fixes():\n    \"\"\"建议修复方案\"\"\"\n    print(f\"\\n💡 修复建议\")\n    print(\"=\" * 60)\n    print(\"🔧 方案1: 修复 generate.py 中的 chunk_index 逻辑\")\n    print(\"- 确保为同一文件的不同块分配递增的 chunk_index\")\n    print(\"- 修改循环逻辑，正确计算块索引\")\n    print(f\"\\n🔧 方案2: 重新生成索引\")\n    print(\"- 先重置数据库\")\n    print(\"- 修复代码后重新运行 generate\")",
+        "detail": "check_chunk_index",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "check_chunk_index",
+        "description": "check_chunk_index",
+        "peekOfCode": "def main():\n    \"\"\"主检查流程\"\"\"\n    check_chunk_index_issue()\n    analyze_chunking_logic()\n    check_generate_logic()\n    suggest_fixes()\nif __name__ == \"__main__\":\n    main()",
+        "detail": "check_chunk_index",
+        "documentation": {}
+    },
+    {
         "label": "check_database_status",
         "kind": 2,
         "importPath": "check_db_duplicates",
@@ -1252,6 +1665,618 @@
         "description": "check_db_duplicates",
         "peekOfCode": "def suggest_cleanup_actions():\n    \"\"\"建议清理操作\"\"\"\n    print(\"🛠️  数据库清理建议:\")\n    print(\"=\" * 50)\n    print(\"1. 🔄 完全重置数据库 (推荐)\")\n    print(\"   - 删除现有数据库文件\")\n    print(\"   - 重新初始化干净的数据库\")\n    print(\"   - 重新索引所有文档\")\n    print()\n    print(\"2. 🧹 清理重复数据\")",
         "detail": "check_db_duplicates",
+        "documentation": {}
+    },
+    {
+        "label": "check_sqlite_data",
+        "kind": 2,
+        "importPath": "check_duplicates",
+        "description": "check_duplicates",
+        "peekOfCode": "def check_sqlite_data():\n    \"\"\"检查 SQLite 数据库中的数据\"\"\"\n    print(\"🔍 检查 SQLite 数据库...\")\n    # 检查 documents 表\n    with sqlite3.connect('storage/docstore.db') as conn:\n        cursor = conn.execute('SELECT COUNT(*) FROM documents')\n        doc_count = cursor.fetchone()[0]\n        print(f'📊 Documents 表中有 {doc_count} 条记录')\n        # 按文件分组统计\n        cursor = conn.execute('''",
+        "detail": "check_duplicates",
+        "documentation": {}
+    },
+    {
+        "label": "check_chromadb_data",
+        "kind": 2,
+        "importPath": "check_duplicates",
+        "description": "check_duplicates",
+        "peekOfCode": "def check_chromadb_data():\n    \"\"\"检查 ChromaDB 中的向量数据\"\"\"\n    print(\"\\n🔍 检查 ChromaDB 向量数据...\")\n    try:\n        chroma_client = chromadb.PersistentClient(\n            path='storage/chroma_db_new',\n            settings=ChromaSettings(\n                anonymized_telemetry=False,\n                allow_reset=True\n            )",
+        "detail": "check_duplicates",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_duplication_issue",
+        "kind": 2,
+        "importPath": "check_duplicates",
+        "description": "check_duplicates",
+        "peekOfCode": "def analyze_duplication_issue():\n    \"\"\"分析重复数据问题\"\"\"\n    print(\"\\n🔍 分析重复数据问题...\")\n    # 检查 generate.py 的逻辑\n    print(\"📋 Generate 命令的行为:\")\n    print(\"1. 每次运行都会重新读取 data 目录中的所有文件\")\n    print(\"2. 为每个文档生成新的 node_id (UUID)\")\n    print(\"3. 使用 INSERT OR REPLACE 更新 SQLite 数据\")\n    print(\"4. 向 ChromaDB 添加新的向量（可能重复）\")\n    # 检查当前的重复情况",
+        "detail": "check_duplicates",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "check_duplicates",
+        "description": "check_duplicates",
+        "peekOfCode": "def main():\n    \"\"\"主检查流程\"\"\"\n    print(\"🔍 开始检查数据库重复数据\")\n    print(\"=\" * 60)\n    check_sqlite_data()\n    check_chromadb_data()\n    analyze_duplication_issue()\n    print(\"\\n\" + \"=\" * 60)\n    print(\"🎯 结论:\")\n    print(\"重复运行 'uv run generate' 会导致:\")",
+        "detail": "check_duplicates",
+        "documentation": {}
+    },
+    {
+        "label": "check_embedding_metadata",
+        "kind": 2,
+        "importPath": "check_embedding_metadata",
+        "description": "check_embedding_metadata",
+        "peekOfCode": "def check_embedding_metadata():\n    chroma_db_path = 'storage/chroma_db_new/chroma.sqlite3'\n    if not os.path.exists(chroma_db_path):\n        print(f\"❌ ChromaDB 文件不存在: {chroma_db_path}\")\n        return\n    try:\n        conn = sqlite3.connect(chroma_db_path)\n        # 1. 查看所有表\n        print(\"=== 数据库中的所有表 ===\")\n        cursor = conn.execute(\"SELECT name FROM sqlite_master WHERE type='table'\")",
+        "detail": "check_embedding_metadata",
+        "documentation": {}
+    },
+    {
+        "label": "check_id_inconsistency",
+        "kind": 2,
+        "importPath": "check_id_inconsistency",
+        "description": "check_id_inconsistency",
+        "peekOfCode": "def check_id_inconsistency():\n    \"\"\"检查ID不一致问题\"\"\"\n    print(\"🚨 检查 DocStore 和 ChromaDB 之间的 ID 不一致问题\")\n    print(\"=\" * 70)\n    # 1. 从 DocStore 获取数据\n    docstore_path = 'storage/docstore.db'\n    docstore_ids = {}\n    if os.path.exists(docstore_path):\n        conn = sqlite3.connect(docstore_path)\n        cursor = conn.execute(\"SELECT doc_id, file_name, chunk_index FROM documents ORDER BY file_name, chunk_index\")",
+        "detail": "check_id_inconsistency",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_storage_files",
+        "kind": 2,
+        "importPath": "cleanup_storage",
+        "description": "cleanup_storage",
+        "peekOfCode": "def analyze_storage_files():\n    \"\"\"分析存储目录中的文件\"\"\"\n    storage_dir = \"storage\"\n    print(\"📁 存储目录文件分析\")\n    print(\"=\" * 60)\n    if not os.path.exists(storage_dir):\n        print(\"❌ 存储目录不存在\")\n        return\n    # 当前正在使用的文件（根据 storage_config.py）\n    current_files = {",
+        "detail": "cleanup_storage",
+        "documentation": {}
+    },
+    {
+        "label": "get_size_info",
+        "kind": 2,
+        "importPath": "cleanup_storage",
+        "description": "cleanup_storage",
+        "peekOfCode": "def get_size_info(path):\n    \"\"\"获取文件或目录大小信息\"\"\"\n    try:\n        if os.path.isfile(path):\n            size = os.path.getsize(path)\n            return format_size(size)\n        elif os.path.isdir(path):\n            total_size = 0\n            for dirpath, dirnames, filenames in os.walk(path):\n                for filename in filenames:",
+        "detail": "cleanup_storage",
+        "documentation": {}
+    },
+    {
+        "label": "format_size",
+        "kind": 2,
+        "importPath": "cleanup_storage",
+        "description": "cleanup_storage",
+        "peekOfCode": "def format_size(size_bytes):\n    \"\"\"格式化文件大小\"\"\"\n    if size_bytes == 0:\n        return \"0 B\"\n    for unit in ['B', 'KB', 'MB', 'GB']:\n        if size_bytes < 1024.0:\n            return f\"{size_bytes:.1f} {unit}\"\n        size_bytes /= 1024.0\n    return f\"{size_bytes:.1f} TB\"\ndef cleanup_storage():",
+        "detail": "cleanup_storage",
+        "documentation": {}
+    },
+    {
+        "label": "cleanup_storage",
+        "kind": 2,
+        "importPath": "cleanup_storage",
+        "description": "cleanup_storage",
+        "peekOfCode": "def cleanup_storage():\n    \"\"\"清理存储目录\"\"\"\n    storage_dir = \"storage\"\n    print(\"\\n🧹 开始清理存储目录\")\n    print(\"=\" * 60)\n    # 要删除的文件和目录\n    items_to_delete = []\n    for item in os.listdir(storage_dir):\n        item_path = os.path.join(storage_dir, item)\n        # 检查是否应该删除",
+        "detail": "cleanup_storage",
+        "documentation": {}
+    },
+    {
+        "label": "verify_current_setup",
+        "kind": 2,
+        "importPath": "cleanup_storage",
+        "description": "cleanup_storage",
+        "peekOfCode": "def verify_current_setup():\n    \"\"\"验证当前设置是否正常\"\"\"\n    print(\"\\n🔍 验证当前存储设置\")\n    print(\"=\" * 60)\n    storage_dir = \"storage\"\n    required_files = {\n        \"chroma_db_new\": \"ChromaDB 向量数据库目录\",\n        \"docstore.db\": \"SQLite 文档存储\",\n        \"index_store.db\": \"SQLite 索引存储\"\n    }",
+        "detail": "cleanup_storage",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "cleanup_storage",
+        "description": "cleanup_storage",
+        "peekOfCode": "def main():\n    \"\"\"主清理流程\"\"\"\n    print(\"🧹 存储目录清理工具\")\n    print(\"=\" * 60)\n    # 1. 分析文件\n    analyze_storage_files()\n    # 2. 清理文件\n    cleanup_storage()\n    # 3. 验证设置\n    verify_current_setup()",
+        "detail": "cleanup_storage",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "cleanup_storage",
+        "description": "cleanup_storage",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef analyze_storage_files():\n    \"\"\"分析存储目录中的文件\"\"\"\n    storage_dir = \"storage\"\n    print(\"📁 存储目录文件分析\")\n    print(\"=\" * 60)\n    if not os.path.exists(storage_dir):\n        print(\"❌ 存储目录不存在\")\n        return\n    # 当前正在使用的文件（根据 storage_config.py）",
+        "detail": "cleanup_storage",
+        "documentation": {}
+    },
+    {
+        "label": "clear_all_data",
+        "kind": 2,
+        "importPath": "clear_and_test",
+        "description": "clear_and_test",
+        "peekOfCode": "def clear_all_data():\n    \"\"\"清理所有数据\"\"\"\n    print(\"🧹 清理所有数据\")\n    print(\"=\" * 60)\n    print(\"⚠️  请先停止服务器，然后手动删除以下目录和文件:\")\n    print(f\"1. 删除存储目录: {STORAGE_DIR}\")\n    print(\"2. 删除 data 目录中的所有文件\")\n    print(\"3. 然后重新运行此脚本\")\n    # 检查是否已清理\n    if os.path.exists(STORAGE_DIR):",
+        "detail": "clear_and_test",
+        "documentation": {}
+    },
+    {
+        "label": "create_test_files",
+        "kind": 2,
+        "importPath": "clear_and_test",
+        "description": "clear_and_test",
+        "peekOfCode": "def create_test_files():\n    \"\"\"创建测试文件\"\"\"\n    print(\"\\n📝 创建测试文件\")\n    print(\"=\" * 60)\n    data_dir = \"data\"\n    os.makedirs(data_dir, exist_ok=True)\n    # 创建测试文件1\n    test_file1 = os.path.join(data_dir, \"test1.txt\")\n    with open(test_file1, \"w\", encoding=\"utf-8\") as f:\n        f.write(\"\"\"第一个测试文档",
+        "detail": "clear_and_test",
+        "documentation": {}
+    },
+    {
+        "label": "test_upload_and_check",
+        "kind": 2,
+        "importPath": "clear_and_test",
+        "description": "clear_and_test",
+        "peekOfCode": "def test_upload_and_check():\n    \"\"\"测试上传并检查结果\"\"\"\n    print(\"\\n🧪 测试上传并检查结果\")\n    print(\"=\" * 60)\n    # 这里我们需要手动上传文件，因为我们在脚本中\n    print(\"请通过以下步骤测试:\")\n    print(\"1. 启动服务器: uv fastapi run dev\")\n    print(\"2. 上传 data/test1.txt 文件\")\n    print(\"3. 上传 data/test2.txt 文件\")\n    print(\"4. 运行 python test_storage_fixes.py 检查结果\")",
+        "detail": "clear_and_test",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "clear_and_test",
+        "description": "clear_and_test",
+        "peekOfCode": "def main():\n    \"\"\"主函数\"\"\"\n    print(\"🧪 清理数据库并测试修复\")\n    print(\"=\" * 80)\n    if clear_all_data():\n        create_test_files()\n        test_upload_and_check()\n    else:\n        print(\"\\n请先清理数据，然后重新运行脚本\")\nif __name__ == \"__main__\":",
+        "detail": "clear_and_test",
+        "documentation": {}
+    },
+    {
+        "label": "debug_chunking_process",
+        "kind": 2,
+        "importPath": "debug_chunking",
+        "description": "debug_chunking",
+        "peekOfCode": "def debug_chunking_process():\n    \"\"\"调试文档分块过程\"\"\"\n    print(\"🔍 调试文档分块过程\")\n    print(\"=\" * 60)\n    # 1. 读取原始文档\n    data_dir = os.environ.get(\"DATA_DIR\", \"data\")\n    reader = SimpleDirectoryReader(data_dir, recursive=True)\n    documents = reader.load_data()\n    print(f\"📄 读取到 {len(documents)} 个文档:\")\n    for i, doc in enumerate(documents):",
+        "detail": "debug_chunking",
+        "documentation": {}
+    },
+    {
+        "label": "check_database_vs_actual",
+        "kind": 2,
+        "importPath": "debug_chunking",
+        "description": "debug_chunking",
+        "peekOfCode": "def check_database_vs_actual():\n    \"\"\"对比数据库中的数据和实际分块结果\"\"\"\n    print(\"🔍 对比数据库数据和实际分块\")\n    print(\"=\" * 60)\n    # 检查数据库中的数据\n    with sqlite3.connect('storage/docstore.db') as conn:\n        cursor = conn.execute('''\n            SELECT file_name, COUNT(*) as db_chunks,\n                   COUNT(DISTINCT LENGTH(data)) as unique_lengths,\n                   MIN(LENGTH(data)) as min_length,",
+        "detail": "debug_chunking",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_chunk_index_logic",
+        "kind": 2,
+        "importPath": "debug_chunking",
+        "description": "debug_chunking",
+        "peekOfCode": "def analyze_chunk_index_logic():\n    \"\"\"分析 chunk_index 逻辑\"\"\"\n    print(f\"\\n🔍 分析 chunk_index 逻辑问题\")\n    print(\"=\" * 60)\n    print(\"📋 generate.py 中的逻辑:\")\n    print(\"1. 读取所有文档\")\n    print(\"2. 使用 SentenceSplitter 分块\")\n    print(\"3. 为每个文档找到对应的节点: doc_nodes = [node for node in nodes if node.ref_doc_id == document.doc_id]\")\n    print(\"4. 为每个节点分配 chunk_index: 'chunk_index': i\")\n    print(f\"\\n🤔 可能的问题:\")",
+        "detail": "debug_chunking",
+        "documentation": {}
+    },
+    {
+        "label": "suggest_solution",
+        "kind": 2,
+        "importPath": "debug_chunking",
+        "description": "debug_chunking",
+        "peekOfCode": "def suggest_solution():\n    \"\"\"建议解决方案\"\"\"\n    print(f\"\\n💡 解决方案\")\n    print(\"=\" * 60)\n    print(\"🔧 立即解决:\")\n    print(\"1. 重置数据库清除重复数据\")\n    print(\"2. 检查文档分块设置\")\n    print(\"3. 确保 generate 只运行一次\")\n    print(f\"\\n🔧 长期改进:\")\n    print(\"1. 添加去重逻辑，避免重复处理相同文档\")",
+        "detail": "debug_chunking",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "debug_chunking",
+        "description": "debug_chunking",
+        "peekOfCode": "def main():\n    \"\"\"主调试流程\"\"\"\n    debug_chunking_process()\n    check_database_vs_actual()\n    analyze_chunk_index_logic()\n    suggest_solution()\nif __name__ == \"__main__\":\n    main()",
+        "detail": "debug_chunking",
+        "documentation": {}
+    },
+    {
+        "label": "debug_chunk_index",
+        "kind": 2,
+        "importPath": "debug_chunk_index",
+        "description": "debug_chunk_index",
+        "peekOfCode": "def debug_chunk_index():\n    \"\"\"调试 chunk_index 问题\"\"\"\n    print(\"🔍 调试 chunk_index 问题\")\n    print(\"=\" * 60)\n    conn = sqlite3.connect('storage/docstore.db')\n    # 获取一个文档的详细信息\n    cursor = conn.execute(\"\"\"\n        SELECT doc_id, data, chunk_index, file_name \n        FROM documents \n        LIMIT 3",
+        "detail": "debug_chunk_index",
+        "documentation": {}
+    },
+    {
+        "label": "check_node_creation",
+        "kind": 2,
+        "importPath": "debug_chunk_index",
+        "description": "debug_chunk_index",
+        "peekOfCode": "def check_node_creation():\n    \"\"\"检查节点创建过程\"\"\"\n    print(\"\\n🔧 模拟节点创建过程\")\n    print(\"=\" * 60)\n    # 模拟 main.py 中的逻辑\n    print(\"模拟代码:\")\n    print(\"\"\"\n    for chunk_index, node in enumerate(nodes):\n        node.metadata.update({\n            'file_id': file_id,",
+        "detail": "debug_chunk_index",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "debug_chunk_index",
+        "description": "debug_chunk_index",
+        "peekOfCode": "def main():\n    debug_chunk_index()\n    check_node_creation()\nif __name__ == \"__main__\":\n    main()",
+        "detail": "debug_chunk_index",
+        "documentation": {}
+    },
+    {
+        "label": "test_step_by_step",
+        "kind": 2,
+        "importPath": "debug_index_loading",
+        "description": "debug_index_loading",
+        "peekOfCode": "def test_step_by_step():\n    \"\"\"逐步测试索引加载过程\"\"\"\n    print(\"🔍 逐步调试索引加载\")\n    print(\"=\" * 60)\n    # 1. 加载环境变量\n    print(\"1. 加载环境变量...\")\n    load_dotenv()\n    print(\"✅ 环境变量加载完成\")\n    # 2. 初始化设置\n    print(\"\\n2. 初始化设置...\")",
+        "detail": "debug_index_loading",
+        "documentation": {}
+    },
+    {
+        "label": "test_get_index_function",
+        "kind": 2,
+        "importPath": "debug_index_loading",
+        "description": "debug_index_loading",
+        "peekOfCode": "def test_get_index_function():\n    \"\"\"测试 get_index 函数\"\"\"\n    print(\"\\n🎯 测试 get_index 函数\")\n    print(\"=\" * 60)\n    try:\n        from app.index import get_index\n        print(\"调用 get_index()...\")\n        index = get_index()\n        if index:\n            print(\"✅ get_index() 成功\")",
+        "detail": "debug_index_loading",
+        "documentation": {}
+    },
+    {
+        "label": "test_workflow_creation",
+        "kind": 2,
+        "importPath": "debug_index_loading",
+        "description": "debug_index_loading",
+        "peekOfCode": "def test_workflow_creation():\n    \"\"\"测试工作流创建\"\"\"\n    print(\"\\n⚙️ 测试工作流创建\")\n    print(\"=\" * 60)\n    try:\n        from app.workflow import create_workflow\n        print(\"调用 create_workflow()...\")\n        workflow = create_workflow()\n        if workflow:\n            print(\"✅ 工作流创建成功\")",
+        "detail": "debug_index_loading",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "debug_index_loading",
+        "description": "debug_index_loading",
+        "peekOfCode": "def main():\n    \"\"\"主函数\"\"\"\n    print(\"🔧 索引加载问题调试\")\n    print(\"=\" * 80)\n    # 逐步测试\n    step_ok = test_step_by_step()\n    if step_ok:\n        print(\"\\n\" + \"=\" * 80)\n        # 测试 get_index 函数\n        index_ok = test_get_index_function()",
+        "detail": "debug_index_loading",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "debug_index_loading",
+        "description": "debug_index_loading",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef test_step_by_step():\n    \"\"\"逐步测试索引加载过程\"\"\"\n    print(\"🔍 逐步调试索引加载\")\n    print(\"=\" * 60)\n    # 1. 加载环境变量\n    print(\"1. 加载环境变量...\")\n    load_dotenv()\n    print(\"✅ 环境变量加载完成\")\n    # 2. 初始化设置",
+        "detail": "debug_index_loading",
+        "documentation": {}
+    },
+    {
+        "label": "check_docstore_data",
+        "kind": 2,
+        "importPath": "diagnose_embedding_issue",
+        "description": "diagnose_embedding_issue",
+        "peekOfCode": "def check_docstore_data():\n    \"\"\"检查 docstore 中的数据\"\"\"\n    print(\"📄 检查 Docstore 数据\")\n    print(\"=\" * 60)\n    if not os.path.exists('storage/docstore.db'):\n        print(\"❌ docstore.db 不存在\")\n        return []\n    conn = sqlite3.connect('storage/docstore.db')\n    # 检查 documents 表\n    cursor = conn.execute(\"\"\"",
+        "detail": "diagnose_embedding_issue",
+        "documentation": {}
+    },
+    {
+        "label": "check_chroma_data",
+        "kind": 2,
+        "importPath": "diagnose_embedding_issue",
+        "description": "diagnose_embedding_issue",
+        "peekOfCode": "def check_chroma_data():\n    \"\"\"检查 ChromaDB 中的数据\"\"\"\n    print(\"\\n🧠 检查 ChromaDB 数据\")\n    print(\"=\" * 60)\n    try:\n        chroma_path = 'storage/chroma_db_new'\n        client = chromadb.PersistentClient(\n            path=chroma_path,\n            settings=ChromaSettings(\n                anonymized_telemetry=False,",
+        "detail": "diagnose_embedding_issue",
+        "documentation": {}
+    },
+    {
+        "label": "check_chroma_sqlite",
+        "kind": 2,
+        "importPath": "diagnose_embedding_issue",
+        "description": "diagnose_embedding_issue",
+        "peekOfCode": "def check_chroma_sqlite():\n    \"\"\"检查 ChromaDB 的 SQLite 文件\"\"\"\n    print(\"\\n🗄️ 检查 ChromaDB SQLite 文件\")\n    print(\"=\" * 60)\n    chroma_db_path = \"storage/chroma_db_new\"\n    chroma_db_file = None\n    for file in os.listdir(chroma_db_path):\n        if file.endswith('.sqlite3'):\n            chroma_db_file = os.path.join(chroma_db_path, file)\n            break",
+        "detail": "diagnose_embedding_issue",
+        "documentation": {}
+    },
+    {
+        "label": "compare_data_consistency",
+        "kind": 2,
+        "importPath": "diagnose_embedding_issue",
+        "description": "diagnose_embedding_issue",
+        "peekOfCode": "def compare_data_consistency():\n    \"\"\"比较数据一致性\"\"\"\n    print(\"\\n🔗 比较数据一致性\")\n    print(\"=\" * 60)\n    docstore_ids = check_docstore_data()\n    chroma_ids = check_chroma_data()\n    if docstore_ids and chroma_ids:\n        docstore_set = set(docstore_ids)\n        chroma_set = set(chroma_ids)\n        common = docstore_set & chroma_set",
+        "detail": "diagnose_embedding_issue",
+        "documentation": {}
+    },
+    {
+        "label": "suggest_fixes",
+        "kind": 2,
+        "importPath": "diagnose_embedding_issue",
+        "description": "diagnose_embedding_issue",
+        "peekOfCode": "def suggest_fixes():\n    \"\"\"建议修复方案\"\"\"\n    print(\"\\n💡 修复建议\")\n    print(\"=\" * 60)\n    print(\"基于诊断结果，可能的问题和解决方案:\")\n    print()\n    print(\"1. **向量索引创建失败**\")\n    print(\"   - 原因: VectorStoreIndex 创建过程中出现异常\")\n    print(\"   - 解决: 检查 OpenAI API 连接和配额\")\n    print()",
+        "detail": "diagnose_embedding_issue",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "diagnose_embedding_issue",
+        "description": "diagnose_embedding_issue",
+        "peekOfCode": "def main():\n    \"\"\"主函数\"\"\"\n    print(\"🔍 Embedding Metadata 数据不完整诊断\")\n    print(\"=\" * 80)\n    check_docstore_data()\n    check_chroma_data()\n    check_chroma_sqlite()\n    compare_data_consistency()\n    suggest_fixes()\nif __name__ == \"__main__\":",
+        "detail": "diagnose_embedding_issue",
+        "documentation": {}
+    },
+    {
+        "label": "backup_chroma_db",
+        "kind": 2,
+        "importPath": "fix_chromadb",
+        "description": "fix_chromadb",
+        "peekOfCode": "def backup_chroma_db(chroma_db_path):\n    \"\"\"备份 ChromaDB 目录\"\"\"\n    if not os.path.exists(chroma_db_path):\n        logger.info(\"ChromaDB 目录不存在，无需备份\")\n        return None\n    timestamp = datetime.now().strftime(\"%Y%m%d_%H%M%S\")\n    backup_path = f\"{chroma_db_path}_backup_{timestamp}\"\n    try:\n        shutil.copytree(chroma_db_path, backup_path)\n        logger.info(f\"✅ 已备份 ChromaDB 到: {backup_path}\")",
+        "detail": "fix_chromadb",
+        "documentation": {}
+    },
+    {
+        "label": "completely_remove_chromadb",
+        "kind": 2,
+        "importPath": "fix_chromadb",
+        "description": "fix_chromadb",
+        "peekOfCode": "def completely_remove_chromadb(chroma_db_path):\n    \"\"\"完全删除 ChromaDB 目录\"\"\"\n    if not os.path.exists(chroma_db_path):\n        logger.info(\"ChromaDB 目录不存在\")\n        return True\n    try:\n        shutil.rmtree(chroma_db_path)\n        logger.info(f\"✅ 已完全删除 ChromaDB 目录: {chroma_db_path}\")\n        return True\n    except Exception as e:",
+        "detail": "fix_chromadb",
+        "documentation": {}
+    },
+    {
+        "label": "create_fresh_chromadb",
+        "kind": 2,
+        "importPath": "fix_chromadb",
+        "description": "fix_chromadb",
+        "peekOfCode": "def create_fresh_chromadb(chroma_db_path):\n    \"\"\"创建全新的 ChromaDB\"\"\"\n    try:\n        import chromadb\n        from chromadb.config import Settings as ChromaSettings\n        logger.info(\"🔧 创建全新的 ChromaDB...\")\n        # 确保目录存在\n        os.makedirs(chroma_db_path, exist_ok=True)\n        # 创建新的 ChromaDB 客户端\n        chroma_client = chromadb.PersistentClient(",
+        "detail": "fix_chromadb",
+        "documentation": {}
+    },
+    {
+        "label": "verify_chromadb",
+        "kind": 2,
+        "importPath": "fix_chromadb",
+        "description": "fix_chromadb",
+        "peekOfCode": "def verify_chromadb(chroma_db_path):\n    \"\"\"验证 ChromaDB 是否正常工作\"\"\"\n    try:\n        import chromadb\n        from chromadb.config import Settings as ChromaSettings\n        logger.info(\"🔍 验证 ChromaDB...\")\n        # 连接到 ChromaDB\n        chroma_client = chromadb.PersistentClient(\n            path=chroma_db_path,\n            settings=ChromaSettings(",
+        "detail": "fix_chromadb",
+        "documentation": {}
+    },
+    {
+        "label": "test_storage_context",
+        "kind": 2,
+        "importPath": "fix_chromadb",
+        "description": "fix_chromadb",
+        "peekOfCode": "def test_storage_context():\n    \"\"\"测试存储上下文创建\"\"\"\n    try:\n        from app.storage_config import get_storage_context\n        logger.info(\"🔧 测试存储上下文创建...\")\n        storage_context = get_storage_context(\"storage\")\n        logger.info(\"✅ 存储上下文创建成功\")\n        return True\n    except Exception as e:\n        logger.error(f\"❌ 存储上下文创建失败: {e}\")",
+        "detail": "fix_chromadb",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "fix_chromadb",
+        "description": "fix_chromadb",
+        "peekOfCode": "def main():\n    \"\"\"主修复流程\"\"\"\n    storage_dir = \"storage\"\n    chroma_db_path = os.path.join(storage_dir, \"chroma_db\")\n    print(\"🔧 开始修复 ChromaDB\")\n    print(\"=\" * 50)\n    # 1. 备份现有的 ChromaDB\n    backup_path = backup_chroma_db(chroma_db_path)\n    # 2. 完全删除现有的 ChromaDB\n    if not completely_remove_chromadb(chroma_db_path):",
+        "detail": "fix_chromadb",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "fix_chromadb",
+        "description": "fix_chromadb",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef backup_chroma_db(chroma_db_path):\n    \"\"\"备份 ChromaDB 目录\"\"\"\n    if not os.path.exists(chroma_db_path):\n        logger.info(\"ChromaDB 目录不存在，无需备份\")\n        return None\n    timestamp = datetime.now().strftime(\"%Y%m%d_%H%M%S\")\n    backup_path = f\"{chroma_db_path}_backup_{timestamp}\"\n    try:\n        shutil.copytree(chroma_db_path, backup_path)",
+        "detail": "fix_chromadb",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_current_state",
+        "kind": 2,
+        "importPath": "fix_chromadb_id_mapping",
+        "description": "fix_chromadb_id_mapping",
+        "peekOfCode": "def analyze_current_state():\n    \"\"\"分析当前状态\"\"\"\n    print(\"🔍 分析当前 ChromaDB ID 映射状态\")\n    print(\"=\" * 60)\n    # 1. 检查 DocStore 数据\n    docstore_path = 'storage/docstore.db'\n    docstore_nodes = {}\n    if os.path.exists(docstore_path):\n        conn = sqlite3.connect(docstore_path)\n        cursor = conn.execute(\"SELECT doc_id, data FROM documents\")",
+        "detail": "fix_chromadb_id_mapping",
+        "documentation": {}
+    },
+    {
+        "label": "fix_chromadb_metadata",
+        "kind": 2,
+        "importPath": "fix_chromadb_id_mapping",
+        "description": "fix_chromadb_id_mapping",
+        "peekOfCode": "def fix_chromadb_metadata():\n    \"\"\"修复 ChromaDB 元数据\"\"\"\n    print(\"\\n🔧 开始修复 ChromaDB ID 映射\")\n    print(\"=\" * 60)\n    # 1. 分析当前状态\n    docstore_nodes, chroma_nodes = analyze_current_state()\n    if not docstore_nodes or not chroma_nodes:\n        print(\"❌ 无法获取必要的数据，修复失败\")\n        return False\n    # 2. 建立映射关系",
+        "detail": "fix_chromadb_id_mapping",
+        "documentation": {}
+    },
+    {
+        "label": "verify_fix",
+        "kind": 2,
+        "importPath": "fix_chromadb_id_mapping",
+        "description": "fix_chromadb_id_mapping",
+        "peekOfCode": "def verify_fix():\n    \"\"\"验证修复结果\"\"\"\n    print(\"\\n🔍 验证修复结果\")\n    print(\"=\" * 60)\n    chroma_path = 'storage/chroma_db_new/chroma.sqlite3'\n    if not os.path.exists(chroma_path):\n        print(\"❌ ChromaDB 文件不存在\")\n        return False\n    conn = sqlite3.connect(chroma_path)\n    # 检查是否还有相同的 document_id, doc_id, ref_doc_id",
+        "detail": "fix_chromadb_id_mapping",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "fix_chromadb_id_mapping",
+        "description": "fix_chromadb_id_mapping",
+        "peekOfCode": "def main():\n    \"\"\"主函数\"\"\"\n    print(\"🚀 ChromaDB ID 映射修复工具\")\n    print(\"=\" * 60)\n    # 1. 分析当前状态\n    analyze_current_state()\n    # 2. 执行修复\n    if fix_chromadb_metadata():\n        # 3. 验证修复结果\n        verify_fix()",
+        "detail": "fix_chromadb_id_mapping",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "fix_chromadb_id_mapping",
+        "description": "fix_chromadb_id_mapping",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef analyze_current_state():\n    \"\"\"分析当前状态\"\"\"\n    print(\"🔍 分析当前 ChromaDB ID 映射状态\")\n    print(\"=\" * 60)\n    # 1. 检查 DocStore 数据\n    docstore_path = 'storage/docstore.db'\n    docstore_nodes = {}\n    if os.path.exists(docstore_path):\n        conn = sqlite3.connect(docstore_path)",
+        "detail": "fix_chromadb_id_mapping",
+        "documentation": {}
+    },
+    {
+        "label": "fix_chromadb_migrations",
+        "kind": 2,
+        "importPath": "fix_chromadb_migrations",
+        "description": "fix_chromadb_migrations",
+        "peekOfCode": "def fix_chromadb_migrations():\n    \"\"\"修复 ChromaDB 迁移状态\"\"\"\n    chroma_sqlite_path = os.path.join(\"storage\", \"chroma_db\", \"chroma.sqlite3\")\n    if not os.path.exists(chroma_sqlite_path):\n        logger.info(\"chroma.sqlite3 不存在\")\n        return True\n    try:\n        with sqlite3.connect(chroma_sqlite_path) as conn:\n            logger.info(\"🔧 修复 ChromaDB 迁移状态...\")\n            # 检查 migrations 表",
+        "detail": "fix_chromadb_migrations",
+        "documentation": {}
+    },
+    {
+        "label": "test_chromadb_after_fix",
+        "kind": 2,
+        "importPath": "fix_chromadb_migrations",
+        "description": "fix_chromadb_migrations",
+        "peekOfCode": "def test_chromadb_after_fix():\n    \"\"\"修复后测试 ChromaDB\"\"\"\n    try:\n        import chromadb\n        from chromadb.config import Settings as ChromaSettings\n        logger.info(\"🔍 测试修复后的 ChromaDB...\")\n        chroma_db_path = os.path.join(\"storage\", \"chroma_db\")\n        # 创建客户端\n        chroma_client = chromadb.PersistentClient(\n            path=chroma_db_path,",
+        "detail": "fix_chromadb_migrations",
+        "documentation": {}
+    },
+    {
+        "label": "test_full_workflow",
+        "kind": 2,
+        "importPath": "fix_chromadb_migrations",
+        "description": "fix_chromadb_migrations",
+        "peekOfCode": "def test_full_workflow():\n    \"\"\"测试完整工作流\"\"\"\n    try:\n        from app.storage_config import get_storage_context\n        logger.info(\"🔧 测试完整工作流...\")\n        # 测试存储上下文\n        storage_context = get_storage_context(\"storage\")\n        logger.info(\"✅ 存储上下文创建成功\")\n        return True\n    except Exception as e:",
+        "detail": "fix_chromadb_migrations",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "fix_chromadb_migrations",
+        "description": "fix_chromadb_migrations",
+        "peekOfCode": "def main():\n    \"\"\"主修复流程\"\"\"\n    print(\"🔧 开始修复 ChromaDB 迁移状态\")\n    print(\"=\" * 50)\n    # 1. 修复 ChromaDB 迁移状态\n    if not fix_chromadb_migrations():\n        print(\"❌ 修复失败：无法修复 ChromaDB 迁移状态\")\n        return\n    # 2. 测试修复后的 ChromaDB\n    if not test_chromadb_after_fix():",
+        "detail": "fix_chromadb_migrations",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "fix_chromadb_migrations",
+        "description": "fix_chromadb_migrations",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef fix_chromadb_migrations():\n    \"\"\"修复 ChromaDB 迁移状态\"\"\"\n    chroma_sqlite_path = os.path.join(\"storage\", \"chroma_db\", \"chroma.sqlite3\")\n    if not os.path.exists(chroma_sqlite_path):\n        logger.info(\"chroma.sqlite3 不存在\")\n        return True\n    try:\n        with sqlite3.connect(chroma_sqlite_path) as conn:\n            logger.info(\"🔧 修复 ChromaDB 迁移状态...\")",
+        "detail": "fix_chromadb_migrations",
+        "documentation": {}
+    },
+    {
+        "label": "fix_chroma_fulltext_search",
+        "kind": 2,
+        "importPath": "fix_chroma_fulltext",
+        "description": "fix_chroma_fulltext",
+        "peekOfCode": "def fix_chroma_fulltext_search():\n    \"\"\"修复 ChromaDB 的 embedding_fulltext_search 表结构\"\"\"\n    print(\"🔧 修复 ChromaDB embedding_fulltext_search 表结构\")\n    print(\"=\" * 60)\n    chroma_db_path = \"storage/chroma_db_new\"\n    if not os.path.exists(chroma_db_path):\n        print(\"❌ ChromaDB 目录不存在\")\n        return False\n    # 查找 ChromaDB 的 SQLite 数据库文件\n    chroma_db_file = None",
+        "detail": "fix_chroma_fulltext",
+        "documentation": {}
+    },
+    {
+        "label": "test_chroma_after_fix",
+        "kind": 2,
+        "importPath": "fix_chroma_fulltext",
+        "description": "fix_chroma_fulltext",
+        "peekOfCode": "def test_chroma_after_fix():\n    \"\"\"测试修复后的 ChromaDB\"\"\"\n    print(\"\\n🧪 测试修复后的 ChromaDB\")\n    print(\"=\" * 60)\n    try:\n        import chromadb\n        from chromadb.config import Settings as ChromaSettings\n        chroma_path = 'storage/chroma_db_new'\n        client = chromadb.PersistentClient(\n            path=chroma_path,",
+        "detail": "fix_chroma_fulltext",
+        "documentation": {}
+    },
+    {
+        "label": "clean_duplicate_data",
+        "kind": 2,
+        "importPath": "fix_chroma_fulltext",
+        "description": "fix_chroma_fulltext",
+        "peekOfCode": "def clean_duplicate_data():\n    \"\"\"清理重复数据\"\"\"\n    print(\"\\n🧹 清理重复数据\")\n    print(\"=\" * 60)\n    try:\n        import sqlite3\n        # 清理 docstore 中的重复数据\n        docstore_path = \"storage/docstore.db\"\n        if os.path.exists(docstore_path):\n            conn = sqlite3.connect(docstore_path)",
+        "detail": "fix_chroma_fulltext",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "fix_chroma_fulltext",
+        "description": "fix_chroma_fulltext",
+        "peekOfCode": "def main():\n    \"\"\"主函数\"\"\"\n    print(\"🔧 ChromaDB embedding_fulltext_search 修复工具\")\n    print(\"=\" * 80)\n    # 1. 修复 embedding_fulltext_search 表\n    if fix_chroma_fulltext_search():\n        print(\"\\n✅ embedding_fulltext_search 表修复成功\")\n        # 2. 测试修复结果\n        if test_chroma_after_fix():\n            print(\"\\n✅ ChromaDB 修复验证通过\")",
+        "detail": "fix_chroma_fulltext",
+        "documentation": {}
+    },
+    {
+        "label": "force_cleanup_old_chroma",
+        "kind": 2,
+        "importPath": "force_cleanup",
+        "description": "force_cleanup",
+        "peekOfCode": "def force_cleanup_old_chroma():\n    \"\"\"强制清理旧的 chroma_db 目录\"\"\"\n    storage_dir = \"storage\"\n    old_chroma_path = os.path.join(storage_dir, \"chroma_db\")\n    if not os.path.exists(old_chroma_path):\n        print(\"✅ 旧的 chroma_db 目录已经不存在\")\n        return True\n    print(\"🔧 尝试强制清理旧的 chroma_db 目录...\")\n    # 方法1: 尝试重命名目录\n    timestamp = datetime.now().strftime(\"%Y%m%d_%H%M%S\")",
+        "detail": "force_cleanup",
+        "documentation": {}
+    },
+    {
+        "label": "check_final_state",
+        "kind": 2,
+        "importPath": "force_cleanup",
+        "description": "force_cleanup",
+        "peekOfCode": "def check_final_state():\n    \"\"\"检查最终的存储状态\"\"\"\n    print(\"\\n🔍 检查最终存储状态\")\n    print(\"=\" * 50)\n    storage_dir = \"storage\"\n    if not os.path.exists(storage_dir):\n        print(\"❌ 存储目录不存在\")\n        return\n    print(\"📁 当前存储目录内容:\")\n    for item in sorted(os.listdir(storage_dir)):",
+        "detail": "force_cleanup",
+        "documentation": {}
+    },
+    {
+        "label": "format_size",
+        "kind": 2,
+        "importPath": "force_cleanup",
+        "description": "force_cleanup",
+        "peekOfCode": "def format_size(size_bytes):\n    \"\"\"格式化文件大小\"\"\"\n    if size_bytes == 0:\n        return \"0 B\"\n    for unit in ['B', 'KB', 'MB', 'GB']:\n        if size_bytes < 1024.0:\n            return f\"{size_bytes:.1f} {unit}\"\n        size_bytes /= 1024.0\n    return f\"{size_bytes:.1f} TB\"\ndef main():",
+        "detail": "force_cleanup",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "force_cleanup",
+        "description": "force_cleanup",
+        "peekOfCode": "def main():\n    \"\"\"主清理流程\"\"\"\n    print(\"🧹 强制清理工具\")\n    print(\"=\" * 50)\n    # 强制清理旧的 ChromaDB\n    success = force_cleanup_old_chroma()\n    if success:\n        print(\"✅ 清理完成\")\n    else:\n        print(\"⚠️  部分清理完成，可能有文件仍被占用\")",
+        "detail": "force_cleanup",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "force_cleanup",
+        "description": "force_cleanup",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef force_cleanup_old_chroma():\n    \"\"\"强制清理旧的 chroma_db 目录\"\"\"\n    storage_dir = \"storage\"\n    old_chroma_path = os.path.join(storage_dir, \"chroma_db\")\n    if not os.path.exists(old_chroma_path):\n        print(\"✅ 旧的 chroma_db 目录已经不存在\")\n        return True\n    print(\"🔧 尝试强制清理旧的 chroma_db 目录...\")\n    # 方法1: 尝试重命名目录",
+        "detail": "force_cleanup",
+        "documentation": {}
+    },
+    {
+        "label": "force_move_chromadb",
+        "kind": 2,
+        "importPath": "force_fix_chromadb",
+        "description": "force_fix_chromadb",
+        "peekOfCode": "def force_move_chromadb(chroma_db_path):\n    \"\"\"强制移动 ChromaDB 目录（绕过文件占用）\"\"\"\n    if not os.path.exists(chroma_db_path):\n        logger.info(\"ChromaDB 目录不存在\")\n        return True\n    timestamp = datetime.now().strftime(\"%Y%m%d_%H%M%S\")\n    temp_path = f\"{chroma_db_path}_old_{timestamp}\"\n    try:\n        # 尝试重命名目录\n        os.rename(chroma_db_path, temp_path)",
+        "detail": "force_fix_chromadb",
+        "documentation": {}
+    },
+    {
+        "label": "create_fresh_chromadb_simple",
+        "kind": 2,
+        "importPath": "force_fix_chromadb",
+        "description": "force_fix_chromadb",
+        "peekOfCode": "def create_fresh_chromadb_simple(chroma_db_path):\n    \"\"\"创建全新的 ChromaDB（简化版）\"\"\"\n    try:\n        logger.info(\"🔧 创建全新的 ChromaDB...\")\n        # 确保目录存在\n        os.makedirs(chroma_db_path, exist_ok=True)\n        # 创建一个简单的 SQLite 数据库文件\n        chroma_sqlite_path = os.path.join(chroma_db_path, \"chroma.sqlite3\")\n        # 创建基本的数据库结构\n        with sqlite3.connect(chroma_sqlite_path) as conn:",
+        "detail": "force_fix_chromadb",
+        "documentation": {}
+    },
+    {
+        "label": "test_chromadb_with_retry",
+        "kind": 2,
+        "importPath": "force_fix_chromadb",
+        "description": "force_fix_chromadb",
+        "peekOfCode": "def test_chromadb_with_retry(chroma_db_path):\n    \"\"\"测试 ChromaDB 连接（带重试）\"\"\"\n    try:\n        import chromadb\n        from chromadb.config import Settings as ChromaSettings\n        logger.info(\"🔍 测试 ChromaDB 连接...\")\n        # 创建 ChromaDB 客户端\n        chroma_client = chromadb.PersistentClient(\n            path=chroma_db_path,\n            settings=ChromaSettings(",
+        "detail": "force_fix_chromadb",
+        "documentation": {}
+    },
+    {
+        "label": "test_full_storage_context",
+        "kind": 2,
+        "importPath": "force_fix_chromadb",
+        "description": "force_fix_chromadb",
+        "peekOfCode": "def test_full_storage_context():\n    \"\"\"测试完整的存储上下文\"\"\"\n    try:\n        from app.storage_config import get_storage_context\n        logger.info(\"🔧 测试完整存储上下文...\")\n        storage_context = get_storage_context(\"storage\")\n        logger.info(\"✅ 完整存储上下文创建成功\")\n        return True\n    except Exception as e:\n        logger.error(f\"❌ 完整存储上下文测试失败: {e}\")",
+        "detail": "force_fix_chromadb",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "force_fix_chromadb",
+        "description": "force_fix_chromadb",
+        "peekOfCode": "def main():\n    \"\"\"主修复流程\"\"\"\n    storage_dir = \"storage\"\n    chroma_db_path = os.path.join(storage_dir, \"chroma_db\")\n    print(\"🔧 开始强制修复 ChromaDB\")\n    print(\"=\" * 50)\n    # 1. 强制移动现有的 ChromaDB 目录\n    if not force_move_chromadb(chroma_db_path):\n        print(\"❌ 修复失败：无法移动现有 ChromaDB\")\n        return",
+        "detail": "force_fix_chromadb",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "force_fix_chromadb",
+        "description": "force_fix_chromadb",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef force_move_chromadb(chroma_db_path):\n    \"\"\"强制移动 ChromaDB 目录（绕过文件占用）\"\"\"\n    if not os.path.exists(chroma_db_path):\n        logger.info(\"ChromaDB 目录不存在\")\n        return True\n    timestamp = datetime.now().strftime(\"%Y%m%d_%H%M%S\")\n    temp_path = f\"{chroma_db_path}_old_{timestamp}\"\n    try:\n        # 尝试重命名目录",
+        "detail": "force_fix_chromadb",
         "documentation": {}
     },
     {
@@ -1309,11 +2334,20 @@
         "documentation": {}
     },
     {
+        "label": "clear_all_storage_data",
+        "kind": 2,
+        "importPath": "generate",
+        "description": "generate",
+        "peekOfCode": "def clear_all_storage_data(storage_context):\n    \"\"\"清理所有存储数据\"\"\"\n    logger.info(\"🧹 清理所有存储数据...\")\n    try:\n        # 1. 清理 docstore 数据\n        import sqlite3\n        docstore_path = storage_context.docstore.db_path\n        with sqlite3.connect(docstore_path) as conn:\n            conn.execute(\"DELETE FROM documents\")\n            conn.execute(\"DELETE FROM files\") ",
+        "detail": "generate",
+        "documentation": {}
+    },
+    {
         "label": "generate_index",
         "kind": 2,
         "importPath": "generate",
         "description": "generate",
-        "peekOfCode": "def generate_index():\n    \"\"\"\n    Index the documents in the data directory using SQLite and ChromaDB.\n    \"\"\"\n    from app.index import STORAGE_DIR\n    from app.settings import init_settings\n    from app.storage_config import get_storage_context\n    from llama_index.core.indices import (\n        VectorStoreIndex,\n    )",
+        "peekOfCode": "def generate_index():\n    \"\"\"\n    重新生成索引：清理所有数据，然后重新索引文档\n    \"\"\"\n    from app.index import STORAGE_DIR\n    from app.settings import init_settings\n    from app.storage_config import get_storage_context\n    from llama_index.core.indices import VectorStoreIndex\n    from llama_index.core.readers import SimpleDirectoryReader\n    from llama_index.core.node_parser import SentenceSplitter",
         "detail": "generate",
         "documentation": {}
     },
@@ -1331,8 +2365,35 @@
         "kind": 5,
         "importPath": "generate",
         "description": "generate",
-        "peekOfCode": "logger = logging.getLogger()\ndef generate_index():\n    \"\"\"\n    Index the documents in the data directory using SQLite and ChromaDB.\n    \"\"\"\n    from app.index import STORAGE_DIR\n    from app.settings import init_settings\n    from app.storage_config import get_storage_context\n    from llama_index.core.indices import (\n        VectorStoreIndex,",
+        "peekOfCode": "logger = logging.getLogger()\ndef clear_all_storage_data(storage_context):\n    \"\"\"清理所有存储数据\"\"\"\n    logger.info(\"🧹 清理所有存储数据...\")\n    try:\n        # 1. 清理 docstore 数据\n        import sqlite3\n        docstore_path = storage_context.docstore.db_path\n        with sqlite3.connect(docstore_path) as conn:\n            conn.execute(\"DELETE FROM documents\")",
         "detail": "generate",
+        "documentation": {}
+    },
+    {
+        "label": "generate_index_improved",
+        "kind": 2,
+        "importPath": "generate_improved",
+        "description": "generate_improved",
+        "peekOfCode": "def generate_index_improved():\n    \"\"\"\n    改进的索引生成函数，解决 chunk_index 和重复数据问题\n    \"\"\"\n    from app.index import STORAGE_DIR\n    from app.settings import init_settings\n    from app.storage_config import get_storage_context\n    from llama_index.core.indices import VectorStoreIndex\n    from llama_index.core.readers import SimpleDirectoryReader\n    from llama_index.core.node_parser import SentenceSplitter",
+        "detail": "generate_improved",
+        "documentation": {}
+    },
+    {
+        "label": "verify_chunk_index_in_db",
+        "kind": 2,
+        "importPath": "generate_improved",
+        "description": "generate_improved",
+        "peekOfCode": "def verify_chunk_index_in_db():\n    \"\"\"验证数据库中的 chunk_index\"\"\"\n    import sqlite3\n    try:\n        with sqlite3.connect('storage/docstore.db') as conn:\n            cursor = conn.execute('''\n                SELECT file_name, chunk_index, COUNT(*) as count\n                FROM documents \n                GROUP BY file_name, chunk_index \n                ORDER BY file_name, chunk_index",
+        "detail": "generate_improved",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "generate_improved",
+        "description": "generate_improved",
+        "peekOfCode": "logger = logging.getLogger()\ndef generate_index_improved():\n    \"\"\"\n    改进的索引生成函数，解决 chunk_index 和重复数据问题\n    \"\"\"\n    from app.index import STORAGE_DIR\n    from app.settings import init_settings\n    from app.storage_config import get_storage_context\n    from llama_index.core.indices import VectorStoreIndex\n    from llama_index.core.readers import SimpleDirectoryReader",
+        "detail": "generate_improved",
         "documentation": {}
     },
     {
@@ -1396,6 +2457,69 @@
         "description": "migrate_to_file_management",
         "peekOfCode": "logger = logging.getLogger(__name__)\ndef calculate_file_hash(file_path: str) -> str:\n    \"\"\"计算文件的MD5哈希值\"\"\"\n    hash_md5 = hashlib.md5()\n    try:\n        with open(file_path, \"rb\") as f:\n            for chunk in iter(lambda: f.read(4096), b\"\"):\n                hash_md5.update(chunk)\n        return hash_md5.hexdigest()\n    except Exception as e:",
         "detail": "migrate_to_file_management",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "quick_check",
+        "description": "quick_check",
+        "peekOfCode": "def main():\n    print(\"=== DOCSTORE 数据 ===\")\n    conn = sqlite3.connect('storage/docstore.db')\n    cursor = conn.execute('SELECT doc_id, file_name, chunk_index FROM documents ORDER BY file_name, chunk_index')\n    docs = cursor.fetchall()\n    print(f'Documents 表记录数: {len(docs)}')\n    for doc_id, file_name, chunk_index in docs:\n        print(f'  {doc_id[:8]}... | {file_name} | chunk_{chunk_index}')\n    conn.close()\n    print('\\n=== CHROMADB 数据 ===')",
+        "detail": "quick_check",
+        "documentation": {}
+    },
+    {
+        "label": "reset_chromadb_database",
+        "kind": 2,
+        "importPath": "reinit_chromadb",
+        "description": "reinit_chromadb",
+        "peekOfCode": "def reset_chromadb_database():\n    \"\"\"重置 ChromaDB 数据库内容\"\"\"\n    chroma_sqlite_path = os.path.join(\"storage\", \"chroma_db\", \"chroma.sqlite3\")\n    if not os.path.exists(chroma_sqlite_path):\n        logger.info(\"chroma.sqlite3 不存在\")\n        return True\n    try:\n        with sqlite3.connect(chroma_sqlite_path) as conn:\n            logger.info(\"🔧 重置 ChromaDB 数据库...\")\n            # 删除所有数据但保留表结构",
+        "detail": "reinit_chromadb",
+        "documentation": {}
+    },
+    {
+        "label": "test_chromadb_connection",
+        "kind": 2,
+        "importPath": "reinit_chromadb",
+        "description": "reinit_chromadb",
+        "peekOfCode": "def test_chromadb_connection():\n    \"\"\"测试 ChromaDB 连接\"\"\"\n    try:\n        import chromadb\n        from chromadb.config import Settings as ChromaSettings\n        logger.info(\"🔍 测试 ChromaDB 连接...\")\n        chroma_db_path = os.path.join(\"storage\", \"chroma_db\")\n        # 创建客户端\n        chroma_client = chromadb.PersistentClient(\n            path=chroma_db_path,",
+        "detail": "reinit_chromadb",
+        "documentation": {}
+    },
+    {
+        "label": "test_storage_context",
+        "kind": 2,
+        "importPath": "reinit_chromadb",
+        "description": "reinit_chromadb",
+        "peekOfCode": "def test_storage_context():\n    \"\"\"测试存储上下文\"\"\"\n    try:\n        from app.storage_config import get_storage_context\n        logger.info(\"🔧 测试存储上下文...\")\n        storage_context = get_storage_context(\"storage\")\n        logger.info(\"✅ 存储上下文创建成功\")\n        return True\n    except Exception as e:\n        logger.error(f\"❌ 存储上下文测试失败: {e}\")",
+        "detail": "reinit_chromadb",
+        "documentation": {}
+    },
+    {
+        "label": "test_generate_command",
+        "kind": 2,
+        "importPath": "reinit_chromadb",
+        "description": "reinit_chromadb",
+        "peekOfCode": "def test_generate_command():\n    \"\"\"测试 generate 命令的核心逻辑\"\"\"\n    try:\n        from app.index import STORAGE_DIR\n        from app.settings import init_settings\n        from app.storage_config import get_storage_context\n        from llama_index.core.readers import SimpleDirectoryReader\n        from dotenv import load_dotenv\n        logger.info(\"🔧 测试 generate 命令核心逻辑...\")\n        load_dotenv()",
+        "detail": "reinit_chromadb",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "reinit_chromadb",
+        "description": "reinit_chromadb",
+        "peekOfCode": "def main():\n    \"\"\"主修复流程\"\"\"\n    print(\"🔧 开始重新初始化 ChromaDB\")\n    print(\"=\" * 50)\n    # 1. 重置 ChromaDB 数据库\n    if not reset_chromadb_database():\n        print(\"❌ 修复失败：无法重置 ChromaDB 数据库\")\n        return\n    # 2. 测试 ChromaDB 连接\n    if not test_chromadb_connection():",
+        "detail": "reinit_chromadb",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "reinit_chromadb",
+        "description": "reinit_chromadb",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef reset_chromadb_database():\n    \"\"\"重置 ChromaDB 数据库内容\"\"\"\n    chroma_sqlite_path = os.path.join(\"storage\", \"chroma_db\", \"chroma.sqlite3\")\n    if not os.path.exists(chroma_sqlite_path):\n        logger.info(\"chroma.sqlite3 不存在\")\n        return True\n    try:\n        with sqlite3.connect(chroma_sqlite_path) as conn:\n            logger.info(\"🔧 重置 ChromaDB 数据库...\")",
+        "detail": "reinit_chromadb",
         "documentation": {}
     },
     {
@@ -1471,6 +2595,123 @@
         "documentation": {}
     },
     {
+        "label": "clear_chroma_sqlite",
+        "kind": 2,
+        "importPath": "reset_data_complete",
+        "description": "reset_data_complete",
+        "peekOfCode": "def clear_chroma_sqlite(chroma_db_path):\n    \"\"\"直接清理 chroma.sqlite3 数据库\"\"\"\n    chroma_sqlite_path = os.path.join(chroma_db_path, \"chroma.sqlite3\")\n    if not os.path.exists(chroma_sqlite_path):\n        logger.info(\"chroma.sqlite3 不存在，跳过清理\")\n        return True\n    try:\n        with sqlite3.connect(chroma_sqlite_path) as conn:\n            # 获取所有表名\n            cursor = conn.execute(\"SELECT name FROM sqlite_master WHERE type='table'\")",
+        "detail": "reset_data_complete",
+        "documentation": {}
+    },
+    {
+        "label": "clear_chroma_vector_files",
+        "kind": 2,
+        "importPath": "reset_data_complete",
+        "description": "reset_data_complete",
+        "peekOfCode": "def clear_chroma_vector_files(chroma_db_path):\n    \"\"\"清理 ChromaDB 向量文件\"\"\"\n    try:\n        deleted_dirs = []\n        for item in os.listdir(chroma_db_path):\n            item_path = os.path.join(chroma_db_path, item)\n            if os.path.isdir(item_path) and item != \"__pycache__\":\n                try:\n                    shutil.rmtree(item_path)\n                    deleted_dirs.append(item)",
+        "detail": "reset_data_complete",
+        "documentation": {}
+    },
+    {
+        "label": "clear_document_data_complete",
+        "kind": 2,
+        "importPath": "reset_data_complete",
+        "description": "reset_data_complete",
+        "peekOfCode": "def clear_document_data_complete(storage_dir=\"storage\"):\n    \"\"\"完整清空文档数据，包括直接操作 chroma.sqlite3\"\"\"\n    logger.info(\"🔄 开始完整清空文档数据...\")\n    # 1. 清空SQLite数据库中的文档数据\n    docstore_path = os.path.join(storage_dir, \"docstore.db\")\n    if os.path.exists(docstore_path):\n        try:\n            with sqlite3.connect(docstore_path) as conn:\n                cursor = conn.execute(\"DELETE FROM documents\")\n                docs_deleted = cursor.rowcount",
+        "detail": "reset_data_complete",
+        "documentation": {}
+    },
+    {
+        "label": "verify_complete_reset",
+        "kind": 2,
+        "importPath": "reset_data_complete",
+        "description": "reset_data_complete",
+        "peekOfCode": "def verify_complete_reset(storage_dir=\"storage\"):\n    \"\"\"验证完整重置结果\"\"\"\n    logger.info(\"🔍 验证完整重置结果...\")\n    # 检查docstore.db\n    docstore_path = os.path.join(storage_dir, \"docstore.db\")\n    if os.path.exists(docstore_path):\n        with sqlite3.connect(docstore_path) as conn:\n            cursor = conn.execute(\"SELECT COUNT(*) FROM documents\")\n            doc_count = cursor.fetchone()[0]\n            cursor = conn.execute(\"SELECT COUNT(*) FROM files\")",
+        "detail": "reset_data_complete",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "reset_data_complete",
+        "description": "reset_data_complete",
+        "peekOfCode": "def main():\n    \"\"\"主重置流程\"\"\"\n    storage_dir = \"storage\"\n    print(\"🔄 开始完整数据重置（包括 chroma.sqlite3）\")\n    print(\"=\" * 60)\n    # 1. 完整清空文档数据\n    if not clear_document_data_complete(storage_dir):\n        print(\"❌ 完整数据重置失败\")\n        return\n    # 2. 验证重置结果",
+        "detail": "reset_data_complete",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "reset_data_complete",
+        "description": "reset_data_complete",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef clear_chroma_sqlite(chroma_db_path):\n    \"\"\"直接清理 chroma.sqlite3 数据库\"\"\"\n    chroma_sqlite_path = os.path.join(chroma_db_path, \"chroma.sqlite3\")\n    if not os.path.exists(chroma_sqlite_path):\n        logger.info(\"chroma.sqlite3 不存在，跳过清理\")\n        return True\n    try:\n        with sqlite3.connect(chroma_sqlite_path) as conn:\n            # 获取所有表名",
+        "detail": "reset_data_complete",
+        "documentation": {}
+    },
+    {
+        "label": "clear_document_data",
+        "kind": 2,
+        "importPath": "reset_data_only",
+        "description": "reset_data_only",
+        "peekOfCode": "def clear_document_data(storage_dir=\"storage\"):\n    \"\"\"清空文档数据，保留配置和表结构\"\"\"\n    logger.info(\"🔄 开始清空文档数据...\")\n    # 1. 清空SQLite数据库中的文档数据\n    docstore_path = os.path.join(storage_dir, \"docstore.db\")\n    if os.path.exists(docstore_path):\n        try:\n            with sqlite3.connect(docstore_path) as conn:\n                # 清空文档相关表的数据，但保留表结构\n                cursor = conn.execute(\"DELETE FROM documents\")",
+        "detail": "reset_data_only",
+        "documentation": {}
+    },
+    {
+        "label": "verify_data_reset",
+        "kind": 2,
+        "importPath": "reset_data_only",
+        "description": "reset_data_only",
+        "peekOfCode": "def verify_data_reset(storage_dir=\"storage\"):\n    \"\"\"验证数据重置结果\"\"\"\n    logger.info(\"🔍 验证数据重置结果...\")\n    # 检查docstore.db\n    docstore_path = os.path.join(storage_dir, \"docstore.db\")\n    if os.path.exists(docstore_path):\n        with sqlite3.connect(docstore_path) as conn:\n            cursor = conn.execute(\"SELECT COUNT(*) FROM documents\")\n            doc_count = cursor.fetchone()[0]\n            cursor = conn.execute(\"SELECT COUNT(*) FROM files\")",
+        "detail": "reset_data_only",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "reset_data_only",
+        "description": "reset_data_only",
+        "peekOfCode": "def main():\n    \"\"\"主重置流程\"\"\"\n    storage_dir = \"storage\"\n    print(\"🔄 开始数据重置（保留配置）\")\n    print(\"=\" * 50)\n    # 1. 清空文档数据\n    if not clear_document_data(storage_dir):\n        print(\"❌ 数据重置失败\")\n        return\n    # 2. 验证重置结果",
+        "detail": "reset_data_only",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "reset_data_only",
+        "description": "reset_data_only",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef clear_document_data(storage_dir=\"storage\"):\n    \"\"\"清空文档数据，保留配置和表结构\"\"\"\n    logger.info(\"🔄 开始清空文档数据...\")\n    # 1. 清空SQLite数据库中的文档数据\n    docstore_path = os.path.join(storage_dir, \"docstore.db\")\n    if os.path.exists(docstore_path):\n        try:\n            with sqlite3.connect(docstore_path) as conn:\n                # 清空文档相关表的数据，但保留表结构",
+        "detail": "reset_data_only",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "simple_fix_chromadb",
+        "description": "simple_fix_chromadb",
+        "peekOfCode": "def main():\n    print(\"🚀 开始修复 ChromaDB ID 映射问题\")\n    # 1. 检查文件是否存在\n    docstore_path = 'storage/docstore.db'\n    chroma_path = 'storage/chroma_db_new/chroma.sqlite3'\n    if not os.path.exists(docstore_path):\n        print(f\"❌ DocStore 文件不存在: {docstore_path}\")\n        return\n    if not os.path.exists(chroma_path):\n        print(f\"❌ ChromaDB 文件不存在: {chroma_path}\")",
+        "detail": "simple_fix_chromadb",
+        "documentation": {}
+    },
+    {
+        "label": "simple_reset",
+        "kind": 2,
+        "importPath": "simple_reset",
+        "description": "simple_reset",
+        "peekOfCode": "def simple_reset():\n    \"\"\"简单重置数据库\"\"\"\n    storage_dir = \"storage\"\n    print(\"🔄 开始简单数据库重置\")\n    print(\"=\" * 40)\n    # 1. 尝试删除存储目录\n    if os.path.exists(storage_dir):\n        try:\n            shutil.rmtree(storage_dir)\n            logger.info(f\"✅ 已删除存储目录: {storage_dir}\")",
+        "detail": "simple_reset",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "simple_reset",
+        "description": "simple_reset",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef simple_reset():\n    \"\"\"简单重置数据库\"\"\"\n    storage_dir = \"storage\"\n    print(\"🔄 开始简单数据库重置\")\n    print(\"=\" * 40)\n    # 1. 尝试删除存储目录\n    if os.path.exists(storage_dir):\n        try:\n            shutil.rmtree(storage_dir)",
+        "detail": "simple_reset",
+        "documentation": {}
+    },
+    {
         "label": "test_chat_api",
         "kind": 2,
         "importPath": "test_api",
@@ -1486,6 +2727,51 @@
         "description": "test_api",
         "peekOfCode": "def test_health_api():\n    \"\"\"测试健康检查API\"\"\"\n    url = \"http://localhost:8000/api/health\"\n    try:\n        response = requests.get(url, timeout=10)\n        print(f\"健康检查状态码: {response.status_code}\")\n        print(f\"健康检查响应: {response.json()}\")\n        return response.status_code == 200\n    except Exception as e:\n        print(f\"健康检查失败: {e}\")",
         "detail": "test_api",
+        "documentation": {}
+    },
+    {
+        "label": "test_health",
+        "kind": 2,
+        "importPath": "test_api_simple",
+        "description": "test_api_simple",
+        "peekOfCode": "def test_health():\n    \"\"\"测试健康检查\"\"\"\n    try:\n        response = requests.get('http://localhost:8000/api/health', timeout=5)\n        print(f\"健康检查: {response.status_code} - {response.text}\")\n        return response.status_code == 200\n    except Exception as e:\n        print(f\"健康检查失败: {e}\")\n        return False\ndef test_chat():",
+        "detail": "test_api_simple",
+        "documentation": {}
+    },
+    {
+        "label": "test_chat",
+        "kind": 2,
+        "importPath": "test_api_simple",
+        "description": "test_api_simple",
+        "peekOfCode": "def test_chat():\n    \"\"\"测试聊天 API\"\"\"\n    url = 'http://localhost:8000/api/chat'\n    payload = {\n        \"id\": \"test-session\",\n        \"messages\": [\n            {\n                \"role\": \"user\",\n                \"content\": \"AI智能助手有什么功能？\"\n            }",
+        "detail": "test_api_simple",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "test_api_simple",
+        "description": "test_api_simple",
+        "peekOfCode": "def main():\n    print(\"🧪 简单 API 测试\")\n    print(\"=\" * 50)\n    # 测试健康检查\n    if test_health():\n        print(\"\\n✅ 健康检查通过，测试聊天 API...\")\n        test_chat()\n    else:\n        print(\"\\n❌ 健康检查失败，服务器可能未运行\")\nif __name__ == \"__main__\":",
+        "detail": "test_api_simple",
+        "documentation": {}
+    },
+    {
+        "label": "test_node_creation",
+        "kind": 2,
+        "importPath": "test_chunk_index_fix",
+        "description": "test_chunk_index_fix",
+        "peekOfCode": "def test_node_creation():\n    \"\"\"测试节点创建过程\"\"\"\n    print(\"🧪 测试节点创建过程\")\n    print(\"=\" * 60)\n    # 创建测试文件\n    test_content = \"\"\"测试文档\n这是第一段内容，用于测试文档分块功能。\n这是第二段内容，应该被分成不同的块。\n这是第三段内容，每个块都应该有正确的索引。\"\"\"\n    test_file = \"test_chunk_index.txt\"",
+        "detail": "test_chunk_index_fix",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "test_chunk_index_fix",
+        "description": "test_chunk_index_fix",
+        "peekOfCode": "def main():\n    \"\"\"主函数\"\"\"\n    print(\"🧪 Chunk Index 修复测试\")\n    print(\"=\" * 80)\n    test_node_creation()\n    print(\"\\n💡 测试结论:\")\n    print(\"如果序列化后的 chunk_index 正确，但数据库中仍然是0，\")\n    print(\"那么问题可能在于:\")\n    print(\"1. 数据库中的数据是旧的\")\n    print(\"2. add_documents 方法中的逻辑有问题\")",
+        "detail": "test_chunk_index_fix",
         "documentation": {}
     },
     {
@@ -1543,6 +2829,78 @@
         "documentation": {}
     },
     {
+        "label": "test_query_engine",
+        "kind": 2,
+        "importPath": "test_query_system",
+        "description": "test_query_system",
+        "peekOfCode": "def test_query_engine():\n    \"\"\"测试查询引擎\"\"\"\n    print(\"🔍 测试查询引擎\")\n    print(\"=\" * 60)\n    try:\n        # 加载环境变量\n        load_dotenv()\n        # 初始化设置\n        from app.settings import init_settings\n        init_settings()",
+        "detail": "test_query_system",
+        "documentation": {}
+    },
+    {
+        "label": "test_api_endpoint",
+        "kind": 2,
+        "importPath": "test_query_system",
+        "description": "test_query_system",
+        "peekOfCode": "def test_api_endpoint():\n    \"\"\"测试 API 端点\"\"\"\n    print(\"\\n🌐 测试 API 端点\")\n    print(\"=\" * 60)\n    try:\n        import requests\n        import json\n        # 测试查询 API\n        url = \"http://localhost:8000/api/chat\"\n        payload = {",
+        "detail": "test_query_system",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "test_query_system",
+        "description": "test_query_system",
+        "peekOfCode": "def main():\n    \"\"\"主函数\"\"\"\n    print(\"🧪 查询系统完整性测试\")\n    print(\"=\" * 80)\n    # 测试查询引擎\n    engine_ok = test_query_engine()\n    # 测试 API 端点\n    api_ok = test_api_endpoint()\n    print(\"\\n📊 测试结果总结\")\n    print(\"=\" * 60)",
+        "detail": "test_query_system",
+        "documentation": {}
+    },
+    {
+        "label": "test_storage_creation",
+        "kind": 2,
+        "importPath": "test_storage",
+        "description": "test_storage",
+        "peekOfCode": "def test_storage_creation():\n    \"\"\"测试存储上下文创建\"\"\"\n    try:\n        logger.info(\"开始测试存储上下文创建...\")\n        # 导入必要的模块\n        from app.storage_config import get_storage_context\n        from app.index import STORAGE_DIR\n        logger.info(f\"存储目录: {STORAGE_DIR}\")\n        # 尝试创建存储上下文\n        storage_context = get_storage_context(STORAGE_DIR)",
+        "detail": "test_storage",
+        "documentation": {}
+    },
+    {
+        "label": "test_chromadb_directly",
+        "kind": 2,
+        "importPath": "test_storage",
+        "description": "test_storage",
+        "peekOfCode": "def test_chromadb_directly():\n    \"\"\"直接测试 ChromaDB\"\"\"\n    try:\n        logger.info(\"开始直接测试 ChromaDB...\")\n        import chromadb\n        from chromadb.config import Settings as ChromaSettings\n        chroma_db_path = os.path.join(\"storage\", \"chroma_db\")\n        logger.info(f\"ChromaDB 路径: {chroma_db_path}\")\n        # 创建 ChromaDB 客户端\n        chroma_client = chromadb.PersistentClient(",
+        "detail": "test_storage",
+        "documentation": {}
+    },
+    {
+        "label": "test_sqlite_stores",
+        "kind": 2,
+        "importPath": "test_storage",
+        "description": "test_storage",
+        "peekOfCode": "def test_sqlite_stores():\n    \"\"\"测试 SQLite 存储\"\"\"\n    try:\n        logger.info(\"开始测试 SQLite 存储...\")\n        from app.sqlite_stores import SQLiteDocumentStore, SQLiteIndexStore\n        # 测试文档存储\n        docstore_path = os.path.join(\"storage\", \"docstore.db\")\n        docstore = SQLiteDocumentStore(docstore_path)\n        logger.info(\"✅ SQLite 文档存储创建成功！\")\n        # 测试索引存储",
+        "detail": "test_storage",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "test_storage",
+        "description": "test_storage",
+        "peekOfCode": "def main():\n    \"\"\"主测试流程\"\"\"\n    print(\"🔍 开始存储系统诊断\")\n    print(\"=\" * 50)\n    # 1. 测试 SQLite 存储\n    if test_sqlite_stores():\n        print(\"✅ SQLite 存储测试通过\")\n    else:\n        print(\"❌ SQLite 存储测试失败\")\n    print()",
+        "detail": "test_storage",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "test_storage",
+        "description": "test_storage",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef test_storage_creation():\n    \"\"\"测试存储上下文创建\"\"\"\n    try:\n        logger.info(\"开始测试存储上下文创建...\")\n        # 导入必要的模块\n        from app.storage_config import get_storage_context\n        from app.index import STORAGE_DIR\n        logger.info(f\"存储目录: {STORAGE_DIR}\")\n        # 尝试创建存储上下文",
+        "detail": "test_storage",
+        "documentation": {}
+    },
+    {
         "label": "test_storage_creation",
         "kind": 2,
         "importPath": "test_storage_config",
@@ -1588,6 +2946,51 @@
         "documentation": {}
     },
     {
+        "label": "test_chunk_index_fix",
+        "kind": 2,
+        "importPath": "test_storage_fixes",
+        "description": "test_storage_fixes",
+        "peekOfCode": "def test_chunk_index_fix():\n    \"\"\"测试 chunk_index 修复\"\"\"\n    print(\"🔧 测试 chunk_index 修复\")\n    print(\"=\" * 60)\n    if not os.path.exists('storage/docstore.db'):\n        print(\"❌ docstore.db 不存在，请先上传一些文档\")\n        return\n    conn = sqlite3.connect('storage/docstore.db')\n    # 检查 chunk_index 分布\n    cursor = conn.execute(\"\"\"",
+        "detail": "test_storage_fixes",
+        "documentation": {}
+    },
+    {
+        "label": "test_same_file_handling",
+        "kind": 2,
+        "importPath": "test_storage_fixes",
+        "description": "test_storage_fixes",
+        "peekOfCode": "def test_same_file_handling():\n    \"\"\"测试同名文件处理\"\"\"\n    print(\"\\n🔄 测试同名文件处理\")\n    print(\"=\" * 60)\n    if not os.path.exists('storage/docstore.db'):\n        print(\"❌ docstore.db 不存在\")\n        return\n    conn = sqlite3.connect('storage/docstore.db')\n    # 检查文件重复情况\n    cursor = conn.execute(\"\"\"",
+        "detail": "test_storage_fixes",
+        "documentation": {}
+    },
+    {
+        "label": "test_chroma_consistency",
+        "kind": 2,
+        "importPath": "test_storage_fixes",
+        "description": "test_storage_fixes",
+        "peekOfCode": "def test_chroma_consistency():\n    \"\"\"测试 ChromaDB 一致性\"\"\"\n    print(\"\\n🧠 测试 ChromaDB 一致性\")\n    print(\"=\" * 60)\n    # 获取 docstore 中的 doc_id\n    docstore_ids = set()\n    if os.path.exists('storage/docstore.db'):\n        conn = sqlite3.connect('storage/docstore.db')\n        cursor = conn.execute(\"SELECT doc_id FROM documents\")\n        docstore_ids = {row[0] for row in cursor.fetchall()}",
+        "detail": "test_storage_fixes",
+        "documentation": {}
+    },
+    {
+        "label": "test_data_field_structure",
+        "kind": 2,
+        "importPath": "test_storage_fixes",
+        "description": "test_storage_fixes",
+        "peekOfCode": "def test_data_field_structure():\n    \"\"\"测试 data 字段结构\"\"\"\n    print(\"\\n📋 测试 data 字段结构\")\n    print(\"=\" * 60)\n    if not os.path.exists('storage/docstore.db'):\n        print(\"❌ docstore.db 不存在\")\n        return\n    conn = sqlite3.connect('storage/docstore.db')\n    cursor = conn.execute('SELECT doc_id, data FROM documents LIMIT 1')\n    row = cursor.fetchone()",
+        "detail": "test_storage_fixes",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "test_storage_fixes",
+        "description": "test_storage_fixes",
+        "peekOfCode": "def main():\n    \"\"\"主函数\"\"\"\n    print(\"🧪 存储逻辑修复测试\")\n    print(\"=\" * 80)\n    test_chunk_index_fix()\n    test_same_file_handling()\n    test_chroma_consistency()\n    test_data_field_structure()\n    print(\"\\n💡 测试完成\")\n    print(\"如果发现问题，请检查修复是否正确应用\")",
+        "detail": "test_storage_fixes",
+        "documentation": {}
+    },
+    {
         "label": "test_upload",
         "kind": 2,
         "importPath": "test_upload_api",
@@ -1603,6 +3006,15 @@
         "description": "test_upload_api",
         "peekOfCode": "def check_documents():\n    \"\"\"检查当前文档列表\"\"\"\n    url = \"http://127.0.0.1:8000/api/documents\"\n    try:\n        response = requests.get(url)\n        if response.status_code == 200:\n            result = response.json()\n            print(\"\\n📋 当前文档列表:\")\n            if 'documents' in result:\n                for doc in result['documents']:",
         "detail": "test_upload_api",
+        "documentation": {}
+    },
+    {
+        "label": "trace_mysterious_id",
+        "kind": 2,
+        "importPath": "trace_mysterious_id",
+        "description": "trace_mysterious_id",
+        "peekOfCode": "def trace_mysterious_id():\n    \"\"\"追踪神秘ID的来源\"\"\"\n    target_id = \"10316370-d5dc-4a54-ac60-7e853b805328\"\n    print(f\"🔍 追踪神秘ID: {target_id}\")\n    print(\"=\" * 80)\n    # 1. 检查 DocStore 中是否有这个ID\n    print(\"\\n=== 1. 检查 DocStore ===\")\n    docstore_path = 'storage/docstore.db'\n    if os.path.exists(docstore_path):\n        conn = sqlite3.connect(docstore_path)",
+        "detail": "trace_mysterious_id",
         "documentation": {}
     },
     {

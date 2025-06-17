@@ -161,6 +161,9 @@ class SQLiteDocumentStore(BaseDocumentStore):
                 file_id = metadata.get('file_id')  # 新增：文件ID
                 chunk_index = metadata.get('chunk_index')  # 新增：文本块索引
 
+                # 🔧 修复：确保 chunk_index 正确传递
+                logger.debug(f"Node {node.node_id}: file_id={file_id}, chunk_index={chunk_index}")
+
                 if allow_update:
                     conn.execute("""
                         INSERT OR REPLACE INTO documents
@@ -456,10 +459,18 @@ class SQLiteDocumentStore(BaseDocumentStore):
             logger.error(f"Failed to add/update file record: {e}")
             return False
 
-    def delete_file_and_chunks(self, file_id: str) -> bool:
-        """Delete a file and all its associated document chunks."""
+    def delete_file_and_chunks(self, file_id: str) -> tuple[bool, List[str]]:
+        """Delete a file and all its associated document chunks.
+
+        Returns:
+            tuple: (success: bool, deleted_doc_ids: List[str])
+        """
         try:
             with sqlite3.connect(self.db_path) as conn:
+                # 🔧 修复：先获取要删除的文档 ID 列表，用于删除 ChromaDB 数据
+                cursor = conn.execute("SELECT doc_id FROM documents WHERE file_id = ?", (file_id,))
+                doc_ids_to_delete = [row[0] for row in cursor.fetchall()]
+
                 # 删除所有相关的文档块
                 cursor = conn.execute("DELETE FROM documents WHERE file_id = ?", (file_id,))
                 chunks_deleted = cursor.rowcount
@@ -470,10 +481,11 @@ class SQLiteDocumentStore(BaseDocumentStore):
 
                 conn.commit()
                 logger.info(f"Deleted file {file_id}: {file_deleted} file record, {chunks_deleted} chunks")
-                return file_deleted > 0
+                logger.info(f"Document IDs to delete from ChromaDB: {doc_ids_to_delete}")
+                return file_deleted > 0, doc_ids_to_delete
         except Exception as e:
             logger.error(f"Failed to delete file {file_id}: {e}")
-            return False
+            return False, []
 
     def get_file_info(self, file_id: str) -> Optional[Dict[str, Any]]:
         """Get file information by file_id."""
